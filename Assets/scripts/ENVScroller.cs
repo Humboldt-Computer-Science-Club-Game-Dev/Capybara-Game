@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ENVScroller : MonoBehaviour
 {
+    //TODO: make public felid a float called scroll speed
     public Vector2 velocity;
     void Start()
     {
