@@ -21,6 +21,12 @@ public class CharacterController2D : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    private bool isPushed = false;
+    private Vector2 pushTo;
+
+    private float pushTime = 0.5f;
+    private float pushTimer = 0;
+
     private void Update()
     {
         transform.Translate(velocity * Time.deltaTime);
@@ -31,6 +37,9 @@ public class CharacterController2D : MonoBehaviour
         if (verticalMoveInput != 0) velocity.y = Mathf.MoveTowards(velocity.y, speed * verticalMoveInput, acceleration * Time.deltaTime);
         else velocity.y = Mathf.MoveTowards(velocity.y, 0, deceleration * Time.deltaTime);
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+
+
+
         foreach (Collider2D hit in hits)
         {
         	if (hit == boxCollider)
@@ -42,6 +51,25 @@ public class CharacterController2D : MonoBehaviour
         	{
         		transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
         	}
+            else if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy" && !isPushed){
+                //transform.Lerp(colliderDistance.pointA - colliderDistance.pointB);
+                pushTo = 4 * (colliderDistance.pointA - colliderDistance.pointB);
+                isPushed = true;
+            }
         }
+        if(isPushed){
+            pushTimer += Time.deltaTime;
+                transform.position = Vector2.Lerp(transform.position, pushTo, 0.05f);
+                float xDistance = Mathf.Abs(transform.position.x - pushTo.x);
+                float yDistance = Mathf.Abs(transform.position.y - pushTo.y);
+                if(xDistance < 0.1 && yDistance < 0.1){
+                    isPushed = false;
+                }
+                if(pushTimer > pushTime){
+                    isPushed = false;
+                    pushTimer = 0;
+                }
+            }
+
     }
 }
