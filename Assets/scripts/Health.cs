@@ -7,16 +7,16 @@ public class Health : MonoBehaviour
     public int health = 100;
     public int maxHealth = 100;
     public int minHealth = 0;
-    public delegate void damageTaken(int damage);
-    public static event damageTaken onDamageTaken;
+    [HideInInspector]
+    public string to;
 
 
     private void awake()
     {
-        onDamageTaken += takeDamage;
     }
-    public void takeDamage(int damage)
+    public void takeDamage(int damage, string to)
     {
+        if (to != this.to) return;
         health -= damage;
         if (health < minHealth)
         {

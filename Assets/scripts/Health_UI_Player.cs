@@ -18,4 +18,8 @@ public class Health_UI_Player : MonoBehaviour
     {
         
     }
+
+    public static void updateLife(Health health){
+        Debug.Log("Working to update the lives UI");
+    }
 }

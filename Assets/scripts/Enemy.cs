@@ -50,7 +50,8 @@ public class Enemy : MonoBehaviour
         }
         if(isMeleeAttacking){
             if(gracePeriodUp){
-                player.GetComponent<Health>().takeDamage(meleeDamage);
+                /* player.GetComponent<Health>().takeDamage(meleeDamage); */
+                Event_System.takeDamage(meleeDamage, "player");
             }
             gracePeriodUp = false;
             meleeDamageGracePeriodTimer += Time.deltaTime;
