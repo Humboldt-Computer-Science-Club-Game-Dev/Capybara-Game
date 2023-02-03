@@ -6,6 +6,7 @@ The branch is where I will test out, clean up, and prototype new level design fe
 
 ## TODOS:
 
-1. Make player leap away from enemies when colliding with them
-2. Make player and enemies loose health when colliding with them.
-3. Make enemies osolate
+1. Make player leap away from enemies when colliding with them. X
+2. Make player and enemies loose health when colliding with them. X
+3. Make bounce back collisions more consistent.
+4. Make enemies osolate.
