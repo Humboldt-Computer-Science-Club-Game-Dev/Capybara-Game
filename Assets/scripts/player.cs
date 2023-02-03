@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    private Health_UI_Player health_UI_player;
     private Health playerHealth;
     // Start is called before the first frame update
     void Start()
@@ -14,17 +15,23 @@ public class player : MonoBehaviour
 
     void initializeUI(){
         Event_System.onDamageTaken += updateLifeUI;
+        health_UI_player = GameObject.Find("player_health").GetComponent<Health_UI_Player>();
     }
 
     void initializeHealth(){
         playerHealth = GetComponent<Health>();
-        playerHealth.to = "player";
-        Event_System.onDamageTaken += playerHealth.takeDamage;
+        Event_System.onDamageTaken += damageTaken;
+    }
+
+    void damageTaken(int damage, string to){
+        if(to == "player"){
+            playerHealth.takeDamage(damage);
+        }
     }
 
     void updateLifeUI(int damage, string to){
         if(to == "player"){
-            Health_UI_Player.updateLife(playerHealth);
+            health_UI_player.updateLife(playerHealth);
         }
     }
 
