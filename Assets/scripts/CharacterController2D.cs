@@ -13,22 +13,29 @@ public class CharacterController2D : MonoBehaviour
     float deceleration = 70;
 
     private BoxCollider2D boxCollider;
-
     private Vector2 velocity;
+    private Health playerHealth;
 
     private void Awake()
     {      
+        playerHealth = GetComponent<Health>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private bool isPushed = false;
     private Vector2 pushTo;
 
-    private float pushTime = 0.5f;
+    private float pushTime = 0.25f;
     private float pushTimer = 0;
 
     private void Update()
     {
+        if(!playerHealth.isDead()){
+            runPlayerMovement();
+        }
+    }
+
+    private void runPlayerMovement(){
         transform.Translate(velocity * Time.deltaTime);
         float horizontalMoveInput = Input.GetAxisRaw("Horizontal");
         float verticalMoveInput = Input.GetAxisRaw("Vertical");
@@ -53,7 +60,7 @@ public class CharacterController2D : MonoBehaviour
         	}
             else if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy" && !isPushed){
                 //transform.Lerp(colliderDistance.pointA - colliderDistance.pointB);
-                pushTo = 4 * (colliderDistance.pointA - colliderDistance.pointB);
+                pushTo = 4 * (colliderDistance.pointA - colliderDistance.pointB).normalized;
                 isPushed = true;
             }
         }
@@ -70,6 +77,9 @@ public class CharacterController2D : MonoBehaviour
                     pushTimer = 0;
                 }
             }
+    }
 
+    public void onDeath(){
+        Debug.Log("Player died!");
     }
 }

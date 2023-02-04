@@ -6,6 +6,8 @@ public class player : MonoBehaviour
 {
     private Health_UI_Player health_UI_player;
     private Health playerHealth;
+    private CharacterController2D playerController;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +21,25 @@ public class player : MonoBehaviour
     }
 
     void initializeHealth(){
+        playerController = GetComponent<CharacterController2D>();
         playerHealth = GetComponent<Health>();
         Event_System.onDamageTaken += damageTaken;
+        Event_System.onDeath += playerDeath;
     }
 
     void damageTaken(int damage, string to){
+        if(playerHealth.isDead()) return;
         if(to == "player"){
             playerHealth.takeDamage(damage);
+            if(playerHealth.isDead()){
+                Event_System.die("player");
+            }
+        }
+    }
+
+    void playerDeath(string to){
+        if(to == "player"){
+            playerController.onDeath();
         }
     }
 

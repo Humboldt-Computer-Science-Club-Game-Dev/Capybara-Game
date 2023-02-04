@@ -8,6 +8,8 @@ TODOS: Make it so that player prefab comes with the health UI prefab attached to
 public class Health_UI_Player : MonoBehaviour
 {
     private GameObject livesContainer;
+    
+    [HideInInspector]
     public List<GameObject> lives;
     // Start is called before the first frame update
     void Start()

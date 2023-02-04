@@ -254,7 +254,6 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   minHealth: 0
-  to: 
 --- !u!114 &20961458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239853c4fd9206946b26469391acf0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: []
 --- !u!1 &997013407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1092,6 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   minHealth: 0
-  to: 
 --- !u!114 &1279003897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1399,6 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   minHealth: 0
-  to: 
 --- !u!114 &1496283346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,6 +1536,7 @@ GameObject:
   - component: {fileID: 1736637329}
   - component: {fileID: 1736637328}
   - component: {fileID: 1736637327}
+  - component: {fileID: 1736637332}
   - component: {fileID: 1736637326}
   - component: {fileID: 1736637330}
   - component: {fileID: 1736637331}
@@ -1671,7 +1670,6 @@ MonoBehaviour:
   health: 3
   maxHealth: 3
   minHealth: 0
-  to: 
 --- !u!114 &1736637331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1682,6 +1680,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a70c48f60e33844e89a568e73dfa9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1736637332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736637325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3aceb763ab3284ca3cabc96caa319c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2056036525

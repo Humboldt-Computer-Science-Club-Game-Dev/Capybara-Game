@@ -8,12 +8,10 @@ public class Health : MonoBehaviour
     public int maxHealth = 100;
     public int minHealth = 0;
 
-
-    private void awake()
-    {
-    }
+   
     public void takeDamage(int damage)
     {
+        if(isDead()) return;
         health -= damage;
         if (health < minHealth)
         {

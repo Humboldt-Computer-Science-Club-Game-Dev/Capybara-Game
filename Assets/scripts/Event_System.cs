@@ -6,6 +6,9 @@ public class Event_System : MonoBehaviour
 {
     public delegate void damageTaken(int damage, string to);
     public static event damageTaken onDamageTaken;
+
+    public delegate void death(string to);
+    public static event death onDeath;
     
     private void Awake(){
         
@@ -21,6 +24,9 @@ public class Event_System : MonoBehaviour
     */
     public static void takeDamage(int damage, string to){
         onDamageTaken(damage, to);
+    }
+    public static void die(string to){
+        onDeath(to);
     }
     // Update is called once per frame
     void Update()
