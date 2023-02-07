@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private bool isMeleeAttacking = false;
     private bool gracePeriodUp = true;
 
-    private GameObject player;
+    private CharacterController2D player;
 
     private PolygonCollider2D polygonCollider;
 
@@ -44,8 +44,15 @@ public class Enemy : MonoBehaviour
 
             if(colliderDistance.isOverlapped && hit.gameObject.tag == "Player" && !isMeleeAttacking){
                 isMeleeAttacking = true;
-                player = hit.gameObject;
-                // handle melee damage on player damage
+                player = hit.gameObject.GetComponent<CharacterController2D>();
+
+                //Meant to push player back when not dead.
+                // The isMeleeAttacking = true would kill the player before they are pushed if it went for that fact that the player killing logic
+                // is implemented a few lines below this.
+                // TLDR: This is a bad implementation of pushing the player back.
+                if(!player.playerHealth.isDead()) player.isPushed = true;
+                
+                
             }
         }
         if(isMeleeAttacking){

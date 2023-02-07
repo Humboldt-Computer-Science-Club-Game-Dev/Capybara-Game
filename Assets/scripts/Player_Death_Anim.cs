@@ -18,7 +18,9 @@ public class Player_Death_Anim : MonoBehaviour
 
         if(state == deathState.toCenter)
         {
-
+            // Move player to center of screen
+            // Once player is in center, change state to rotate
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(0, 0, 0), 0.1f);
         }
         else if(state == deathState.rotate)
         {

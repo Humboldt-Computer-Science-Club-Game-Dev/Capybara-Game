@@ -14,7 +14,7 @@ public class CharacterController2D : MonoBehaviour
 
     private BoxCollider2D boxCollider;
     private Vector2 velocity;
-    private Health playerHealth;
+    public Health playerHealth;
 
     private void Awake()
     {      
@@ -22,15 +22,19 @@ public class CharacterController2D : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    private bool isPushed = false;
-    private Vector2 pushTo;
+    public bool isPushed = false;
+    public Vector2 pushTo;
+     public Vector2 pushFrom;
 
-    private float pushTime = 0.25f;
-    private float pushTimer = 0;
+    public float pushTime = 0.25f;
+    public float pushTimer = 0;
 
     private void Update()
     {
         if(!playerHealth.isDead()){
+            runPlayerMovement();
+        }
+        else if(playerHealth.isDead() && isPushed){
             runPlayerMovement();
         }
     }
@@ -61,22 +65,25 @@ public class CharacterController2D : MonoBehaviour
             else if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy" && !isPushed){
                 //transform.Lerp(colliderDistance.pointA - colliderDistance.pointB);
                 pushTo = 4 * (colliderDistance.pointA - colliderDistance.pointB).normalized;
-                isPushed = true;
+                pushFrom = transform.position;
             }
         }
         if(isPushed){
             pushTimer += Time.deltaTime;
-                transform.position = Vector2.Lerp(transform.position, pushTo, 0.05f);
-                float xDistance = Mathf.Abs(transform.position.x - pushTo.x);
-                float yDistance = Mathf.Abs(transform.position.y - pushTo.y);
-                if(xDistance < 0.1 && yDistance < 0.1){
-                    isPushed = false;
-                }
-                if(pushTimer > pushTime){
-                    isPushed = false;
-                    pushTimer = 0;
-                }
+            transform.position = Vector2.Lerp(pushFrom, pushTo, Mathf.Clamp((pushTimer / pushTime), 0, 1));
+            Debug.Log("Pushing % " + Mathf.Clamp((pushTimer / pushTime), 0, 1));
+            Debug.Log("Pushing Lerp " + Vector2.Lerp(transform.position, pushTo, Mathf.Clamp((pushTimer / pushTime), 0, 1)));
+            float xDistance = Mathf.Abs(transform.position.x - pushTo.x);
+            float yDistance = Mathf.Abs(transform.position.y - pushTo.y);
+            if(xDistance < 0.01 && yDistance < 0.01){
+                isPushed = false;
+                pushTimer = 0;
             }
+            if(pushTimer > pushTime){
+                isPushed = false;
+                pushTimer = 0;
+            }
+        }
     }
 
     public void onDeath(){
