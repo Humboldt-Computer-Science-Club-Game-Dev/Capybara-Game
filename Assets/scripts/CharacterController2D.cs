@@ -22,12 +22,13 @@ public class CharacterController2D : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    [HideInInspector]
     public bool isPushed = false;
-    public Vector2 pushTo;
-     public Vector2 pushFrom;
+    private Vector2 pushTo;
+    private Vector2 pushFrom;
 
     public float pushTime = 0.25f;
-    public float pushTimer = 0;
+    private float pushTimer = 0;
 
     private void Update()
     {
@@ -71,8 +72,6 @@ public class CharacterController2D : MonoBehaviour
         if(isPushed){
             pushTimer += Time.deltaTime;
             transform.position = Vector2.Lerp(pushFrom, pushTo, Mathf.Clamp((pushTimer / pushTime), 0, 1));
-            Debug.Log("Pushing % " + Mathf.Clamp((pushTimer / pushTime), 0, 1));
-            Debug.Log("Pushing Lerp " + Vector2.Lerp(transform.position, pushTo, Mathf.Clamp((pushTimer / pushTime), 0, 1)));
             float xDistance = Mathf.Abs(transform.position.x - pushTo.x);
             float yDistance = Mathf.Abs(transform.position.y - pushTo.y);
             if(xDistance < 0.01 && yDistance < 0.01){
