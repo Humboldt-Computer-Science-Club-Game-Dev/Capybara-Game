@@ -8,6 +8,7 @@ public class player : MonoBehaviour
     private Health playerHealth;
     private CharacterController2D playerController;
     private Player_Death_Anim playerDeathAnim;
+    private Player_UI_Death playerUIDeath;
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,9 @@ public class player : MonoBehaviour
         initializeHealth();
         initializeUI();
         playerDeathAnim = GetComponent<Player_Death_Anim>();
+        GameObject playerUIDeathGameObject = GameObject.Find("player_death_screen");
+        playerUIDeath = playerUIDeathGameObject.GetComponent<Player_UI_Death>();
+        playerUIDeathGameObject.SetActive(false);
     }
 
     void initializeUI(){
@@ -48,10 +52,11 @@ public class player : MonoBehaviour
 
     public void playerDeathAnimDone(){
         // Gets called when expected
+        playerUIDeath.beginDeathText();
     }
 
-    void playerDeathUIShownEnough(){
-
+    public void playerDeathUIShownEnough(){
+        Event_System.gameOver();
     }
 
     void updateLifeUI(int damage, string to){
