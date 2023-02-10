@@ -6,6 +6,9 @@ The branch is where I will test out, clean up, and prototype new level design fe
 
 ## TODOS:
 
-1. Add player death anim.
-2. Reset level on death.
-3. Make enemies osolate.
+1. Add player shooting.
+2. Add enemy shooting.
+3. Make player take damage from enemy bullets.
+4. Make enemy take damage from player bulltets.
+5. Make it so that enemys can die.
+6. Make enemies osolate.

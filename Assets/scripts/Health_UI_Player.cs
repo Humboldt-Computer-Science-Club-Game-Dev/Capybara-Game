@@ -14,11 +14,15 @@ public class Health_UI_Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         livesContainer = this.transform.GetChild(0).gameObject;
         Transform[] livesTransforms = GetComponentsInChildren<Transform>();
+        lives = new List<GameObject>();
         foreach(Transform liveTransform in livesTransforms){
+            liveTransform.gameObject.SetActive(true);
             lives.Add(liveTransform.gameObject);
         }
+        
     }
 
     // Update is called once per frame

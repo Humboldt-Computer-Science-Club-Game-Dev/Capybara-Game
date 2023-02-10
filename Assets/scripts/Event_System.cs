@@ -34,6 +34,9 @@ public class Event_System : MonoBehaviour
     }
     public static void gameOver(){
         if(onGameOver != null) onGameOver();
+        onDamageTaken = null;
+        onDeath = null;
+        onGameOver = null;
         SceneManager.LoadScene("AnthonysProtoype");
     }
     // Update is called once per frame

@@ -9,6 +9,7 @@ public class player : MonoBehaviour
     private CharacterController2D playerController;
     private Player_Death_Anim playerDeathAnim;
     private Player_UI_Death playerUIDeath;
+    private Gun gun;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class player : MonoBehaviour
         GameObject playerUIDeathGameObject = GameObject.Find("player_death_screen");
         playerUIDeath = playerUIDeathGameObject.GetComponent<Player_UI_Death>();
         playerUIDeathGameObject.SetActive(false);
+        gun = GetComponent<Gun>();
+        gun.setAsPlayer();
     }
 
     void initializeUI(){
