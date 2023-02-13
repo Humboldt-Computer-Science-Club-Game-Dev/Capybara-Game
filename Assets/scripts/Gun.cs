@@ -10,8 +10,10 @@ public class Gun : MonoBehaviour
         enemy,
         undecided
     }
-    sideOptions side;
-    public GameObject bullet;
+    private sideOptions side;
+    private  GameObject bullet;
+    public float bulletCooldown = 0.125f;
+    private float bulletCooldownTimer = 0;
     // Start is called before the first frame update
     public void setAsPlayer(){
         side = sideOptions.player;
@@ -28,10 +30,14 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && side == sideOptions.player)
+        bulletCooldownTimer += Time.deltaTime;
+        if (Input.GetKey(KeyCode.Mouse0) && side == sideOptions.player && bulletCooldownTimer >= bulletCooldown)
         {
-            Debug.Log("Shoot");
+            bulletCooldownTimer = 0;
             GameObject shotBullet = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0) && side == sideOptions.player){
+            bulletCooldownTimer = bulletCooldown;
         }
     }
 

@@ -16,10 +16,12 @@ public class Enemy : MonoBehaviour
     private CharacterController2D player;
 
     private PolygonCollider2D polygonCollider;
+    private List<int> shotByIDs;
 
     private void Awake()
     {      
         polygonCollider = GetComponent<PolygonCollider2D>();
+        shotByIDs = new List<int>();
     }
 
     // Start is called before the first frame update
@@ -51,8 +53,9 @@ public class Enemy : MonoBehaviour
                 // is implemented a few lines below this.
                 // TLDR: This is a bad implementation of pushing the player back.
                 if(!player.playerHealth.isDead()) player.isPushed = true;
-                
-                
+            }
+            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet"){
+                Debug.Log("Enemy hit by bullet");
             }
         }
         if(isMeleeAttacking){
@@ -68,5 +71,11 @@ public class Enemy : MonoBehaviour
                 meleeDamageGracePeriodTimer = 0f;
             }
         }
+    }
+    void bulletInMe(){
+        Debug.Log("Bullet in me");
+    }
+    void beenShot(){
+        Debug.Log("Enemy been shot");
     }
 }
