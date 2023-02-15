@@ -13,13 +13,14 @@ public class Bullet : MonoBehaviour
     }
     private  CircleCollider2D circleCollider;
     sideOptions side;
+    public int id;
     void Awake(){
         circleCollider = GetComponent<CircleCollider2D>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        id = (int)Random.Range(1000000000, 9999999999);
     }
     void Update(){
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, circleCollider.radius);

@@ -18,18 +18,28 @@ public class Enemy : MonoBehaviour
     private PolygonCollider2D polygonCollider;
     private List<int> shotByIDs;
 
+    private Health health;
+    private int id;
+
     private void Awake()
     {      
         polygonCollider = GetComponent<PolygonCollider2D>();
         shotByIDs = new List<int>();
+        health = GetComponent<Health>();
+        //assign id to a 10 digit random number
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Event_System.onDamageTaken += takeDamage;
+        id = 0;
     }
-
+    void assignRandomID(){
+        Random.InitState(System.DateTime.Now.Millisecond);
+        id = (int)Random.Range(1000000000, 9999999999);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -54,9 +64,10 @@ public class Enemy : MonoBehaviour
                 // TLDR: This is a bad implementation of pushing the player back.
                 if(!player.playerHealth.isDead()) player.isPushed = true;
             }
-            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet"){
-                Debug.Log("Enemy hit by bullet");
-            }
+            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet") bulletInMe(hit.gameObject.GetComponent<Bullet>());
+                
+
+            
         }
         if(isMeleeAttacking){
             if(gracePeriodUp){
@@ -72,10 +83,27 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    void bulletInMe(){
-        Debug.Log("Bullet in me");
+    /// <summary>
+    /// If the bullet's ID is not in the list of IDs of bullets that have hit me, add it to the list and
+    /// call the beenShot() function
+    /// </summary>
+    /// <param name="Bullet">The bullet that hit the enemy</param>
+    void bulletInMe(Bullet bullet){
+        if(!shotByIDs.Contains(bullet.id)){
+            shotByIDs.Add(bullet.id);
+            beenShot();
+        }
     }
+    // This is a cockamani event system. We need to find a better way to do this after this prototype is done.
     void beenShot(){
-        Debug.Log("Enemy been shot");
+        assignRandomID();
+        Event_System.takeDamage(1, "enemy" + id);
+    }
+    void takeDamage(int damage, string to){
+        //When id = 0 the ID has not been assigned yet. The IDs can't be assigned all at once that will make all there IDs the same.
+        // Don't ask me why the Random.Range() works this way. I don't know. ¯\_(ツ)_/¯
+        if(!(to == "enemy" + id) || id == 0) return;
+        Debug.Log("Enemy take damage of enemy" + id + " vs " + to);
+        health.takeDamage(damage);
     }
 }
