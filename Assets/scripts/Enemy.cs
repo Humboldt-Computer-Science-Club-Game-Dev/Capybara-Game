@@ -16,10 +16,12 @@ public class Enemy : MonoBehaviour
     private CharacterController2D player;
 
     private PolygonCollider2D polygonCollider;
-    private List<int> shotByIDs;
+    public List<int> shotByIDs;
 
     private Health health;
     private int id;
+
+    private Enemy_Death_Anim enemyDeathAnim;
 
     private void Awake()
     {      
@@ -27,13 +29,14 @@ public class Enemy : MonoBehaviour
         shotByIDs = new List<int>();
         health = GetComponent<Health>();
         //assign id to a 10 digit random number
-        
+        enemyDeathAnim = GetComponent<Enemy_Death_Anim>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         Event_System.onDamageTaken += takeDamage;
+        Event_System.onDeath += onDeath;
         id = 0;
     }
     void assignRandomID(){
@@ -103,7 +106,18 @@ public class Enemy : MonoBehaviour
         //When id = 0 the ID has not been assigned yet. The IDs can't be assigned all at once that will make all there IDs the same.
         // Don't ask me why the Random.Range() works this way. I don't know. ¯\_(ツ)_/¯
         if(!(to == "enemy" + id) || id == 0) return;
-        Debug.Log("Enemy take damage of enemy" + id + " vs " + to);
+        
         health.takeDamage(damage);
+        if(health.isDead()){
+            Event_System.onDamageTaken -= takeDamage;
+            enemyDeathAnim.receiveEnemyID(id);
+            enemyDeathAnim.playDeathAnim();
+        }
+    }
+    void onDeath(string to){
+        if(!(to == ("enemy" + id)) || id == 0) return;
+        Debug.Log("Enemy " + id + " has died.");
+        Event_System.onDeath -= onDeath;
+        Destroy(gameObject);
     }
 }
