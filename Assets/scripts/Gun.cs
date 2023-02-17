@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class Gun : MonoBehaviour
 {
-    enum sideOptions{
+    public enum sideOptions{
         player,
         enemy,
         undecided
@@ -28,13 +28,12 @@ public class Gun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         bulletCooldownTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && side == sideOptions.player && bulletCooldownTimer >= bulletCooldown)
         {
             bulletCooldownTimer = 0;
-            GameObject shotBullet = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+            shoot();
         }
         if(Input.GetKeyUp(KeyCode.Mouse0) && side == sideOptions.player){
             bulletCooldownTimer = bulletCooldown;
@@ -42,6 +41,8 @@ public class Gun : MonoBehaviour
     }
 
     public void shoot(){
+        GameObject shotBullet = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+        shotBullet.GetComponent<Bullet>().setSide(side);
         Debug.Log("Shoot");
     }
 }
