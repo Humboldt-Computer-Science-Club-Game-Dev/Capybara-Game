@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 20961456}
   - component: {fileID: 20961459}
   - component: {fileID: 20961457}
+  - component: {fileID: 20961460}
+  - component: {fileID: 20961461}
   - component: {fileID: 20961458}
   m_Layer: 0
   m_Name: proto_enemy_03
@@ -284,6 +286,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+--- !u!114 &20961460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &20961461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotOffsetTime: 0
 --- !u!1 &83817129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1205,8 @@ GameObject:
   - component: {fileID: 1279003895}
   - component: {fileID: 1279003898}
   - component: {fileID: 1279003896}
+  - component: {fileID: 1279003899}
+  - component: {fileID: 1279003900}
   - component: {fileID: 1279003897}
   m_Layer: 0
   m_Name: proto_enemy_02
@@ -1326,6 +1355,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+--- !u!114 &1279003899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1279003900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotOffsetTime: 0
 --- !u!1 &1451352582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1554,8 @@ GameObject:
   - component: {fileID: 1496283344}
   - component: {fileID: 1496283347}
   - component: {fileID: 1496283345}
+  - component: {fileID: 1496283348}
+  - component: {fileID: 1496283349}
   - component: {fileID: 1496283346}
   m_Layer: 0
   m_Name: proto_enemy_01
@@ -1648,6 +1704,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+--- !u!114 &1496283348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1496283349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotOffsetTime: 0
 --- !u!1 &1537674336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a70c48f60e33844e89a568e73dfa9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletCooldown: 0.125
 --- !u!114 &1736637332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,7 +2138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCooldown: 0.125
 --- !u!1 &1821141295
 GameObject:
   m_ObjectHideFlags: 0

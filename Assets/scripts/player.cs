@@ -10,6 +10,9 @@ public class player : MonoBehaviour
     private Player_Death_Anim playerDeathAnim;
     private Player_UI_Death playerUIDeath;
     private Gun gun;
+
+    public float bulletCooldown = 0.125f;
+    private float bulletCooldownTimer = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -71,8 +74,18 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        handlePlayerShoot();
     }
 
+    void handlePlayerShoot(){
+         bulletCooldownTimer += Time.deltaTime;
+        if (Input.GetKey(KeyCode.Mouse0) && bulletCooldownTimer >= bulletCooldown){
+            bulletCooldownTimer = 0;
+            gun.shoot();
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0)){
+            bulletCooldownTimer = bulletCooldown;
+        }
+    }
 
 }

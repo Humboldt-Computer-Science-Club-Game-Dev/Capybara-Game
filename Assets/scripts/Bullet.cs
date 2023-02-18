@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
         }
         else if(side == Gun.sideOptions.enemy){
             // Move the bullet to the left
-            this.transform.position = new Vector3(this.transform.position.x - 0.1f, this.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3(this.transform.position.x - speed, this.transform.position.y, this.transform.position.z);
         }
         
     }
@@ -46,5 +46,8 @@ public class Bullet : MonoBehaviour
     on. */
     side){
         this.side = side;
+    }
+    public bool isEnemyBullet(){
+        return side == Gun.sideOptions.enemy;
     }
 }

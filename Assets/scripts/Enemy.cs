@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     /// <param name="Bullet">The bullet that hit the enemy</param>
     void bulletInMe(Bullet bullet){
-        if(!shotByIDs.Contains(bullet.id)){
+        if(!shotByIDs.Contains(bullet.id) && !bullet.isEnemyBullet()){
             shotByIDs.Add(bullet.id);
             beenShot();
         }
