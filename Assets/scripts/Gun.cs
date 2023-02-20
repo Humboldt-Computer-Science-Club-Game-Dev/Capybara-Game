@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class Gun : MonoBehaviour
 {
-    public enum sideOptions{
+    public enum sideOptions {
         player,
         enemy,
         undecided
