@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private CharacterController2D player;
 
     private PolygonCollider2D polygonCollider;
-    public List<int> shotByIDs;
+    private List<int> shotByIDs;
 
     private Health health;
     private int id;
@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour
         if(!shotByIDs.Contains(bullet.id) && !bullet.isEnemyBullet()){
             shotByIDs.Add(bullet.id);
             beenShot();
+            Destroy(bullet.gameObject);
         }
     }
     // This is a cockamani event system. We need to find a better way to do this after this prototype is done.

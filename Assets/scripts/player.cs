@@ -13,10 +13,15 @@ public class player : MonoBehaviour
 
     public float bulletCooldown = 0.125f;
     private float bulletCooldownTimer = 0;
+
+    private List<int> shotByIDs;
+    private BoxCollider2D boxCollider;
+    
     
     // Start is called before the first frame update
     void Start()
     {
+        shotByIDs = new List<int>();
         initializeHealth();
         initializeUI();
         playerDeathAnim = GetComponent<Player_Death_Anim>();
@@ -25,6 +30,7 @@ public class player : MonoBehaviour
         playerUIDeathGameObject.SetActive(false);
         gun = GetComponent<Gun>();
         gun.setAsPlayer();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     void initializeUI(){
@@ -37,6 +43,18 @@ public class player : MonoBehaviour
         playerHealth = GetComponent<Health>();
         Event_System.onDamageTaken += damageTaken;
         Event_System.onDeath += playerDeath;
+    }
+
+    void bulletInMe(Bullet bullet){
+        if(!shotByIDs.Contains(bullet.id) && !bullet.isPlayerBullet()){
+            shotByIDs.Add(bullet.id);
+            beenShot();
+            Destroy(bullet.gameObject);
+        }
+        
+    }
+    void beenShot(){
+        Event_System.takeDamage(1, "player");
     }
 
     void damageTaken(int damage, string to){
@@ -75,6 +93,23 @@ public class player : MonoBehaviour
     void Update()
     {
         handlePlayerShoot();
+        handleGetShot();
+    }
+    void handleGetShot(){
+        // if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet") bulletInMe(hit.gameObject.GetComponent<Bullet>());
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+         foreach (Collider2D hit in hits){
+            
+        	if (hit == boxCollider)
+        	continue;
+
+            ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
+
+            if (colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet"){
+                bulletInMe(hit.gameObject.GetComponent<Bullet>());
+            }
+        }
+
     }
 
     void handlePlayerShoot(){

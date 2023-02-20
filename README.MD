@@ -9,6 +9,6 @@ The branch is where I will test out, clean up, and prototype new level design fe
 1. Add player shooting. X
 2. Make enemy take damage from player bullets. X
 3. Add enemy shooting. X
-4. Make player take damage from enemy bullets.
-5. Make it so that enemys can die.
+4. Make player take damage from enemy bullets. X
+5. Make it so that enemys can die. X
 6. Make enemies osolate.

@@ -50,4 +50,7 @@ public class Bullet : MonoBehaviour
     public bool isEnemyBullet(){
         return side == Gun.sideOptions.enemy;
     }
+    public bool isPlayerBullet(){
+        return side == Gun.sideOptions.player;
+    }
 }
