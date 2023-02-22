@@ -8,6 +8,15 @@ public class Enemy_Movement_Brain : MonoBehaviour
     enum Movement {positioning, oscillating};
     private Movement movementState = Movement.positioning;
     private PolygonCollider2D polygonCollider;
+    private Camera cam;
+
+    public Vector2 topRight;
+    public Vector2 bottomLeft;
+
+    public float halfWidth;
+    public float halfHeight;
+
+    public int designatedRestBound = 1;
 
     private void Awake()
     {      
@@ -18,12 +27,17 @@ public class Enemy_Movement_Brain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        halfWidth = this.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        halfHeight = this.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0,0));
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
         /* transform.position, polygonCollider.offset, 0 */
         List<Collider2D> results = new List<Collider2D>();
@@ -35,9 +49,21 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
         	ColliderDistance2D colliderDistance = hit.Distance(polygonCollider);
 
-            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy_Rest_Bound" && movementState == Movement.positioning){
-                Debug.Log("Enemy_Rest_Bound");
-            }
+            handleRestBoundCollision(hit, colliderDistance);
         }
+        handleOscillating();
+    }
+
+    void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
+        if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy_Rest_Bound" && movementState == Movement.positioning){
+            Enemy_Rest_Bound restBound = hit.gameObject.GetComponent<Enemy_Rest_Bound>();
+            if(restBound.restBound != designatedRestBound) return;
+            movementState = Movement.oscillating;
+            GameObject enemyMovementSpace = GameObject.Find("enemy_movement_space");
+            this.gameObject.transform.SetParent(enemyMovementSpace.transform, true);
+        }
+    }
+    void handleOscillating(){
+        if(movementState != Movement.oscillating) return;
     }
 }

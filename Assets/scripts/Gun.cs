@@ -34,6 +34,5 @@ public class Gun : MonoBehaviour
     public void shoot(){
         GameObject shotBullet = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
         shotBullet.GetComponent<Bullet>().setSide(side);
-        Debug.Log("Shoot");
     }
 }
