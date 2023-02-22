@@ -10,5 +10,6 @@ The branch is where I will test out, clean up, and prototype new level design fe
 2. Make enemy take damage from player bullets. X
 3. Add enemy shooting. X
 4. Make player take damage from enemy bullets. X
-5. Make it so that enemys can die. X
-6. Make enemies osolate.
+5. Make it so that enemies can die. X
+6. Make enemies stop scrolling when they get to there designated spot
+7. Make enemies osolate.
