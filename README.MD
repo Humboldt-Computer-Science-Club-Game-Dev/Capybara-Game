@@ -12,4 +12,4 @@ The branch is where I will test out, clean up, and prototype new level design fe
 4. Make player take damage from enemy bullets. X
 5. Make it so that enemies can die. X
 6. Make enemies stop scrolling when they get to there designated spot. X
-7. Make enemies osolate.
+7. Make enemies oscillate.
