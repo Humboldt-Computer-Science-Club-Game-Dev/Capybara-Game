@@ -6,7 +6,11 @@ public class Enemy_Movement_Brain : MonoBehaviour
 {
 
     enum Movement {positioning, oscillating};
+    enum OscillationDirection {up, down};
+
+    public int oscillationSpeed = 1;
     private Movement movementState = Movement.positioning;
+    private OscillationDirection oscillationDirection = OscillationDirection.up;
     private PolygonCollider2D polygonCollider;
     private Camera cam;
 
@@ -51,7 +55,10 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
             handleRestBoundCollision(hit, colliderDistance);
         }
-        handleOscillating();
+    }
+
+    void FixedUpdate(){
+handleOscillating();
     }
 
     void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
@@ -63,7 +70,20 @@ public class Enemy_Movement_Brain : MonoBehaviour
             this.gameObject.transform.SetParent(enemyMovementSpace.transform, true);
         }
     }
-    void handleOscillating(){
+    void handleOscillating() {
+        float movementSpeedFix = oscillationSpeed / 50f;
         if(movementState != Movement.oscillating) return;
+        if(oscillationDirection == OscillationDirection.up){
+             if(transform.position.y + halfHeight >= topRight.y)
+                oscillationDirection = OscillationDirection.down; 
+            else
+                transform.position = new Vector2(transform.position.x, transform.position.y + movementSpeedFix);
+        }
+        else if(oscillationDirection == OscillationDirection.down){
+            if(transform.position.y - halfHeight <= bottomLeft.y)
+                oscillationDirection = OscillationDirection.up;
+            else
+                transform.position = new Vector2(transform.position.x, transform.position.y - movementSpeedFix);
+        }
     }
 }

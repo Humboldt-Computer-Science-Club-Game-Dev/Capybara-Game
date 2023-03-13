@@ -4,7 +4,17 @@
 
 The branch is where I will test out, clean up, and prototype new level design features before implementing them onto main
 
-## TODOS:
+## Wave System TODOS:
+
+1. Create level definition doc
+2. Spawn enemy wave
+3. Check if all enemy's are dead
+4. Spawn next wave.
+5. Check if all waves have been spawned
+6. Play Win text if so
+7. Replay level.
+
+## MVP TODOS:
 
 1. Add player shooting. X
 2. Make enemy take damage from player bullets. X
@@ -12,4 +22,4 @@ The branch is where I will test out, clean up, and prototype new level design fe
 4. Make player take damage from enemy bullets. X
 5. Make it so that enemies can die. X
 6. Make enemies stop scrolling when they get to there designated spot. X
-7. Make enemies oscillate.
+7. Make enemies oscillate. X
