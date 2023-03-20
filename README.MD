@@ -6,8 +6,8 @@ The branch is where I will test out, clean up, and prototype new level design fe
 
 ## Wave System TODOS:
 
-1. Spawn enemy wave from game object children.
-2. Check if all enemy's are dead.
+1. Spawn enemy wave from game object children. X
+2. Check if all enemy's are dead. X
 3. Spawn next wave.
 4. Check if all waves have been spawned.
 5. Play Win text if so.
