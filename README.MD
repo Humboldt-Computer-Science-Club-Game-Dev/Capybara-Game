@@ -6,13 +6,12 @@ The branch is where I will test out, clean up, and prototype new level design fe
 
 ## Wave System TODOS:
 
-1. Create level definition doc
-2. Spawn enemy wave
-3. Check if all enemy's are dead
-4. Spawn next wave.
-5. Check if all waves have been spawned
-6. Play Win text if so
-7. Replay level.
+1. Spawn enemy wave from game object children.
+2. Check if all enemy's are dead.
+3. Spawn next wave.
+4. Check if all waves have been spawned.
+5. Play Win text if so.
+6. Replay level.
 
 ## MVP TODOS:
 

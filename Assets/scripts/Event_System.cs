@@ -23,7 +23,7 @@ public class Event_System : MonoBehaviour
         
     }
     /* 
-        I have no dam clue why but events like onDamageTaken canot be called 
+        I have no dam clue why but events like onDamageTaken can't be called 
         outside of this script file ¯\_(ツ)_/¯ 
     */
     public static void takeDamage(int damage, string to){
