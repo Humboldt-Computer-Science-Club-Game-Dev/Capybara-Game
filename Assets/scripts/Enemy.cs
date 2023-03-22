@@ -37,11 +37,7 @@ public class Enemy : MonoBehaviour
     {
         Event_System.onDamageTaken += takeDamage;
         Event_System.onDeath += onDeath;
-        id = 0;
-    }
-    void assignRandomID(){
-        Random.InitState(System.DateTime.Now.Millisecond);
-        id = (int)Random.Range(1000000000, 9999999999);
+        id = Random_Number_Generator.random10DigitNumber();
     }
     // Update is called once per frame
     void Update()
@@ -100,7 +96,6 @@ public class Enemy : MonoBehaviour
     }
     // This is a cockamani event system. We need to find a better way to do this after this prototype is done.
     void beenShot(){
-        assignRandomID();
         Event_System.takeDamage(1, "enemy" + id);
     }
     void takeDamage(int damage, string to){
@@ -117,7 +112,6 @@ public class Enemy : MonoBehaviour
     }
     void onDeath(string to){
         if(!(to == ("enemy" + id)) || id == 0) return;
-        Debug.Log("Enemy " + id + " has died.");
         Event_System.onDeath -= onDeath;
         Destroy(gameObject);
     }

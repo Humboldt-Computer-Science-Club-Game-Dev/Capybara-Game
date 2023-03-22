@@ -19,4 +19,8 @@ public class Random_Number_Generator : MonoBehaviour
     {
         return Random.Range(1, 10);
     }
+    public static int random10DigitNumber(){
+        return Random.Range(10, 100);
+    }
+    
 }

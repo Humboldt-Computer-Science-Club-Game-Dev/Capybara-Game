@@ -46,8 +46,6 @@ public class Wave_System : MonoBehaviour
     void enemyDeath(string to){
         if(!to.Contains("enemy")) return;
         --numEnemies;
-        if(numEnemies == 0){
-            spawnNextWave();
-        }
+        if(numEnemies <= 0) spawnNextWave();
     }
 }

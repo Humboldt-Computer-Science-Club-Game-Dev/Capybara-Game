@@ -39,7 +39,6 @@ public class Enemy_Death_Anim : MonoBehaviour
     }
 
     public void playDeathAnim(){
-        Debug.Log("Enemy Death Anim");
         this.gameObject.transform.SetParent(null, true);
         state = deathState.rotate;
     }

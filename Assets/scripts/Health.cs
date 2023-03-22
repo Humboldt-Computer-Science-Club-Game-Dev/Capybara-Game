@@ -17,7 +17,6 @@ public class Health : MonoBehaviour
         {
             health = minHealth;
         }
-        Debug.Log("Health: " + health);
     }
     public bool isDead()
     {
