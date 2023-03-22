@@ -14,11 +14,11 @@ public class Enemy_Movement_Brain : MonoBehaviour
     private PolygonCollider2D polygonCollider;
     private Camera cam;
 
-    public Vector2 topRight;
-    public Vector2 bottomLeft;
+    Vector2 topRight;
+    Vector2 bottomLeft;
 
-    public float halfWidth;
-    public float halfHeight;
+    float halfWidth;
+    float halfHeight;
 
     public int designatedRestBound = 1;
 

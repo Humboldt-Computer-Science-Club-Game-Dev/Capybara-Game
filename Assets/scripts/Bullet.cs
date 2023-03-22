@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 0.1f;
+    public float playerSpeed = 0.5f;
+    public float enemySpeed = 0.5f;
     /* TODO: Find a way to share this enum between the Gun script so that this enum only needs to be defined once */
     private  CircleCollider2D circleCollider;
     public Gun.sideOptions side;
@@ -27,17 +28,21 @@ public class Bullet : MonoBehaviour
             if(colliderDistance.isOverlapped  && hit.gameObject.tag == "Bullet_Bound"){
                 Destroy(this.gameObject);
             }
+            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet"){
+                Destroy(this.gameObject);
+                Destroy(hit.gameObject);
+            }
         }
     }
     void FixedUpdate()
     {
         if(side == Gun.sideOptions.player){
             // Move the bullet to the right
-            this.transform.position = new Vector3(this.transform.position.x + speed, this.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3(this.transform.position.x + getSpeed(), this.transform.position.y, this.transform.position.z);
         }
         else if(side == Gun.sideOptions.enemy){
             // Move the bullet to the left
-            this.transform.position = new Vector3(this.transform.position.x - speed, this.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3(this.transform.position.x - getSpeed(), this.transform.position.y, this.transform.position.z);
         }
         
     }
@@ -52,5 +57,11 @@ public class Bullet : MonoBehaviour
     }
     public bool isPlayerBullet(){
         return side == Gun.sideOptions.player;
+    }
+
+    float getSpeed(){
+        if(side == Gun.sideOptions.player) return playerSpeed;       
+        else return enemySpeed;
+        
     }
 }
