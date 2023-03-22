@@ -114,7 +114,7 @@ public class player : MonoBehaviour
 
     void handlePlayerShoot(){
          bulletCooldownTimer += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Mouse0) && bulletCooldownTimer >= bulletCooldown){
+        if (Input.GetKey(KeyCode.Mouse0) && bulletCooldownTimer >= bulletCooldown && !playerHealth.isDead()){
             bulletCooldownTimer = 0;
             gun.shoot();
         }
