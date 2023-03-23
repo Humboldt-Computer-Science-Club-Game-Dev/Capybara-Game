@@ -22,6 +22,8 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
     public int designatedRestBound = 1;
 
+    public Health health;
+
     private void Awake()
     {      
         polygonCollider = GetComponent<PolygonCollider2D>();
@@ -36,6 +38,7 @@ public class Enemy_Movement_Brain : MonoBehaviour
         halfHeight = this.GetComponent<SpriteRenderer>().bounds.size.y / 2;
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0,0));
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -58,10 +61,11 @@ public class Enemy_Movement_Brain : MonoBehaviour
     }
 
     void FixedUpdate(){
-handleOscillating();
+        handleOscillating();
     }
 
     void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
+        if(health.isDead()) return;
         if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy_Rest_Bound" && movementState == Movement.positioning){
             Enemy_Rest_Bound restBound = hit.gameObject.GetComponent<Enemy_Rest_Bound>();
             if(restBound.restBound != designatedRestBound) return;
@@ -71,6 +75,10 @@ handleOscillating();
         }
     }
     void handleOscillating() {
+        if(health.isDead()) {
+            this.gameObject.transform.SetParent(null, true);
+            return;
+        }
         float movementSpeedFix = oscillationSpeed / 50f;
         if(movementState != Movement.oscillating) return;
         if(oscillationDirection == OscillationDirection.up){
