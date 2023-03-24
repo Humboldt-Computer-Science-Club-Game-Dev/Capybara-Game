@@ -22,5 +22,8 @@ public class Random_Number_Generator : MonoBehaviour
     public static int random10DigitNumber(){
         return Random.Range(10, 100);
     }
+    public static float randomPositiveFloatUnder(float max){
+        return Random.Range(0, max);
+    }
     
 }

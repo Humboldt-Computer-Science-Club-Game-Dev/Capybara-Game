@@ -1,17 +1,11 @@
 using UnityEngine;
 
-public enum PathMovementStyle
-{
-    Continuous,
-    Slerp,
-    Lerp,
-}
-public class Path_Controller : MonoBehaviour
+[RequireComponent(typeof(Enemy_Movement_Brain))]
+public class Enemy_Roaming_Brain : MonoBehaviour
 {
     public float MovementSpeed;
-    public Transform PathContainer;
+    Transform PathContainer;
 
-    public PathMovementStyle MovementStyle;
     public bool LoopThroughPoints;
     public bool StartAtFirstPointOnAwake;
 
@@ -20,10 +14,13 @@ public class Path_Controller : MonoBehaviour
     private int _currentTargetIdx;
 
     private bool canRunPath;
+    Enemy_Movement_Brain movementBrain;
 
     public void runPath(){
         canRunPath = true;
         //TODO Instantiate PathContainer prefab at this position
+        PathContainer = Instantiate((GameObject)Resources.Load("prefabs/patrol_path_container_var_01", typeof(GameObject)), transform.position, transform.rotation).transform;
+
         _points = PathContainer.GetComponentsInChildren<Transform>();
         if (StartAtFirstPointOnAwake)
         {
@@ -33,7 +30,11 @@ public class Path_Controller : MonoBehaviour
     private void Awake()
     {
         canRunPath = false;
-        
+    }
+
+    void Start()
+    {
+        movementBrain = GetComponent<Enemy_Movement_Brain>();
     }
 
     private void Update()
@@ -47,29 +48,21 @@ public class Path_Controller : MonoBehaviour
             {
                 // we reached the end of the path
                 _currentTargetIdx = LoopThroughPoints ? 0 : _points.Length - 1;
-                if(!LoopThroughPoints) canRunPath = false;
+                if(!LoopThroughPoints) {
+                    canRunPath = false;
+                    _currentTargetIdx = 0;
+                    movementBrain.onFinishedRoaming();
+                }
             }
         }
-        switch (MovementStyle) {
-            default:
-            case PathMovementStyle.Continuous:
-                transform.position = Vector3.MoveTowards(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);
-                break;
-            case PathMovementStyle.Lerp:
-                transform.position = Vector3.Lerp(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);
-                break;
-            case PathMovementStyle.Slerp:
-                transform.position = Vector3.Slerp(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);
-                break;
-        }        
+        transform.position = Vector3.MoveTowards(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);       
     }
 
     private void OnDrawGizmosSelected()
     {
         if (_points == null || _points.Length == 0) return;
         var idx = 0;
-        foreach(var point in _points)
-        {
+        foreach(var point in _points){
             Gizmos.color = Color.yellow;
             if (idx < _currentTargetIdx)
             {

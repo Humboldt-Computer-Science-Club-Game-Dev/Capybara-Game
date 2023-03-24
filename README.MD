@@ -9,9 +9,7 @@ The branch is where I will test out, clean up, and prototype new level design fe
 1. Spawn enemy wave from game object children. X
 2. Check if all enemy's are dead. X
 3. Spawn next wave. X
-4. Check if all waves have been spawned. 
-5. Play Win text if so.
-6. Replay level.
+4. Check if all waves have been spawned. X
 
 ## MVP TODOS:
 

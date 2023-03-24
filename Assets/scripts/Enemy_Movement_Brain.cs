@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: Factor out enemy roaming logic into Enemy_Roaming_Brain
+
 public class Enemy_Movement_Brain : MonoBehaviour
 {
-
-    enum Movement {positioning, oscillating};
+    enum Movement {positioning, oscillating, roaming};
     enum OscillationDirection {up, down};
 
     public int oscillationSpeed = 1;
@@ -23,11 +24,14 @@ public class Enemy_Movement_Brain : MonoBehaviour
     public int designatedRestBound = 1;
 
     public Health health;
-
+    public float roamCooldown = 20f;
+    public float roamCooldownTimer = 0f;
+    Enemy_Roaming_Brain roamingBrain;
+    public bool roamer = false;
     private void Awake()
     {      
         polygonCollider = GetComponent<PolygonCollider2D>();
-        
+        roamCooldownTimer = Random_Number_Generator.randomPositiveFloatUnder(roamCooldown);
     }
 
     // Start is called before the first frame update
@@ -39,12 +43,16 @@ public class Enemy_Movement_Brain : MonoBehaviour
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0,0));
         health = GetComponent<Health>();
+        Enemy_Roaming_Brain roamingBrainBuffer = GetComponent<Enemy_Roaming_Brain>();
+        if(roamingBrainBuffer != null){
+            roamer = true;
+            roamingBrain = roamingBrainBuffer;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
         /* transform.position, polygonCollider.offset, 0 */
         List<Collider2D> results = new List<Collider2D>();
@@ -62,6 +70,7 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
     void FixedUpdate(){
         handleOscillating();
+        handleRoaming();
     }
 
     void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
@@ -74,6 +83,7 @@ public class Enemy_Movement_Brain : MonoBehaviour
             this.gameObject.transform.SetParent(enemyMovementSpace.transform, true);
         }
     }
+    //Warning, below code is messy
     void handleOscillating() {
         if(health.isDead()) {
             this.gameObject.transform.SetParent(null, true);
@@ -93,5 +103,18 @@ public class Enemy_Movement_Brain : MonoBehaviour
             else
                 transform.position = new Vector2(transform.position.x, transform.position.y - movementSpeedFix);
         }
+    }
+    void handleRoaming(){
+        if(health.isDead() || movementState != Movement.oscillating || roamer == false) return;
+        roamCooldownTimer += (1f / 50f);
+        if(roamCooldownTimer >= roamCooldown){
+            roamCooldownTimer = 0;
+            roamingBrain.runPath();
+            movementState = Movement.roaming;
+        }
+    }
+
+    public void onFinishedRoaming(){
+        movementState = Movement.oscillating;
     }
 }
