@@ -26,7 +26,7 @@ public class Enemy_Movement_Brain : MonoBehaviour
     public Health health;
     public float roamCooldown = 20f;
     public float roamCooldownTimer = 0f;
-    Enemy_Roaming_Brain roamingBrain;
+    public Enemy_Roaming_Brain roamingBrain;
     public bool roamer = false;
     private void Awake()
     {      
@@ -114,6 +114,13 @@ public class Enemy_Movement_Brain : MonoBehaviour
         }
     }
 
+    //These methods are only ever called by the roaming brain
+    public void getMovementState(){
+        return movementState;
+    }
+    public void startRoaming(){
+        movementState = Movement.roaming;
+    }
     public void onFinishedRoaming(){
         movementState = Movement.oscillating;
     }
