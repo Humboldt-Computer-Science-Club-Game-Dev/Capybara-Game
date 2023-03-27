@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy_Movement_Brain : MonoBehaviour
 {
-    enum Movement {positioning, oscillating, roaming};
+    public enum Movement {positioning, oscillating, roaming};
     enum OscillationDirection {up, down};
 
     public int oscillationSpeed = 1;
@@ -70,7 +70,6 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
     void FixedUpdate(){
         handleOscillating();
-        handleRoaming();
     }
 
     void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
@@ -104,22 +103,16 @@ public class Enemy_Movement_Brain : MonoBehaviour
                 transform.position = new Vector2(transform.position.x, transform.position.y - movementSpeedFix);
         }
     }
-    void handleRoaming(){
-        if(health.isDead() || movementState != Movement.oscillating || roamer == false) return;
-        roamCooldownTimer += (1f / 50f);
-        if(roamCooldownTimer >= roamCooldown){
-            roamCooldownTimer = 0;
-            roamingBrain.runPath();
-            movementState = Movement.roaming;
-        }
-    }
 
     //These methods are only ever called by the roaming brain
-    public void getMovementState(){
+    public Movement getMovementState(){
         return movementState;
     }
     public void startRoaming(){
         movementState = Movement.roaming;
+    }
+    public bool isRoaming(){
+        return movementState == Movement.roaming;
     }
     public void onFinishedRoaming(){
         movementState = Movement.oscillating;

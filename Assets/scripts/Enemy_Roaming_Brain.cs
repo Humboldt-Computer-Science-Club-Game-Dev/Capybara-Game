@@ -1,22 +1,23 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy_Movement_Brain))]
+
+
 public class Enemy_Roaming_Brain : MonoBehaviour
 {
     public float MovementSpeed;
     Transform PathContainer;
 
-    public bool LoopThroughPoints;
-    public bool StartAtFirstPointOnAwake;
+    public Transform[] _points;
 
-    private Transform[] _points;
-
-    private int _currentTargetIdx;
+    private int _currentTargetIdx = 1;
 
     Enemy_Movement_Brain movementBrain;
 
     public float roamCooldown = 20f;
     public float roamCooldownTimer = 0f;
+
+    const string ROAMING_PREFAB_PATH = "prefabs/patrol_path_container_var_01";
 
     private void Awake()
     {
@@ -29,13 +30,15 @@ public class Enemy_Roaming_Brain : MonoBehaviour
 
     private void Update()
     {
-        roamCooldownTimer += (1f * Time.deltaTime);
+        handleTimer();
         if (!isTimeToRoam()) return;
 
         roamCooldownTimer = 0;
         //Instantiates PathContainer prefab at this position
-        PathContainer = Instantiate((GameObject)Resources.Load("prefabs/patrol_path_container_var_01", typeof(GameObject)), transform.position, transform.rotation).transform;
-        _points = PathContainer.GetComponentsInChildren<Transform>();
+        if(PathContainer == null){
+            PathContainer = Instantiate((GameObject)Resources.Load(ROAMING_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation).transform;
+            _points = PathContainer.GetComponentsInChildren<Transform>();
+        }
         //Will set movement brain's movement state to roaming and make this function return false
         movementBrain.startRoaming();
 
@@ -46,25 +49,19 @@ public class Enemy_Roaming_Brain : MonoBehaviour
             if (_currentTargetIdx >= _points.Length)
             {
                 // we reached the end of the path
-                _currentTargetIdx = LoopThroughPoints ? 0 : _points.Length - 1;
-                if(!LoopThroughPoints) {
-                    _currentTargetIdx = 0;
-                    movementBrain.onFinishedRoaming();
-                    Destroy(PathContainer.gameObject);
-                }
+                _currentTargetIdx = 1;
+                movementBrain.onFinishedRoaming();
+                Destroy(PathContainer.gameObject);
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);       
     }
     private void handleTimer(){
-        if (!movementBrain.getMovementState() == Enemy_Movement_Brain.Movement.oscillating) return;
+        if (!(movementBrain.getMovementState() == Enemy_Movement_Brain.Movement.oscillating)) return;
         roamCooldownTimer += (1f * Time.deltaTime);
     }
     private bool isTimeToRoam(){
-        if (!_points == null 
-            || _points.Length == 0 
-            && roamCooldownTimer >= roamCooldown) return true;
-        return false;
+        return roamCooldownTimer >= roamCooldown || movementBrain.isRoaming();
     }
 
     private void OnDrawGizmosSelected()
