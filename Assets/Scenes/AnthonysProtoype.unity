@@ -422,6 +422,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!1 &35634238
 GameObject:
@@ -1051,6 +1052,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!114 &239689722
 MonoBehaviour:
@@ -1351,6 +1353,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!114 &413507092
 MonoBehaviour:
@@ -2015,6 +2018,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!114 &597981878
 MonoBehaviour:
@@ -2749,6 +2753,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!114 &907403285
 MonoBehaviour:
@@ -3304,6 +3309,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!114 &1089401950
 MonoBehaviour:
@@ -4047,6 +4053,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!1001 &1333164790
 PrefabInstance:
@@ -4698,6 +4705,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3050744181788452324, guid: 46b69fda10ceb7c489e6654496440c37, type: 3}
+      propertyPath: roamCooldown
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050744181788452324, guid: 46b69fda10ceb7c489e6654496440c37, type: 3}
       propertyPath: MovementSpeed
       value: 4
       objectReference: {fileID: 0}
@@ -4972,6 +4983,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!1001 &1533607081
 PrefabInstance:
@@ -5345,6 +5357,7 @@ MonoBehaviour:
   health: {fileID: 0}
   roamCooldown: 2
   roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
   roamer: 0
 --- !u!114 &1549271005
 MonoBehaviour:

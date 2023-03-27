@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Enemy_Movement_Brain))]
 
@@ -17,7 +18,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
     public float roamCooldown = 20f;
     public float roamCooldownTimer = 0f;
 
-    const string ROAMING_PREFAB_PATH = "prefabs/patrol_path_container_var_01";
+    const string ROAMING_PREFAB_PATH_BASE = "prefabs/patrol_path_container_var_0";
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
         roamCooldownTimer = 0;
         //Instantiates PathContainer prefab at this position
         if(PathContainer == null){
-            PathContainer = Instantiate((GameObject)Resources.Load(ROAMING_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation).transform;
+            PathContainer = Instantiate((GameObject)Resources.Load(ROAMING_PREFAB_PATH_BASE + createPathVariantNumber(), typeof(GameObject)), transform.position, transform.rotation).transform;
             _points = PathContainer.GetComponentsInChildren<Transform>();
         }
         //Will set movement brain's movement state to roaming and make this function return false
@@ -55,6 +56,9 @@ public class Enemy_Roaming_Brain : MonoBehaviour
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);       
+    }
+    private int createPathVariantNumber(){
+        return (int)Math.Round((double)UnityEngine.Random.Range(1, 3));
     }
     private void handleTimer(){
         if (!(movementBrain.getMovementState() == Enemy_Movement_Brain.Movement.oscillating)) return;
