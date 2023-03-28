@@ -16,7 +16,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
     Enemy_Movement_Brain movementBrain;
 
     public float roamCooldown = 20f;
-    public float roamCooldownTimer = 0f;
+    public float roamCooldownTimer;
 
     const string ROAMING_PREFAB_PATH_BASE = "prefabs/patrol_path_container_var_0";
 
@@ -27,6 +27,8 @@ public class Enemy_Roaming_Brain : MonoBehaviour
     void Start()
     {
         movementBrain = GetComponent<Enemy_Movement_Brain>();
+        //TODO: make roamCooldownTimer init to a random value between 0 and roamCooldown
+        roamCooldownTimer = 0;
     }
 
     private void Update()
@@ -58,7 +60,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);       
     }
     private int createPathVariantNumber(){
-        return (int)Math.Round((double)UnityEngine.Random.Range(1, 3));
+        return (int)Math.Round((double)UnityEngine.Random.Range(1f, 6.4f));
     }
     private void handleTimer(){
         if (!(movementBrain.getMovementState() == Enemy_Movement_Brain.Movement.oscillating)) return;
