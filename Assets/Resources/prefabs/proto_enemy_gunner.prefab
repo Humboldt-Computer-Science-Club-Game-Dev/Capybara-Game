@@ -13,11 +13,12 @@ GameObject:
   - component: {fileID: 5355375136631217937}
   - component: {fileID: 5355375136631217936}
   - component: {fileID: 5355375136631217943}
+  - component: {fileID: 5355375136631217942}
+  - component: {fileID: 5355375136631217941}
   - component: {fileID: 5355375136631217940}
   - component: {fileID: 5355375136631217947}
-  - component: {fileID: 3050744181788452324}
   m_Layer: 0
-  m_Name: proto_enemy_brawler
+  m_Name: proto_enemy_gunner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,6 +148,31 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   minHealth: 0
+--- !u!114 &5355375136631217942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355375136631217945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5355375136631217941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355375136631217945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 2
 --- !u!114 &5355375136631217940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,23 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oscillationSpeed: 2
-  designatedRestBound: 1
+  designatedRestBound: 2
   health: {fileID: 0}
+  roamCooldown: 20
+  roamCooldownTimer: 0
   roamingBrain: {fileID: 0}
   roamer: 0
---- !u!114 &3050744181788452324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355375136631217945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bf21bdc034b3248895fb913fec4e8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 1
-  _points: []
-  roamCooldown: 5
-  roamCooldownTimer: 0

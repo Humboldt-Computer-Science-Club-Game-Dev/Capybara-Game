@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 5355375136631217941}
   - component: {fileID: 5355375136631217940}
   - component: {fileID: 5355375136631217947}
+  - component: {fileID: 8894300907967028977}
   m_Layer: 0
-  m_Name: proto_enemy
+  m_Name: proto_enemy_aggressive_gunner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,3 +204,23 @@ MonoBehaviour:
   oscillationSpeed: 2
   designatedRestBound: 2
   health: {fileID: 0}
+  roamCooldown: 20
+  roamCooldownTimer: 0
+  roamingBrain: {fileID: 0}
+  roamer: 0
+--- !u!114 &8894300907967028977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355375136631217945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bf21bdc034b3248895fb913fec4e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 4
+  _points: []
+  roamCooldown: 20
+  roamCooldownTimer: 0

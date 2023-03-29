@@ -34,6 +34,7 @@ public class Enemy_Death_Anim : MonoBehaviour
             if(this.gameObject.transform.position.y < -10){
                 state = deathState.dead;
                 Event_System.die("enemy" + enemyID);
+                this.GetComponent<Enemy>().destroyEnemy();
             }
         }
     }

@@ -8,7 +8,7 @@ public class Wave_System : MonoBehaviour
     public List<GameObject> waves;
     private int currentWave = -1;
     private GameObject envSpace;
-    private int numEnemies;
+    public int numEnemies;
     // Start is called before the first frame update
     
     void Start()
@@ -30,6 +30,11 @@ public class Wave_System : MonoBehaviour
     }
     void spawnNextWave(){
         //TODO: Check if there are any more waves to spawn
+        Debug.Log("Current wave: " + currentWave);
+        if((currentWave + 1) >= transform.childCount) {
+            Debug.Log("No more waves to spawn");
+            return;
+        }
         //IF so, spawn the next wave
         ++currentWave;
         spawnWave(currentWave);

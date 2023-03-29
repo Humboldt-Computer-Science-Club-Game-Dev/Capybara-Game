@@ -6,7 +6,7 @@ using System;
 
 public class Enemy_Roaming_Brain : MonoBehaviour
 {
-    public float MovementSpeed;
+    public float MovementSpeed = 4;
     Transform PathContainer;
 
     public Transform[] _points;
@@ -15,7 +15,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
 
     Enemy_Movement_Brain movementBrain;
 
-    public float roamCooldown = 20f;
+    public float roamCooldown = 10f;
     public float roamCooldownTimer;
 
     const string ROAMING_PREFAB_PATH_BASE = "prefabs/patrol_path_container_var_0";
@@ -28,7 +28,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
     {
         movementBrain = GetComponent<Enemy_Movement_Brain>();
         //TODO: make roamCooldownTimer init to a random value between 0 and roamCooldown
-        roamCooldownTimer = 0;
+        roamCooldownTimer = Random_Number_Generator.randomPositiveFloatUnder(roamCooldown);
     }
 
     private void Update()

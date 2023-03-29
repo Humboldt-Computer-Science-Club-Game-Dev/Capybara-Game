@@ -22,16 +22,12 @@ public class Enemy_Movement_Brain : MonoBehaviour
     float halfHeight;
 
     public int designatedRestBound = 1;
-
     public Health health;
-    public float roamCooldown = 20f;
-    public float roamCooldownTimer = 0f;
     public Enemy_Roaming_Brain roamingBrain;
     public bool roamer = false;
     private void Awake()
     {      
         polygonCollider = GetComponent<PolygonCollider2D>();
-        roamCooldownTimer = Random_Number_Generator.randomPositiveFloatUnder(roamCooldown);
     }
 
     // Start is called before the first frame update

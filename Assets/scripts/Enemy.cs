@@ -88,6 +88,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     /// <param name="Bullet">The bullet that hit the enemy</param>
     void bulletInMe(Bullet bullet){
+        /* if(health.isDead()) return; */
         if(!shotByIDs.Contains(bullet.id) && !bullet.isEnemyBullet()){
             shotByIDs.Add(bullet.id);
             beenShot();
@@ -113,6 +114,9 @@ public class Enemy : MonoBehaviour
     void onDeath(string to){
         if(!(to == ("enemy" + id)) || id == 0) return;
         Event_System.onDeath -= onDeath;
+    }
+
+    public void destroyEnemy(){
         Destroy(gameObject);
     }
 }
