@@ -18,6 +18,15 @@ public class Health : MonoBehaviour
             health = minHealth;
         }
     }
+    public void heal(int heal)
+    {
+        if(isDead()) return;
+        health += heal;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
     public bool isDead()
     {
         if (health == minHealth) return true;

@@ -56,7 +56,10 @@ public class player : MonoBehaviour
     void beenShot(){
         Event_System.takeDamage(1, "player");
     }
-
+    public void healPlayer(int amount){
+        playerHealth.heal(amount);
+        updateLifeUI(-amount, "player");
+    }
     void damageTaken(int damage, string to){
         if(playerHealth.isDead()) return;
         if(to == "player"){
@@ -114,11 +117,11 @@ public class player : MonoBehaviour
 
     void handlePlayerShoot(){
          bulletCooldownTimer += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Mouse0) && bulletCooldownTimer >= bulletCooldown && !playerHealth.isDead()){
+        if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey("return")) && bulletCooldownTimer >= bulletCooldown && !playerHealth.isDead()){
             bulletCooldownTimer = 0;
             gun.shoot();
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0)){
+        if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp("return")){
             bulletCooldownTimer = bulletCooldown;
         }
     }
