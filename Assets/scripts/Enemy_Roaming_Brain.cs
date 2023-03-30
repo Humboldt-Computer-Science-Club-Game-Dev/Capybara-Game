@@ -18,6 +18,8 @@ public class Enemy_Roaming_Brain : MonoBehaviour
     public float roamCooldown = 10f;
     public float roamCooldownTimer;
 
+    Health health;
+
     const string ROAMING_PREFAB_PATH_BASE = "prefabs/patrol_path_container_var_0";
 
     private void Awake()
@@ -29,6 +31,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
         movementBrain = GetComponent<Enemy_Movement_Brain>();
         //TODO: make roamCooldownTimer init to a random value between 0 and roamCooldown
         roamCooldownTimer = Random_Number_Generator.randomPositiveFloatUnder(roamCooldown);
+        health = GetComponent<Health>();
     }
 
     private void Update()
@@ -67,7 +70,7 @@ public class Enemy_Roaming_Brain : MonoBehaviour
         roamCooldownTimer += (1f * Time.deltaTime);
     }
     private bool isTimeToRoam(){
-        return roamCooldownTimer >= roamCooldown || movementBrain.isRoaming();
+        return (roamCooldownTimer >= roamCooldown || movementBrain.isRoaming() && !health.isDead());
     }
 
     private void OnDrawGizmosSelected()

@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
 
     private Enemy_Death_Anim enemyDeathAnim;
 
+    const string HEALTH_PACK_PREFAB_PATH = "prefabs/health_pack";
+
     private void Awake()
     {      
         polygonCollider = GetComponent<PolygonCollider2D>();
@@ -106,6 +108,8 @@ public class Enemy : MonoBehaviour
         
         health.takeDamage(damage);
         if(health.isDead()){
+            if(Random_Number_Generator.fiftyFifty() == 1)
+            Instantiate((GameObject)Resources.Load(HEALTH_PACK_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation);
             Event_System.onDamageTaken -= takeDamage;
             enemyDeathAnim.receiveEnemyID(id);
             enemyDeathAnim.playDeathAnim();
@@ -113,6 +117,7 @@ public class Enemy : MonoBehaviour
     }
     void onDeath(string to){
         if(!(to == ("enemy" + id)) || id == 0) return;
+
         Event_System.onDeath -= onDeath;
     }
 

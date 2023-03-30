@@ -20,3 +20,4 @@ The branch is where I will test out, clean up, and prototype new level design fe
 5. Make it so that enemies can die. X
 6. Make enemies stop scrolling when they get to there designated spot. X
 7. Make enemies oscillate. X
+8. Make it so that player has gravity that attracts health packs.

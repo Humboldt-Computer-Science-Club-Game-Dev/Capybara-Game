@@ -25,5 +25,7 @@ public class Random_Number_Generator : MonoBehaviour
     public static float randomPositiveFloatUnder(float max){
         return Random.Range(0, max);
     }
-    
+    public static float fiftyFifty(){
+        return Mathf.Round(Random.Range(0, 2));
+    }
 }
