@@ -5,11 +5,14 @@ using UnityEngine;
 public class Health_Pack : MonoBehaviour
 {
     public int healAmount = 1;
+    public float gravitySpeed = 0f;
     private BoxCollider2D boxCollider;
+    private Transform playerLocation;
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        playerLocation = GameObject.Find("capy").GetComponent<Transform>();
     }
 
     public float lifetime = 10f;
@@ -34,5 +37,9 @@ public class Health_Pack : MonoBehaviour
                Destroy(this.gameObject);
            }
         }
+    }
+
+    void FixedUpdate(){
+        transform.position = Vector2.MoveTowards(transform.position, playerLocation.position, gravitySpeed * Time.deltaTime);
     }
 }

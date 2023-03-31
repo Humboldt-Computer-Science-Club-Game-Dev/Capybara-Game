@@ -108,8 +108,10 @@ public class Enemy : MonoBehaviour
         
         health.takeDamage(damage);
         if(health.isDead()){
-            if(Random_Number_Generator.fiftyFifty() == 1)
-            Instantiate((GameObject)Resources.Load(HEALTH_PACK_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation);
+            if(Random_Number_Generator.fiftyFifty() == 1){
+                GameObject healthPack = Instantiate((GameObject)Resources.Load(HEALTH_PACK_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation);
+                healthPack.transform.SetParent(GameObject.Find("enviroment_space").transform, true);
+            }
             Event_System.onDamageTaken -= takeDamage;
             enemyDeathAnim.receiveEnemyID(id);
             enemyDeathAnim.playDeathAnim();

@@ -21,12 +21,12 @@ public class Player_UI_Death : MonoBehaviour
             if(timeShown >= timeToBeShown){
                 isShown = false;
                 timeShown = 0f;
+                this.gameObject.SetActive(false);
                 GameObject.Find("capy").GetComponent<player>().playerDeathUIShownEnough();
             }
         }
     }
     public void beginDeathText(){
-        this.gameObject.SetActive(true);
         isShown = true;
     }
 }

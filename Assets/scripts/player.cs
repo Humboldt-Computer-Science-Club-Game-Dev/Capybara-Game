@@ -25,9 +25,6 @@ public class player : MonoBehaviour
         initializeHealth();
         initializeUI();
         playerDeathAnim = GetComponent<Player_Death_Anim>();
-        GameObject playerUIDeathGameObject = GameObject.Find("player_death_screen");
-        playerUIDeath = playerUIDeathGameObject.GetComponent<Player_UI_Death>();
-        playerUIDeathGameObject.SetActive(false);
         gun = GetComponent<Gun>();
         gun.setAsPlayer();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -78,8 +75,7 @@ public class player : MonoBehaviour
     }
 
     public void playerDeathAnimDone(){
-        // Gets called when expected
-        playerUIDeath.beginDeathText();
+        setPlayerUIDeathEnabled();
     }
 
     public void playerDeathUIShownEnough(){
@@ -124,6 +120,13 @@ public class player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp("return")){
             bulletCooldownTimer = bulletCooldown;
         }
+    }
+
+    void setPlayerUIDeathEnabled(){
+        set_needed_active.setPlayerUIDeathActive();
+        GameObject playerUIDeathGameObject = GameObject.Find("player_death_screen");
+        if(playerUIDeathGameObject) playerUIDeath = playerUIDeathGameObject.GetComponent<Player_UI_Death>();
+        playerUIDeath.beginDeathText();
     }
 
 }

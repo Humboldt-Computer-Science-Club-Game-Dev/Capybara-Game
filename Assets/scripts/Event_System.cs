@@ -37,7 +37,7 @@ public class Event_System : MonoBehaviour
         onDamageTaken = null;
         onDeath = null;
         onGameOver = null;
-        SceneManager.LoadScene("AnthonysProtoype");
+        SceneManager.LoadScene("AnthonysProtoype_test_02");
     }
     // Update is called once per frame
     void Update()

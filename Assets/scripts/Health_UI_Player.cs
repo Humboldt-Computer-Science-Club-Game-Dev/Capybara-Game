@@ -11,10 +11,14 @@ public class Health_UI_Player : MonoBehaviour
     
     [HideInInspector]
     public List<GameObject> lives;
+
+    void Awake(){
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
         livesContainer = this.transform.GetChild(0).gameObject;
         Transform[] livesTransforms = GetComponentsInChildren<Transform>();
         lives = new List<GameObject>();
