@@ -68,10 +68,8 @@ public class player : MonoBehaviour
     }
 
     void playerDeath(string to){
-        if(to == "player"){
-            playerController.onDeath();
+        if(to == "player")
             playerDeathAnim.play();
-        }
     }
 
     public void playerDeathAnimDone(){

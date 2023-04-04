@@ -14,6 +14,7 @@ public class Enemy_Death_Anim : MonoBehaviour
     void Start()
     {
         state = deathState.alive;
+        enemyID = GetComponent<Enemy>().getID();
     }
 
     // Update is called once per frame

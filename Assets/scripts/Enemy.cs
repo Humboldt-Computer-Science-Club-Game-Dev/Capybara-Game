@@ -6,126 +6,132 @@ public class Enemy : MonoBehaviour
 {
     public int meleeDamage = 1;
     public int rangedDamage = 1;
-
     public float meleeDamageGracePeriod = 1f;
     private float meleeDamageGracePeriodTimer = 0f;
-
     private bool isMeleeAttacking = false;
     private bool gracePeriodUp = true;
-
     private CharacterController2D player;
-
     private PolygonCollider2D polygonCollider;
-    private List<int> shotByIDs;
-
+    private List<int> IDsThatShotMe;
     private Health health;
     private int id;
     private ColliderDistance2D pushPlayerDistanceCalculationObject;
-
     private Enemy_Death_Anim enemyDeathAnim;
-
     const string HEALTH_PACK_PREFAB_PATH = "prefabs/health_pack";
 
     private void Awake()
     {      
-        polygonCollider = GetComponent<PolygonCollider2D>();
-        shotByIDs = new List<int>();
-        health = GetComponent<Health>();
-        //assign id to a 10 digit random number
-        enemyDeathAnim = GetComponent<Enemy_Death_Anim>();
+        getComponents();
+        IDsThatShotMe = new List<int>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        Event_System.onDamageTaken += takeDamage;
-        Event_System.onDeath += onDeath;
+        assignEvents();
         id = Random_Number_Generator.random10DigitNumber();
     }
-    // Update is called once per frame
+
     void Update()
     {
+        handleCollisions();
+    }
+    void getComponents(){
+        polygonCollider = GetComponent<PolygonCollider2D>();
+        health = GetComponent<Health>();
+        enemyDeathAnim = GetComponent<Enemy_Death_Anim>();
+    }
+    void assignEvents(){
+        Event_System.onDamageTaken += takeDamageAndHandleDeathCall;
+        Event_System.onDeath += onDeath;
+    }
+    void handleCollisions(){
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
-        /* transform.position, polygonCollider.offset, 0 */
         List<Collider2D> results = new List<Collider2D>();
         int hits = Physics2D.OverlapCollider(polygonCollider, filter, results);
         foreach (Collider2D hit in results)
         {
-        	if (hit == polygonCollider)
-        	continue;
-
+        	if (hit == polygonCollider) continue; // Ignore collision with self
+        	
+            // Get the distance between the two colliders
         	ColliderDistance2D colliderDistance = hit.Distance(polygonCollider);
 
+            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet") handleBulletInMe(hit.gameObject.GetComponent<Bullet>());
+
             if(colliderDistance.isOverlapped && hit.gameObject.tag == "Player" && !isMeleeAttacking){
-                isMeleeAttacking = true;
                 pushPlayerDistanceCalculationObject = colliderDistance;
                 player = hit.gameObject.GetComponent<CharacterController2D>();
 
-                //Meant to push player back when not dead.
-                // The isMeleeAttacking = true would kill the player before they are pushed if it went for that fact that the player killing logic
-                // is implemented a few lines below this.
-                // TLDR: This is a bad implementation of pushing the player back.
-                /* if(!player.playerHealth.isDead()) player.isPushed = true; */
+                isMeleeAttacking = true;
             }
-            if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet") bulletInMe(hit.gameObject.GetComponent<Bullet>());
-                
-
-            
         }
-        if(isMeleeAttacking){
-            if(gracePeriodUp){
-                if(!player.GetComponent<Health>().isDead())player.GetComponent<CharacterController2D>().getPushed(-4 * (pushPlayerDistanceCalculationObject.pointA - pushPlayerDistanceCalculationObject.pointB).normalized);
+        handleMeleeAttack();
+    }
+    void handleMeleeAttack(){
+        if(!isMeleeAttacking) return;
+        if(gracePeriodUp){ //will get run when play first enters melee range
+                if(!player.GetComponent<Health>().isDead()) 
+                    player.GetComponent<CharacterController2D>().getPushed(-4 * (pushPlayerDistanceCalculationObject.pointA - pushPlayerDistanceCalculationObject.pointB).normalized);
                 Event_System.takeDamage(meleeDamage, "player");
-            }
-            gracePeriodUp = false;
-            meleeDamageGracePeriodTimer += Time.deltaTime;
-            if(meleeDamageGracePeriodTimer >= meleeDamageGracePeriod){
-                isMeleeAttacking = false;
-                gracePeriodUp = true;
-                meleeDamageGracePeriodTimer = 0f;
-            }
         }
-    }
-    /// <summary>
-    /// If the bullet's ID is not in the list of IDs of bullets that have hit me, add it to the list and
-    /// call the beenShot() function
-    /// </summary>
-    /// <param name="Bullet">The bullet that hit the enemy</param>
-    void bulletInMe(Bullet bullet){
-        /* if(health.isDead()) return; */
-        if(!shotByIDs.Contains(bullet.id) && !bullet.isEnemyBullet()){
-            shotByIDs.Add(bullet.id);
-            beenShot();
-            Destroy(bullet.gameObject);
+        gracePeriodUp = false; // prevents the above code from running every frame
+        meleeDamageGracePeriodTimer += Time.deltaTime;
+
+        if(meleeDamageGracePeriodTimer >= meleeDamageGracePeriod){ // After some time has passed, the enemy will be able to meele attack again
+            isMeleeAttacking = false;
+            gracePeriodUp = true;
+            meleeDamageGracePeriodTimer = 0f;
         }
+    
     }
-    // This is a cockamani event system. We need to find a better way to do this after this prototype is done.
-    void beenShot(){
+
+
+   /*  If the bullet's ID is not in the list of IDs of bullets that have hit me, add it to the list and
+    call the getShot() function */
+    void handleBulletInMe(Bullet bullet){
+        if(hasAlreadygetShotByThisBullet(bullet.id) || bullet.isEnemyBullet()) return;
+        IDsThatShotMe.Add(bullet.id);
+        getShot();
+        Destroy(bullet.gameObject);
+        
+    }
+    bool hasAlreadygetShotByThisBullet(int bulletID){
+        return IDsThatShotMe.Contains(bulletID);
+    }
+    
+    void getShot(){
         Event_System.takeDamage(1, "enemy" + id);
     }
-    void takeDamage(int damage, string to){
-        //When id = 0 the ID has not been assigned yet. The IDs can't be assigned all at once that will make all there IDs the same.
-        // Don't ask me why the Random.Range() works this way. I don't know. ¯\_(ツ)_/¯
-        if(!(to == "enemy" + id) || id == 0) return;
+    void takeDamageAndHandleDeathCall(int damage, string to){
+        if(!(to == "enemy" + id)) return;
         
         health.takeDamage(damage);
+
+        
+        /* This is a bit out of place but its the only to check for death */
         if(health.isDead()){
-            if(Random_Number_Generator.fiftyFifty() == 1){
-                GameObject healthPack = Instantiate((GameObject)Resources.Load(HEALTH_PACK_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation);
-                healthPack.transform.SetParent(GameObject.Find("enviroment_space").transform, true);
-            }
-            Event_System.onDamageTaken -= takeDamage;
-            enemyDeathAnim.receiveEnemyID(id);
+            if(Random_Number_Generator.fiftyFifty() == 1) spawnHealthPack();
+            Event_System.onDamageTaken -= takeDamageAndHandleDeathCall;
             enemyDeathAnim.playDeathAnim();
         }
     }
+    void spawnHealthPack(){
+        GameObject healthPack = Instantiate((GameObject)Resources.Load(HEALTH_PACK_PREFAB_PATH, typeof(GameObject)), transform.position, transform.rotation);
+
+        /* Setting the parent of the health pack to the environment_space object 
+        so that it travels to the left and gives player the chance to pick it up */
+        healthPack.transform.SetParent(GameObject.Find("enviroment_space").transform, true);
+    }
     void onDeath(string to){
-        if(!(to == ("enemy" + id)) || id == 0) return;
+        if(!(to == ("enemy" + id))) return;
 
         Event_System.onDeath -= onDeath;
     }
 
     public void destroyEnemy(){
         Destroy(gameObject);
+    }
+
+    public int getID(){
+        return id;
     }
 }

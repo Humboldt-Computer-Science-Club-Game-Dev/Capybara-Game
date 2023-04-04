@@ -22,10 +22,10 @@ The branch is where I will test out, clean up, and prototype new level design fe
 7. Make enemies oscillate. X
 8. Make it so that health packs move to left after they spawn. X
 
-Clean up TODOs
+## Clean up TODOs
 
 1. Bullet.cs X
-2. CharacterController2D.cs
+2. CharacterController2D.cs X
 3. Enemy.cs
 4. Enemy_Death_Anim.cs
 5. Enemy_Gunner_Brain.cs
