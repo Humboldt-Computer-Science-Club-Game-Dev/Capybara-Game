@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     private Health health;
     private int id;
+    private ColliderDistance2D pushPlayerDistanceCalculationObject;
 
     private Enemy_Death_Anim enemyDeathAnim;
 
@@ -57,13 +58,14 @@ public class Enemy : MonoBehaviour
 
             if(colliderDistance.isOverlapped && hit.gameObject.tag == "Player" && !isMeleeAttacking){
                 isMeleeAttacking = true;
+                pushPlayerDistanceCalculationObject = colliderDistance;
                 player = hit.gameObject.GetComponent<CharacterController2D>();
 
                 //Meant to push player back when not dead.
                 // The isMeleeAttacking = true would kill the player before they are pushed if it went for that fact that the player killing logic
                 // is implemented a few lines below this.
                 // TLDR: This is a bad implementation of pushing the player back.
-                if(!player.playerHealth.isDead()) player.isPushed = true;
+                /* if(!player.playerHealth.isDead()) player.isPushed = true; */
             }
             if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet") bulletInMe(hit.gameObject.GetComponent<Bullet>());
                 
@@ -72,7 +74,7 @@ public class Enemy : MonoBehaviour
         }
         if(isMeleeAttacking){
             if(gracePeriodUp){
-                /* player.GetComponent<Health>().takeDamage(meleeDamage); */
+                if(!player.GetComponent<Health>().isDead())player.GetComponent<CharacterController2D>().getPushed(-4 * (pushPlayerDistanceCalculationObject.pointA - pushPlayerDistanceCalculationObject.pointB).normalized);
                 Event_System.takeDamage(meleeDamage, "player");
             }
             gracePeriodUp = false;
