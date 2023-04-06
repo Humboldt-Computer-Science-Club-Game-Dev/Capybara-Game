@@ -43,6 +43,10 @@ public class Enemy_Movement_Brain : MonoBehaviour
     }
 
     void FixedUpdate(){
+        if(health.isDead()) {
+            this.gameObject.transform.SetParent(null, true);
+            return;
+        }
         handleOscillating();
     }
     
@@ -63,33 +67,39 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
     void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
         if(health.isDead()) return;
+
+        // If The enemy initially is moving onto the screen and reaches a rest bound
         if(colliderDistance.isOverlapped && hit.gameObject.tag == "Enemy_Rest_Bound" && movementState == Movement.positioning){
             Enemy_Rest_Bound restBound = hit.gameObject.GetComponent<Enemy_Rest_Bound>();
+
+            // There are multiple rest bounds, so we need to make sure the enemy is on the correct one
             if(restBound.restBound != designatedRestBound) return;
             movementState = Movement.oscillating;
             GameObject enemyMovementSpace = GameObject.Find("enemy_movement_space");
+
+            // Assigns the enemy to an object that stays still, so that the enemy can oscillate
             this.gameObject.transform.SetParent(enemyMovementSpace.transform, true);
         }
     }
-    //Warning, below code is messy
     void handleOscillating() {
-        if(health.isDead()) {
-            this.gameObject.transform.SetParent(null, true);
-            return;
-        }
-        float movementSpeedFix = oscillationSpeed / 50f;
         if(movementState != Movement.oscillating) return;
+        /* 
+            Remember, handleOscillating is called in FixedUpdate, so we 
+            need to divide the oscillation speed by 50 so that it represents 
+            the amount of units the enemy should move per second 
+        */
+        float adjustedOscillationSpeed = oscillationSpeed / 50f;
         if(oscillationDirection == OscillationDirection.up){
              if(transform.position.y + halfHeight >= topRight.y)
                 oscillationDirection = OscillationDirection.down; 
             else
-                transform.position = new Vector2(transform.position.x, transform.position.y + movementSpeedFix);
+                transform.position = new Vector2(transform.position.x, transform.position.y + adjustedOscillationSpeed);
         }
         else if(oscillationDirection == OscillationDirection.down){
             if(transform.position.y - halfHeight <= bottomLeft.y)
                 oscillationDirection = OscillationDirection.up;
             else
-                transform.position = new Vector2(transform.position.x, transform.position.y - movementSpeedFix);
+                transform.position = new Vector2(transform.position.x, transform.position.y - adjustedOscillationSpeed);
         }
     }
 
