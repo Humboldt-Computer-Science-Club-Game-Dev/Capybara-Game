@@ -2,55 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: Factor out enemy roaming logic into Enemy_Roaming_Brain
-
 public class Enemy_Movement_Brain : MonoBehaviour
 {
+    [HideInInspector]
     public enum Movement {positioning, oscillating, roaming};
-    enum OscillationDirection {up, down};
-
+    public int designatedRestBound = 1;
     public int oscillationSpeed = 1;
-    private Movement movementState = Movement.positioning;
-    private OscillationDirection oscillationDirection = OscillationDirection.up;
-    private PolygonCollider2D polygonCollider;
-    private Camera cam;
-
+    enum OscillationDirection {up, down};
+    Movement movementState = Movement.positioning;
+    OscillationDirection oscillationDirection = OscillationDirection.up;
+    PolygonCollider2D polygonCollider;
+    Camera cam;
     Vector2 topRight;
     Vector2 bottomLeft;
-
     float halfWidth;
     float halfHeight;
-
-    public int designatedRestBound = 1;
-    public Health health;
-    public Enemy_Roaming_Brain roamingBrain;
-    public bool roamer = false;
-    private void Awake()
-    {      
-        polygonCollider = GetComponent<PolygonCollider2D>();
-    }
-
-    // Start is called before the first frame update
+    Health health;
+    Enemy_Roaming_Brain roamingBrain;
+    
     void Start()
     {
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        halfWidth = this.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-        halfHeight = this.GetComponent<SpriteRenderer>().bounds.size.y / 2;
-        topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0,0));
-        health = GetComponent<Health>();
-        Enemy_Roaming_Brain roamingBrainBuffer = GetComponent<Enemy_Roaming_Brain>();
-        if(roamingBrainBuffer != null){
-            roamer = true;
-            roamingBrain = roamingBrainBuffer;
-        }
+        getComponents();
+        assignBoundingInformation();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
-        /* transform.position, polygonCollider.offset, 0 */
         List<Collider2D> results = new List<Collider2D>();
         int hits = Physics2D.OverlapCollider(polygonCollider, filter, results);
         if(hits <= 0) return;
@@ -66,6 +44,21 @@ public class Enemy_Movement_Brain : MonoBehaviour
 
     void FixedUpdate(){
         handleOscillating();
+    }
+    
+    void getComponents(){
+        polygonCollider = GetComponent<PolygonCollider2D>();
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        health = GetComponent<Health>();
+        Enemy_Roaming_Brain roamingBrainBuffer = GetComponent<Enemy_Roaming_Brain>();
+        if(roamingBrainBuffer != null) roamingBrain = roamingBrainBuffer;
+    }
+
+    void assignBoundingInformation(){
+        halfWidth = this.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        halfHeight = this.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0,0));
     }
 
     void handleRestBoundCollision(Collider2D hit, ColliderDistance2D colliderDistance){
