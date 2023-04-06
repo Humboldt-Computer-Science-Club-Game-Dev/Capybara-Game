@@ -14,14 +14,6 @@ public class Event_System : MonoBehaviour
     public delegate void gameOverDel();
     public static event gameOverDel onGameOver;
     
-    private void Awake(){
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     /* 
         I have no dam clue why but events like onDamageTaken can't be called 
         outside of this script file ¯\_(ツ)_/¯ 
@@ -34,14 +26,17 @@ public class Event_System : MonoBehaviour
     }
     public static void gameOver(){
         if(onGameOver != null) onGameOver();
+
+        cleanUpForNextScene();
+
+        //TODO: Make the next scene load the same scene dynamically. (Not hard coded)
+        SceneManager.LoadScene("AnthonysProtoype_test_02");
+    }
+
+    void cleanUpForNextScene(){
+        // Setting these event to null so that they don't call the next time the scene is loaded.
         onDamageTaken = null;
         onDeath = null;
         onGameOver = null;
-        SceneManager.LoadScene("AnthonysProtoype_test_02");
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

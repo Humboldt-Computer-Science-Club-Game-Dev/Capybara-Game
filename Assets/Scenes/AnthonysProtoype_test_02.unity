@@ -452,6 +452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!114 &20961460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &20961462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,11 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 3
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!1001 &27581054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1895,11 +1895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 1
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!114 &239689722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1928,6 +1925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &239689724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,6 +1966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!60 &239689727
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3088,11 +3088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 2
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!114 &413507092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3121,6 +3118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &413507094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,6 +3159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!60 &413507097
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4434,11 +4434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 3
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!114 &597981878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4467,6 +4464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &597981880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4507,6 +4505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!60 &597981883
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6743,11 +6743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 3
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!114 &907403285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6776,6 +6773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &907403287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6816,6 +6814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!60 &907403290
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8001,11 +8001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 1
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!114 &1089401950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8034,6 +8031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 0.75
+  maxRandomInitialShotOffset: 4
 --- !u!114 &1089401952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8074,6 +8072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!60 &1089401955
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8778,6 +8778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!114 &1279003899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8803,6 +8805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &1279003901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8815,11 +8818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 1
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!4 &1293615235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5355375136631217946, guid: 6ed2d744d5ae6504e859245ece7988f1, type: 3}
@@ -9636,7 +9636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36295c617320b4b45867f4b5ce4cce5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: -18, y: 0}
+  scrollSpeed: {x: -18, y: 0}
 --- !u!1 &1456392863
 GameObject:
   m_ObjectHideFlags: 0
@@ -9991,6 +9991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!114 &1496283348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10016,6 +10018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &1496283350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10028,11 +10031,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 2
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!4 &1498608157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5355375136631217946, guid: 6ed2d744d5ae6504e859245ece7988f1, type: 3}
@@ -10609,11 +10609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationSpeed: 6
   designatedRestBound: 2
-  health: {fileID: 0}
-  roamingBrain: {fileID: 0}
-  roamer: 0
+  oscillationSpeed: 6
 --- !u!114 &1549271005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10642,6 +10639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
+  maxRandomInitialShotOffset: 4
 --- !u!114 &1549271007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10682,6 +10680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
 --- !u!60 &1549271010
 PolygonCollider2D:
   m_ObjectHideFlags: 0
