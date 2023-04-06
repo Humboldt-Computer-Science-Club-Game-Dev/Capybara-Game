@@ -111,6 +111,7 @@ public class Enemy : MonoBehaviour
         if(health.isDead()){
             if(Random_Number_Generator.fiftyFifty() == 1) spawnHealthPack();
             Event_System.onDamageTaken -= takeDamageAndHandleDeathCall;
+            this.gameObject.transform.SetParent(null, true);
             enemyDeathAnim.playDeathAnim();
         }
     }

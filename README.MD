@@ -26,9 +26,9 @@ The branch is where I will test out, clean up, and prototype new level design fe
 
 1. Bullet.cs X
 2. CharacterController2D.cs X
-3. Enemy.cs
-4. Enemy_Death_Anim.cs
-5. Enemy_Gunner_Brain.cs
+3. Enemy.cs X
+4. Enemy_Death_Anim.cs X
+5. Enemy_Gunner_Brain.cs X
 6. Enemy_Movement_Brain.cs
 7. Enemy_Rest_Bound.cs
 8. Enemy_Roaming_Brain.cs
