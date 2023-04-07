@@ -34,7 +34,7 @@ The branch is where I will test out, clean up, and prototype new level design fe
 8. Enemy_Roaming_Brain.cs X
 9. ENV_Scroller.cs X
 10. Event_System.cs X
-11. Gun.cs
+11. Gun.cs X
 12. Health.cs
 13. Health_Pack.cs
 14. Health_UI_Player.cs
