@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    public float bulletCooldown = 0.125f;
     private Health_UI_Player health_UI_player;
     private Health playerHealth;
     private CharacterController2D playerController;
     private Player_Death_Anim playerDeathAnim;
     private Player_UI_Death playerUIDeath;
     private Gun gun;
-
-    public float bulletCooldown = 0.125f;
     private float bulletCooldownTimer = 0;
-
     private List<int> shotByIDs;
     private BoxCollider2D boxCollider;
     
-    
-    // Start is called before the first frame update
     void Start()
     {
+        getComponents();
         shotByIDs = new List<int>();
+
+        /* 
+            Note, its vitally important that you initialize health before UI because 
+            the player damage listeners need to to run before the ui event listeners. 
+            This insures that the UI is updated after the health is updated 
+        */
         initializeHealth();
         initializeUI();
+        gun.setAsPlayer();
+        
+    }
+    void Update()
+    {
+        handlePlayerShoot();
+        handleGetShot();
+    }
+    void getComponents(){
         playerDeathAnim = GetComponent<Player_Death_Anim>();
         gun = GetComponent<Gun>();
-        gun.setAsPlayer();
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -43,28 +54,27 @@ public class player : MonoBehaviour
     }
 
     void bulletInMe(Bullet bullet){
-        if(!shotByIDs.Contains(bullet.id) && !bullet.isPlayerBullet()){
-            shotByIDs.Add(bullet.id);
-            beenShot();
-            Destroy(bullet.gameObject);
-        }
+        // Condition makes it so that you don't take damage from your own bullets or bullets you have already been shot by
+        if(shotByIDs.Contains(bullet.id) || bullet.isPlayerBullet()) return; 
+        shotByIDs.Add(bullet.id);
+        beenShot();
+        Destroy(bullet.gameObject);
+        
         
     }
     void beenShot(){
+        // Calling this method will trigger an event that eventually calls the damageTaken method in this class
+        // Its done this way so that other classes can listen to the event and do things when the player is damaged
         Event_System.takeDamage(1, "player");
     }
     public void healPlayer(int amount){
-        playerHealth.heal(amount);
-        updateLifeUI(-amount, "player");
+        // notice how healing is just the player taking negative damage
+        Event_System.takeDamage(-amount, "player");
     }
     void damageTaken(int damage, string to){
-        if(playerHealth.isDead()) return;
-        if(to == "player"){
-            playerHealth.takeDamage(damage);
-            if(playerHealth.isDead()){
-                Event_System.die("player");
-            }
-        }
+        if(playerHealth.isDead() || to != "player") return;
+        playerHealth.takeDamage(damage);
+        if(playerHealth.isDead()) Event_System.die("player");
     }
 
     void playerDeath(string to){
@@ -86,14 +96,8 @@ public class player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        handlePlayerShoot();
-        handleGetShot();
-    }
+    
     void handleGetShot(){
-        // if(colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet") bulletInMe(hit.gameObject.GetComponent<Bullet>());
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
          foreach (Collider2D hit in hits){
             
