@@ -12,28 +12,25 @@ public class Gun : MonoBehaviour
     }
     private sideOptions side  = sideOptions.undecided;
     private  GameObject bullet;
-    
-    // Start is called before the first frame update
+
     public void setAsPlayer(){
         side = sideOptions.player;
-        
     }
     public void setAsEnemy(){
         side = sideOptions.enemy;
     }
     void Start()
     {
+        // Load the bullet prefab
         bullet = (GameObject)Resources.Load("prefabs/bullet", typeof(GameObject));
-    }
-
-    // Update is called once per frame
-    void Update(){
-        
     }
 
     public void shoot(){
         if(bullet == null) return;
         GameObject shotBullet = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+
+        // Set the side of the bullet
+        //This is used to determine what direction the bullet should move and who it should apply damage to
         shotBullet.GetComponent<Bullet>().setSide(side);
     }
 }
