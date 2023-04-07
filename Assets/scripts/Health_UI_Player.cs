@@ -2,49 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* PRE-Requisites. Player must be instantiated in scene
-TODOS: Make it so that player prefab comes with the health UI prefab attached to it */
-
 public class Health_UI_Player : MonoBehaviour
 {
-    private GameObject livesContainer;
-    
     [HideInInspector]
     public List<GameObject> lives;
+    Transform[] livesTransforms;
 
-    void Awake(){
-        
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
-        livesContainer = this.transform.GetChild(0).gameObject;
-        Transform[] livesTransforms = GetComponentsInChildren<Transform>();
-        lives = new List<GameObject>();
-        foreach(Transform liveTransform in livesTransforms){
-            liveTransform.gameObject.SetActive(true);
-            lives.Add(liveTransform.gameObject);
-        }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        getComponents();
+        assignlivesGameObjects();
     }
 
     public void updateLife(Health health){
-        for (int i = 2; i < lives.Count; i++) 
+        for (int i = 0; i < lives.Count; i++) 
         {
-            int realI = i - 2;
-            if(realI < health.health){
-                lives[i].SetActive(true);
-            }
-            else{
-                lives[i].SetActive(false);
-            }
+            if(i < health.health) lives[i].SetActive(true);
+            else lives[i].SetActive(false);
+        }
+    }
+
+    void getComponents(){
+        lives = new List<GameObject>();
+        livesTransforms = GetComponentsInChildren<Transform>();
+    }
+    void assignlivesGameObjects(){
+        int i = 0;
+        foreach(Transform liveTransform in livesTransforms){
+            liveTransform.gameObject.SetActive(true);
+
+            // We require i be grater than 1 because the first two children of this object are the parents of the lives
+            if (i > 1) lives.Add(liveTransform.gameObject);
+            i++;
         }
     }
 }
