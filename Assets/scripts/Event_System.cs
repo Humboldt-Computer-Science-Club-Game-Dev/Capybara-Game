@@ -33,7 +33,7 @@ public class Event_System : MonoBehaviour
         SceneManager.LoadScene("AnthonysProtoype_test_02");
     }
 
-    void cleanUpForNextScene(){
+    static void cleanUpForNextScene(){
         // Setting these event to null so that they don't call the next time the scene is loaded.
         onDamageTaken = null;
         onDeath = null;
