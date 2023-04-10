@@ -33,7 +33,7 @@ public class player : MonoBehaviour
     void Update()
     {
         handlePlayerShoot();
-        handleGetShot();
+        checkIfPlayerIsShot();
     }
     void getComponents(){
         playerDeathAnim = GetComponent<Player_Death_Anim>();
@@ -53,82 +53,89 @@ public class player : MonoBehaviour
         Event_System.onDeath += playerDeath;
     }
 
+    void checkIfPlayerIsShot(){
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+         foreach (Collider2D hit in hits){
+            
+        	if (hit == boxCollider)  // Ignore collision with self
+        	continue;
+
+            // Get the distance between the two colliders
+            ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
+
+            if (colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet")
+                bulletInMe(hit.gameObject.GetComponent<Bullet>());
+        }
+    }
+
     void bulletInMe(Bullet bullet){
         // Condition makes it so that you don't take damage from your own bullets or bullets you have already been shot by
         if(shotByIDs.Contains(bullet.id) || bullet.isPlayerBullet()) return; 
+        takeShotDamage();
         shotByIDs.Add(bullet.id);
-        beenShot();
         Destroy(bullet.gameObject);
         
         
     }
-    void beenShot(){
+    void takeShotDamage(){
         // Calling this method will trigger an event that eventually calls the damageTaken method in this class
         // Its done this way so that other classes can listen to the event and do things when the player is damaged
         Event_System.takeDamage(1, "player");
     }
+
     public void healPlayer(int amount){
         // notice how healing is just the player taking negative damage
         Event_System.takeDamage(-amount, "player");
     }
+
+    //Calling takeShotDamage will trigger an event that will then call this method
     void damageTaken(int damage, string to){
         if(playerHealth.isDead() || to != "player") return;
         playerHealth.takeDamage(damage);
         if(playerHealth.isDead()) Event_System.die("player");
     }
 
+    //This method is called by the event system when the anything takes damage
+    //This is why you need to check if the damage is for the player
+    void updateLifeUI(int damage, string to){
+        if(to == "player")
+            health_UI_player.updateLife(playerHealth);
+    }
+
+    //This method is called by the event system when the anything takes damage
+    //This is why you need to check if the damage is for the player
     void playerDeath(string to){
         if(to == "player")
             playerDeathAnim.play();
     }
 
+    // Gets called by the Player_Death_Anim script when the death animation is done
     public void playerDeathAnimDone(){
-        setPlayerUIDeathEnabled();
+        // Sets player_death_screen to active so it can be found in the next line of code
+        set_needed_active.setPlayerUIDeathActive();
+
+        GameObject playerUIDeathGameObject = GameObject.Find("player_death_screen");
+        if(playerUIDeathGameObject) playerUIDeath = playerUIDeathGameObject.GetComponent<Player_UI_Death>();
+        if (playerUIDeath) playerUIDeath.beginDeathText();
     }
 
+    // Gets called by the Player_UI_Death script when the death text has been displayed for a predetermined amount of time
     public void playerDeathUIShownEnough(){
         Event_System.gameOver();
     }
 
-    void updateLifeUI(int damage, string to){
-        if(to == "player"){
-            health_UI_player.updateLife(playerHealth);
-        }
-    }
-
-    
-    void handleGetShot(){
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
-         foreach (Collider2D hit in hits){
-            
-        	if (hit == boxCollider)
-        	continue;
-
-            ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
-
-            if (colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet"){
-                bulletInMe(hit.gameObject.GetComponent<Bullet>());
-            }
-        }
-
-    }
-
     void handlePlayerShoot(){
          bulletCooldownTimer += Time.deltaTime;
+        
+        // Player must press either of the shoot buttons, the cooldown must be over, and the player must not be dead
         if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey("return")) && bulletCooldownTimer >= bulletCooldown && !playerHealth.isDead()){
             bulletCooldownTimer = 0;
             gun.shoot();
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp("return")){
+
+        // Makes it so that the player can shoot as fast as they want so long as they manually click the shoot button
+        if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp("return"))
             bulletCooldownTimer = bulletCooldown;
-        }
+        
     }
-
-    void setPlayerUIDeathEnabled(){
-        set_needed_active.setPlayerUIDeathActive();
-        GameObject playerUIDeathGameObject = GameObject.Find("player_death_screen");
-        if(playerUIDeathGameObject) playerUIDeath = playerUIDeathGameObject.GetComponent<Player_UI_Death>();
-        playerUIDeath.beginDeathText();
-    }
-
 }
