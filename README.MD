@@ -39,7 +39,7 @@ The branch is where I will test out, clean up, and prototype new level design fe
 13. Health_Pack.cs X
 14. Health_UI_Player.cs X
 15. player.cs X
-16. Player_Death_Anim.cs
+16. Player_Death_Anim.cs X
 17. Player_UI_Death.cs
 18. Random_Number_Generator.cs
 19. Set_needed_active.cs

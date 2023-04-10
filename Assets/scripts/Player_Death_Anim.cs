@@ -4,37 +4,25 @@ using UnityEngine;
 
 public class Player_Death_Anim : MonoBehaviour
 {
-    enum deathState {alive, toCenter, rotate, falling, dead};
-    private deathState state;
-    private Vector3 center = new Vector3(0, 0, 0);
-    private float minDistance = 0.01f;
-
     public float maxRotationTimer = 2f;
-    private float rotationTime = 0;
+    public float toCenterSpeed = 0.1f;
+    public float fallSpeed = 0.1f;
+    enum deathState {alive, toCenter, rotate, falling, dead};
+    deathState state;
+    Vector3 center = new Vector3(0, 0, 0);
+    float minDistance = 0.01f;
+    float rotationTime = 0;
+    Vector2 outOfBounds;
+    player player;
 
-    private Quaternion startRotation;
-    private Vector2 outOfBounds1;
-    private Vector2 outOfBounds2;
-    private Vector2 outOfBounds3;
-
-    private player player;
-
-    // Start is called before the first frame update
     void Start()
     {
         state = deathState.alive;
-        startRotation = new Quaternion(0, 0, 0, 10);
-        outOfBounds1 = new Vector2(0, -10);
-        outOfBounds2 = new Vector2(0, -20);
-        outOfBounds3 = new Vector2(0, -40);
+        outOfBounds = new Vector2(0, -10);
         player = GetComponent<player>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    // Starts the death animation
     public void play(){
         state = deathState.toCenter;
     }
@@ -43,17 +31,19 @@ public class Player_Death_Anim : MonoBehaviour
         {
             // Move player to center of screen
             // Once player is in center, change state to rotate
-            this.transform.position = Vector2.MoveTowards(this.transform.position, center, 0.1f);
-            if(Vector3.Distance(this.transform.position, center) < minDistance)
-            {
-                state = deathState.rotate;
-            }
-
+            this.transform.position = Vector2.MoveTowards(this.transform.position, center, toCenterSpeed);
+            if(Vector3.Distance(this.transform.position, center) < minDistance) state = deathState.rotate;
         }
         else if(state == deathState.rotate)
         {
-            this.transform.rotation = Quaternion.Lerp(Quaternion.Euler(0, 0, 0), Quaternion.Euler(0, 0, 180), ((rotationTime) / (maxRotationTimer * 50)));
+            // Rotate player 180 degrees in maxRotationTimer seconds
+            this.transform.rotation = Quaternion.Lerp(
+                Quaternion.Euler(0, 0, 0), 
+                Quaternion.Euler(0, 0, 180), 
+                ((rotationTime) / (maxRotationTimer * 50)));
+
             rotationTime += 1;
+
             // Once player is rotated, change state to falling
             if(rotationTime > (maxRotationTimer * 50))
             {
@@ -64,15 +54,16 @@ public class Player_Death_Anim : MonoBehaviour
         }
         else if(state == deathState.falling)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, outOfBounds1, 0.1f);
-            if(Vector3.Distance(this.transform.position, outOfBounds1) < minDistance)
+            // Move player off screen at the speed of fallSpeed
+            this.transform.position = Vector2.MoveTowards(this.transform.position, outOfBounds, fallSpeed);
+
+            if(Vector3.Distance(this.transform.position, outOfBounds) < minDistance)
             {
                 state = deathState.dead;
+
+                // Tell player that death animation is done so that it can do the next steps in player death
                 player.playerDeathAnimDone();
             }
-            // After player has fallen, call event for game over.
-            // Game over event should wrap up the level.
-            // The level manager that calls the game over event will reload the current level on the line below.
         }
     }
     
