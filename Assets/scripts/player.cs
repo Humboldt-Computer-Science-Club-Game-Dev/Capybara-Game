@@ -42,6 +42,8 @@ public class player : MonoBehaviour
     }
 
     void initializeUI(){
+        // Sets player_health to active so it can be found in the next line of code
+        set_needed_active.setHealthUIPlayerActive();
         Event_System.onDamageTaken += updateLifeUI;
         health_UI_player = GameObject.Find("player_health").GetComponent<Health_UI_Player>();
     }

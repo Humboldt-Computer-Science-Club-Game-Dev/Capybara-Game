@@ -2,22 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Attach this script to any object that should be visible in editor upon selection */
 public class simple_editor_gizmo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public Color gizmoColor = Color.white;
+    public float gizmoRadius = 1f;
     void OnDrawGizmos(){
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, 1f);
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawWireSphere(transform.position, gizmoRadius);
     }
 }
