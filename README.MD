@@ -40,7 +40,7 @@ The branch is where I will test out, clean up, and prototype new level design fe
 14. Health_UI_Player.cs X
 15. player.cs X
 16. Player_Death_Anim.cs X
-17. Player_UI_Death.cs
+17. Player_UI_Death.cs X
 18. Random_Number_Generator.cs
 19. Set_needed_active.cs
 20. Simple_editor_gizmo.cs
