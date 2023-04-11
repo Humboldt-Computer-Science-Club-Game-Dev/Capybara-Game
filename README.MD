@@ -42,6 +42,6 @@ The branch is where I will test out, clean up, and prototype new level design fe
 16. Player_Death_Anim.cs X
 17. Player_UI_Death.cs X
 18. Random_Number_Generator.cs X
-19. Set_needed_active.cs
+19. Set_needed_active.cs X
 20. Simple_editor_gizmo.cs
 21. Wave_System.cs
