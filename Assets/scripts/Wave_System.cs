@@ -8,13 +8,14 @@ public class Wave_System : MonoBehaviour
     public List<GameObject> waves;
     private int currentWave = -1;
     private GameObject envSpace;
-    public int numEnemies;
-    // Start is called before the first frame update
-    
+    int numEnemies;
+    int numWaves;
     void Start()
     {
-        Event_System.onDeath += enemyDeath;
-        int numWaves = transform.childCount;
+        Event_System.onDeath += onDeath;
+
+        //Each wave is a child of the Wave_System object
+        numWaves = transform.childCount;
         for(int i = 0; i < numWaves; i++){
             waves.Add(transform.GetChild(i).gameObject);
             waves[i].SetActive(false);
@@ -23,32 +24,24 @@ public class Wave_System : MonoBehaviour
         spawnNextWave();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void spawnNextWave(){
-        //TODO: Check if there are any more waves to spawn
-        Debug.Log("Current wave: " + currentWave);
-        if((currentWave + 1) >= transform.childCount) {
+        ++currentWave;
+        if(currentWave >= numWaves) {
             Debug.Log("No more waves to spawn");
             return;
         }
-        //IF so, spawn the next wave
-        ++currentWave;
+
         spawnWave(currentWave);
-        //ELSE remove onDeath event 
-        //then show win screen
     }
     void spawnWave(int waveToSpawn){
-        waves[waveToSpawn].SetActive(true);
-        numEnemies = waves[waveToSpawn].transform.childCount;
-        for(int i = 0; i < numEnemies; i++){
-            waves[waveToSpawn].transform.GetChild(0).SetParent(envSpace.transform, true);
-        }
+        GameObject wave = waves[waveToSpawn];
+        wave.SetActive(true);
+        // The number of enemies to spawn is equal to the number of children in the current wave object
+        numEnemies = wave.transform.childCount;
+        for(int i = 0; i < numEnemies; i++) wave.transform.GetChild(0).SetParent(envSpace.transform, true);
     }
-    void enemyDeath(string to){
+    void onDeath(string to){
+        // This function only applies to enemy deaths
         if(!to.Contains("enemy")) return;
         --numEnemies;
         if(numEnemies <= 0) spawnNextWave();

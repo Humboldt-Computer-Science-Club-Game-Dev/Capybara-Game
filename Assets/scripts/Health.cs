@@ -14,10 +14,8 @@ public class Health : MonoBehaviour
     {
         if(isDead()) return;
         health -= damage;
-        if (health < minHealth)
-        {
-            health = minHealth;
-        }
+        if (health < minHealth) health = minHealth;
+        else if(health > maxHealth) health = maxHealth;
     }
     public void heal(int heal)
     {
