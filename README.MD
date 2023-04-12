@@ -18,7 +18,7 @@
 7. Make enemies oscillate. X
 8. Make it so that health packs move to left after they spawn. X
 
-## Clean up TODOs
+## Clean up TODOs:
 
 1. Bullet.cs X
 2. CharacterController2D.cs X
