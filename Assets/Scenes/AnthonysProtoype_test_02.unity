@@ -11924,6 +11924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRotationTimer: 0.2
+  toCenterSpeed: 0.1
+  fallSpeed: 0.1
 --- !u!114 &1736637333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12676,7 +12678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves: []
-  numEnemies: 0
 --- !u!4 &1838961725
 Transform:
   m_ObjectHideFlags: 0
