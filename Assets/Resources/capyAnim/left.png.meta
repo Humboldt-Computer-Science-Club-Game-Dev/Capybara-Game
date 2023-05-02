@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14612edc1ed992b459faf4467834b910
+guid: 95e44dfe5c7a08a43af24fb4da2c05fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cappy left_0
+      name: left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723e07a3067d0f84db4a1a385459d93f
-      internalID: 406788543
+      spriteID: 16ffe4d3649a2484c85c5b03414b4ac1
+      internalID: -1501002413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cappy left_1
+      name: left_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19db8ea87ce0f6b4f8eec7ed152f1d65
-      internalID: -584516120
+      spriteID: c5d650e5b5348214dbe09077e4714776
+      internalID: 582325360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cappy left_2
+      name: left_2
       rect:
         serializedVersion: 2
         x: 0
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fefa944c3a829b4597188cdbddf5427
-      internalID: -46875957
+      spriteID: 718429169819f9f4dbdaedf73be17f69
+      internalID: -1984436376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cappy left_3
+      name: left_3
       rect:
         serializedVersion: 2
         x: 32
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c21b7dc62fc026498ef03f94dd31b7e
-      internalID: -983903597
+      spriteID: 5870d6d93314acb4ab2010f8db4807e6
+      internalID: -749708531
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cappy left_3: -983903597
-      cappy left_2: -46875957
-      cappy left_0: 406788543
-      cappy left_1: -584516120
+      left_1: 582325360
+      left_0: -1501002413
+      left_2: -1984436376
+      left_3: -749708531
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
