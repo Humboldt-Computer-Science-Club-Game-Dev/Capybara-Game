@@ -14,6 +14,7 @@ public class player : MonoBehaviour
     private float bulletCooldownTimer = 0;
     private List<int> shotByIDs;
     private BoxCollider2D boxCollider;
+    private bool isShooting = false;
     
     void Start()
     {
@@ -131,13 +132,19 @@ public class player : MonoBehaviour
         
         // Player must press either of the shoot buttons, the cooldown must be over, and the player must not be dead
         if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey("return")) && bulletCooldownTimer >= bulletCooldown && !playerHealth.isDead()){
+            isShooting = true;
             bulletCooldownTimer = 0;
             gun.shoot();
         }
 
         // Makes it so that the player can shoot as fast as they want so long as they manually click the shoot button
-        if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp("return"))
+        if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp("return")){
             bulletCooldownTimer = bulletCooldown;
-        
+            isShooting = false;
+        }
+    }
+
+    public bool getIsShooting(){
+        return isShooting;
     }
 }

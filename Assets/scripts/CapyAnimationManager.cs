@@ -9,6 +9,7 @@ public class CapyAnimationManager : MonoBehaviour
     Vector3 NewPos; 
     Vector3 ObjVelocity;
     Animator animator;
+    player player;
     string currentAnimation = "idle";
     string[] directions = { "upright", "downright", "upleft", "downleft", "right", "left", "up", "down", "idle" };
     void Start()
@@ -17,6 +18,7 @@ public class CapyAnimationManager : MonoBehaviour
         PrevPos = parent.transform.position;
         NewPos = parent.transform.position;
         animator = GetComponent<Animator>();
+        player = GetComponentInParent<player>();
     }
 
     void FixedUpdate()
@@ -71,7 +73,7 @@ public class CapyAnimationManager : MonoBehaviour
     void handleAnimation(){
         //TODO: Have isShooting be derived from the player or gun script
         string direction = getDirection();
-        bool isShooting = false;
+        bool isShooting = player.getIsShooting();
 
         if(isShooting) setAnimation("shoot" + direction);
         else setAnimation(direction);
