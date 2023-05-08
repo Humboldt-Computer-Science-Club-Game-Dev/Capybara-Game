@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Music_Manager : MonoBehaviour
 {
     private static Music_Manager instance;
     private AudioSource audioSource;
     private Queue<MusicRequest> musicQueue = new Queue<MusicRequest>();
+    private int previousSamplePosition = 0;
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class Music_Manager : MonoBehaviour
             return;
         }
 
-        AudioClip musicClip = Resources.Load<AudioClip>("Music/" + musicName);
+        AudioClip musicClip = Resources.Load<AudioClip>("music/" + musicName);
 
         if (instance.audioSource.isPlaying)
         {
@@ -37,7 +39,7 @@ public class Music_Manager : MonoBehaviour
                 if (musicSettings.transitionPlay)
                 {
                     instance.musicQueue.Enqueue(new MusicRequest(musicClip, musicSettings));
-                    StartCoroutine(instance.TransitionPlay(musicSettings.transitionDuration));
+                    instance.StartCoroutine(instance.TransitionPlay(musicSettings.transitionDuration));
                 }
                 else
                 {
@@ -92,14 +94,14 @@ public class Music_Manager : MonoBehaviour
 
     private void PlayMusicRequest(MusicRequest request)
     {
-        audioSource.clip = request.MusicClip;
-        audioSource.loop = request.MusicSettings.loop;
-        audioSource.volume = request.MusicSettings.volume;
-        audioSource.pitch = request.MusicSettings.pitch;
+        audioSource.clip = request.musicClip;
+        audioSource.loop = request.musicSettings.loop;
+        audioSource.volume = request.musicSettings.volume;
+        audioSource.pitch = request.musicSettings.pitch;
 
-        if (request.MusicSettings.transitionPlay && audioSource.isPlaying)
+        if (request.musicSettings.transitionPlay && audioSource.isPlaying)
         {
-            StartCoroutine(TransitionPlay(request.MusicSettings.transitionDuration));
+            StartCoroutine(TransitionPlay(request.musicSettings.transitionDuration));
         }
         else
         {
@@ -124,14 +126,33 @@ public class Music_Manager : MonoBehaviour
 
     private void Update()
     {
-        if (audioSource.isPlaying || musicQueue.Count == 0) return;
-
-        MusicRequest nextRequest = musicQueue.Dequeue();
-        PlayMusicRequest(nextRequest);
+        manageMusicQueue();
     }
 
-    private struct MusicRequest
-    {
+    void manageMusicQueue(){
+        /* determines weather or not to play the next music in the queue */
+        if(audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0){
+            MusicRequest nextRequest = musicQueue.Dequeue();
+            PlayMusicRequest(nextRequest);
+        }
+        previousSamplePosition = audioSource.timeSamples;
+    }
+
+    
+}
+
+public struct MusicSettings
+{
+    public bool forcePlay;
+    public bool transitionPlay;
+    public float transitionDuration;
+    public bool loop;
+    public float volume;
+    public float pitch;
+}
+
+struct MusicRequest
+{
         public AudioClip musicClip;
         public MusicSettings musicSettings;
 
@@ -140,13 +161,4 @@ public class Music_Manager : MonoBehaviour
             musicClip = clip;
             musicSettings = settings;
         }
-    }
-}
-
-public struct MusicSettings
-{
-    public bool forcePlay;
-    public bool transitionPlay;
-    public float transitionDuration;
-    public bool shouldWaitUntilFinished;
 }
