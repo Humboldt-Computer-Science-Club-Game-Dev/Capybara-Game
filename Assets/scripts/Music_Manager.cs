@@ -56,11 +56,11 @@ public class Music_Manager : MonoBehaviour
                     EnqueueAtBeginning(instance.currentMusic);
                     //Should wait for transition to finish before running next line of code.
                     Debug.Log("Start of transition");
-                    StartCoroutine(TransitionVolume(1, 0, request.musicSettings.transitionDuration));
-                    Debug.Log("Start of transition");
+                    instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration));
+                    Debug.Log("End of transition");
                     
                     instance.currentMusic = newMusic;
-                    PlayMusicRequest(newMusic);
+                    instance.PlayMusicRequest(newMusic);
                 }
                 else
                 {
@@ -147,7 +147,7 @@ public class Music_Manager : MonoBehaviour
         }
     }
 
-    private IEnumerator TransitionVolume(float startVolume, float targetVolume, float transitionTime)
+    private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime)
     {
         // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
         audioSource.volume = startVolume;
