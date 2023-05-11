@@ -10,7 +10,7 @@ using UnityEngine;
     the MusicSettings struct called transitionPlay set to true, when that song approaches
     the end of its duration, that song will transition to volume 0 nad the next song in the
     queue will play at volume 0 and then transition to full volume if that next song has 
-    transitionPlay set.
+    transitionPlay set to true.
 */
 
 public class Music_Manager : MonoBehaviour
@@ -19,6 +19,8 @@ public class Music_Manager : MonoBehaviour
     private AudioSource audioSource;
     private Queue<MusicRequest> musicQueue = new Queue<MusicRequest>();
     private int previousSamplePosition = 0;
+
+    MusicRequest currentMusic;
 
     private void Awake()
     {
@@ -42,6 +44,7 @@ public class Music_Manager : MonoBehaviour
         }
 
         AudioClip musicClip = Resources.Load<AudioClip>("music/" + musicName);
+        MusicRequest newMusic = new (musicClip, musicSettings);
 
         if (instance.audioSource.isPlaying)
         {
@@ -50,12 +53,18 @@ public class Music_Manager : MonoBehaviour
                 if (musicSettings.transitionPlay)
                 {
                     // Dose not work.
-                    EnqueueAtBeginning(new MusicRequest(musicClip, musicSettings));
-                    instance.musicQueue.Enqueue(new MusicRequest(musicClip, musicSettings));
-                    instance.StartCoroutine(instance.TransitionPlay(musicSettings.transitionDuration));
+                    EnqueueAtBeginning(instance.currentMusic);
+                    //Should wait for transition to finish before running next line of code.
+                    Debug.Log("Start of transition");
+                    StartCoroutine(TransitionVolume(1, 0, request.musicSettings.transitionDuration));
+                    Debug.Log("Start of transition");
+                    
+                    instance.currentMusic = newMusic;
+                    PlayMusicRequest(newMusic);
                 }
                 else
                 {
+                    instance.currentMusic = newMusic;
                     instance.audioSource.clip = musicClip;
                     instance.audioSource.Play();
                 }
@@ -107,6 +116,7 @@ public class Music_Manager : MonoBehaviour
         // Replace the original queue with the temporary queue
         instance.musicQueue = tempQueue;
     }
+    
 
     public static void ClearQueue()
     {
@@ -126,9 +136,10 @@ public class Music_Manager : MonoBehaviour
         audioSource.volume = request.musicSettings.volume;
         audioSource.pitch = request.musicSettings.pitch;
 
-        if (request.musicSettings.transitionPlay && audioSource.isPlaying)
+        if (request.musicSettings.transitionPlay)
         {
-            StartCoroutine(TransitionPlay(request.musicSettings.transitionDuration));
+            if(!audioSource.isPlaying) audioSource.Play();
+            StartCoroutine(TransitionVolume(0, 1, request.musicSettings.transitionDuration));
         }
         else
         {
@@ -136,19 +147,22 @@ public class Music_Manager : MonoBehaviour
         }
     }
 
-    private IEnumerator<WaitForSeconds> TransitionPlay(float transitionDuration)
+    private IEnumerator TransitionVolume(float startVolume, float targetVolume, float transitionTime)
     {
-        float t = 0;
+        // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
+        audioSource.volume = startVolume;
+        float elapsedTime = 0f;
 
-        while (t < transitionDuration)
+        while (elapsedTime < transitionTime)
         {
-            t += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0, audioSource.volume, t / transitionDuration);
-            yield return new WaitForSeconds(Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, elapsedTime / transitionTime);
+            yield return null; // Wait for the next frame to continue the loop.
         }
 
-        audioSource.volume = 1;
-        audioSource.Play();
+        audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
+
+        // The coroutine is complete, and the next line of code after calling this coroutine will now execute.
     }
 
     private void Update()
