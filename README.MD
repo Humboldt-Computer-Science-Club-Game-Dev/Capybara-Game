@@ -1,5 +1,9 @@
 # Capy Game
 
+## Music_Manager Test TODOS:
+
+1. The first song play after the second when two songs are played in sequential lines of code.
+
 ## Wave System TODOS:
 
 1. Spawn enemy wave from game object children. X

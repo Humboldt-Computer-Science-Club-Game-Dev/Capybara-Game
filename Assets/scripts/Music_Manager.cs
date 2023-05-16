@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /* 
     Music transition system, when a force play transition is played, 
@@ -19,6 +20,7 @@ public class Music_Manager : MonoBehaviour
     private AudioSource audioSource;
     private Queue<MusicRequest> musicQueue = new Queue<MusicRequest>();
     private int previousSamplePosition = 0;
+    bool transitioning = false;
 
     MusicRequest currentMusic;
 
@@ -56,11 +58,14 @@ public class Music_Manager : MonoBehaviour
                     EnqueueAtBeginning(instance.currentMusic);
                     //Should wait for transition to finish before running next line of code.
                     Debug.Log("Start of transition");
-                    instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration));
-                    Debug.Log("End of transition");
+                    instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () => {
+                        Debug.Log("Callback");
+                        instance.currentMusic = newMusic;
+                        instance.PlayMusicRequest(newMusic);
+                    }));
                     
-                    instance.currentMusic = newMusic;
-                    instance.PlayMusicRequest(newMusic);
+                    
+                    
                 }
                 else
                 {
@@ -131,6 +136,7 @@ public class Music_Manager : MonoBehaviour
 
     private void PlayMusicRequest(MusicRequest request)
     {
+        Debug.Log("Playing Music Request");
         audioSource.clip = request.musicClip;
         audioSource.loop = request.musicSettings.loop;
         audioSource.volume = request.musicSettings.volume;
@@ -147,8 +153,11 @@ public class Music_Manager : MonoBehaviour
         }
     }
 
-    private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime)
+    private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime, Action done = null)
     {
+        if(instance.transitioning) yield return null;
+        instance.transitioning = true;
+
         // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
         audioSource.volume = startVolume;
         float elapsedTime = 0f;
@@ -160,9 +169,12 @@ public class Music_Manager : MonoBehaviour
             yield return null; // Wait for the next frame to continue the loop.
         }
 
+        Debug.Log("End of transition");
+
         audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
 
-        // The coroutine is complete, and the next line of code after calling this coroutine will now execute.
+        instance.transitioning = false;
+        done?.Invoke();
     }
 
     private void Update()
@@ -172,7 +184,8 @@ public class Music_Manager : MonoBehaviour
 
     void manageMusicQueue(){
         /* determines weather or not to play the next music in the queue */
-        if((audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0) || (!audioSource.isPlaying && musicQueue.Count > 0)){
+        //TODO: Make this if statement, barible
+        if(((audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0) || (!audioSource.isPlaying && musicQueue.Count > 0)) && !instance.transitioning){
             Debug.Log("Music_Manager: playing next music in queue.");
             MusicRequest nextRequest = musicQueue.Dequeue();
             PlayMusicRequest(nextRequest);
