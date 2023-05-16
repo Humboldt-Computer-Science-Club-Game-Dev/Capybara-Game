@@ -2,7 +2,17 @@
 
 ## Music_Manager Test TODOS:
 
-1. The first song play after the second when two songs are played in sequential lines of code.
+1. **Sequential Play Test:** Verify that when two songs are triggered sequentially, the second song starts playing after the first one ends.
+
+2. **Transition Effect Test:** Ensure that songs with the transitionPlay property set to true transition from volume 0 to the desired volume over the specified transitionDuration. Moreover, when there's a duration equal to or less than transitionDuration left in the song, the song should smoothly transition to volume 0.
+
+3. **Sequential Transition Test:** When two songs are triggered sequentially and the second song has the transitionPlay property set to true, ensure that the second song transitions in after the first one. Also, the second song should transition out at the end. The first song should play normally without any volume transitions if transitionPlay is not set to true.
+
+4. **Single Song Transition Test:** When a song has the transitionPlay property set to true, it should transition from volume 0 to the desired volume at the beginning. As the song nears the end, it should transition from the current volume to 0.
+
+5. **Force Play Test:** When forcePlay is enabled, the currently playing song should be placed next in the queue. The new song should start playing immediately.
+
+6. **Force and Transition Play Test:** When both forcePlay and transitionPlay are enabled, the currently playing song should smoothly transition to volume 0 over the duration of transitionDuration or the remaining duration of the song, whichever is shorter. The song should also be moved to the front of the queue. The new song that gets played should transition from volume 0 to the desired volume.
 
 ## Wave System TODOS:
 
