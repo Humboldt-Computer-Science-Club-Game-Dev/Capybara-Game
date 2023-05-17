@@ -17,25 +17,26 @@ public class Music_Manager_Tester : MonoBehaviour
         musicSettings.loop = true;
         musicSettings.volume = 1;
         musicSettings.pitch = 1;
-        
-        
+
+
 
         Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
         /* Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
 
         Music_Manager.PlayMusic("The_geese_kind_3", musicSettings); */
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > maxTime && !played){
+        if (timer > maxTime && !played)
+        {
             MusicSettings musicSettings2 = new MusicSettings();
             musicSettings2.forcePlay = true;
             musicSettings2.transitionPlay = true;
-            musicSettings2.transitionDuration = 2f;
+            musicSettings2.transitionDuration = 10f;
             musicSettings2.loop = true;
             musicSettings2.volume = 1;
             musicSettings2.pitch = 1;

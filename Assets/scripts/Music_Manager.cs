@@ -20,7 +20,11 @@ public class Music_Manager : MonoBehaviour
     private AudioSource audioSource;
     private Queue<MusicRequest> musicQueue = new Queue<MusicRequest>();
     private int previousSamplePosition = 0;
-    bool transitioning = false;
+
+    //TODO: Make private when finished debugging
+    public bool transitioning = false;
+
+    bool overFlowTransition = false;
 
     MusicRequest currentMusic;
 
@@ -46,7 +50,7 @@ public class Music_Manager : MonoBehaviour
         }
 
         AudioClip musicClip = Resources.Load<AudioClip>("music/" + musicName);
-        MusicRequest newMusic = new (musicClip, musicSettings);
+        MusicRequest newMusic = new(musicClip, musicSettings);
 
         if (instance.audioSource.isPlaying)
         {
@@ -54,18 +58,19 @@ public class Music_Manager : MonoBehaviour
             {
                 if (musicSettings.transitionPlay)
                 {
-                    // Dose not work.
                     EnqueueAtBeginning(instance.currentMusic);
-                    //Should wait for transition to finish before running next line of code.
-                    Debug.Log("Start of transition");
-                    instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () => {
-                        Debug.Log("Callback");
+                    foreach (MusicRequest musicRequest in instance.musicQueue)
+                    {
+                        Debug.Log(musicRequest);
+                    }
+                    instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () =>
+                    {
                         instance.currentMusic = newMusic;
                         instance.PlayMusicRequest(newMusic);
                     }));
-                    
-                    
-                    
+
+
+
                 }
                 else
                 {
@@ -76,13 +81,14 @@ public class Music_Manager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Music_Manager: " + musicName + " added to queue.");
-                instance.musicQueue.Enqueue(new MusicRequest(musicClip, musicSettings));
+                instance.musicQueue.Enqueue(newMusic);
+                instance.currentMusic = newMusic;
             }
         }
         else
         {
-            instance.PlayMusicRequest(new MusicRequest(musicClip, musicSettings));
+            instance.PlayMusicRequest(newMusic);
+            instance.currentMusic = newMusic;
         }
     }
 
@@ -90,7 +96,6 @@ public class Music_Manager : MonoBehaviour
     {
         if (instance == null)
         {
-            Debug.LogWarning("Music_Manager instance not found in the scene.");
             return;
         }
 
@@ -101,14 +106,13 @@ public class Music_Manager : MonoBehaviour
     {
         if (instance == null)
         {
-            Debug.LogWarning("Music_Manager instance not found in the scene.");
             return;
         }
 
         instance.audioSource.Stop();
     }
 
-     static void EnqueueAtBeginning(MusicRequest value)
+    static void EnqueueAtBeginning(MusicRequest value)
     {
         // Create a temporary queue and add the new value
         Queue<MusicRequest> tempQueue = new Queue<MusicRequest>();
@@ -121,13 +125,12 @@ public class Music_Manager : MonoBehaviour
         // Replace the original queue with the temporary queue
         instance.musicQueue = tempQueue;
     }
-    
+
 
     public static void ClearQueue()
     {
         if (instance == null)
         {
-            Debug.LogWarning("Music_Manager instance not found in the scene.");
             return;
         }
 
@@ -136,7 +139,6 @@ public class Music_Manager : MonoBehaviour
 
     private void PlayMusicRequest(MusicRequest request)
     {
-        Debug.Log("Playing Music Request");
         audioSource.clip = request.musicClip;
         audioSource.loop = request.musicSettings.loop;
         audioSource.volume = request.musicSettings.volume;
@@ -144,7 +146,7 @@ public class Music_Manager : MonoBehaviour
 
         if (request.musicSettings.transitionPlay)
         {
-            if(!audioSource.isPlaying) audioSource.Play();
+            if (!audioSource.isPlaying) audioSource.Play();
             StartCoroutine(TransitionVolume(0, 1, request.musicSettings.transitionDuration));
         }
         else
@@ -155,10 +157,16 @@ public class Music_Manager : MonoBehaviour
 
     private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime, Action done = null)
     {
-        if(instance.transitioning) yield return null;
+        if (instance.transitioning) yield return null;
         instance.transitioning = true;
 
         // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
+        if (instance.audioSource.clip.length - instance.audioSource.time < transitionTime)
+        {
+            instance.overFlowTransition = true;
+            /* transitionTime = instance.audioSource.clip.length - instance.audioSource.time; */
+        }
+
         audioSource.volume = startVolume;
         float elapsedTime = 0f;
 
@@ -169,31 +177,82 @@ public class Music_Manager : MonoBehaviour
             yield return null; // Wait for the next frame to continue the loop.
         }
 
-        Debug.Log("End of transition");
-
         audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
 
+        Debug.Log(" instance.transitioning = false;");
         instance.transitioning = false;
         done?.Invoke();
     }
 
-    private void Update()
+    /* 
+        Determines weather or not the current music clip should 
+        and is ready to transition to volume 0. 
+    */
+    private bool IsTransitionReady()
     {
-        manageMusicQueue();
+        bool isTransitionPlay = instance.currentMusic.musicSettings.transitionPlay;
+        bool isDurationReady = instance.audioSource.clip.length - instance.audioSource.time < currentMusic.musicSettings.transitionDuration;
+        bool isLoopConditionMet = !instance.currentMusic.musicSettings.loop || (instance.currentMusic.musicSettings.loop && instance.musicQueue.Count > 0);
+
+
+        /* 
+            Potential bug. It should not be necessary that a check for !instance.overFlowTransition is made. It should
+            be discoverd why its necessary to check if the current music clip has overflown its transition time because
+            !instance.transitioning should be enough to check if the current music clip is still transitioning.
+
+            Possible reason. instance.transitioning gets set to false when the current music clip is done transitioning. but one of these
+            other conditions is still true. This makes it so the transition starts again when the current music clip is done transitioning.
+            !instance.overFlowTransition is set to true when the transition starts and is set to false when the transition is done. This makes
+            explains why it is needed to make this work. To fix this, I should analyze my code and see if can find out why the other conditions are still
+            true when the current music clip is done transitioning. In fact, isDurationReady may be what is causing the problem. It may be that the
+            current music clip is done transitioning but isDurationReady is still true. This makes it so that the transition starts again when the current
+            music clip is done transitioning. Because of this, the best solution will likely be to rename overFlowTransition to refelect the other
+            job it dose.
+        */
+        return isTransitionPlay && isDurationReady && !instance.transitioning && isLoopConditionMet /*  && !instance.overFlowTransition */;
     }
 
-    void manageMusicQueue(){
-        /* determines weather or not to play the next music in the queue */
-        //TODO: Make this if statement, barible
-        if(((audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0) || (!audioSource.isPlaying && musicQueue.Count > 0)) && !instance.transitioning){
-            Debug.Log("Music_Manager: playing next music in queue.");
+    private bool IsMusicReady()
+    {
+        bool hasMusicStopped = !audioSource.isPlaying && musicQueue.Count > 0;
+
+        //True when music has looped and there is other music in the queue
+        bool hasMusicLooped = audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0;
+
+        return (hasMusicStopped || hasMusicLooped || instance.overFlowTransition) && !instance.transitioning;
+    }
+
+    private void Update()
+    {
+        CheckMusicState();
+    }
+
+    public void CheckMusicState()
+    {
+        if (IsTransitionReady())
+        {
+            /* 
+                Theory for bug. 
+                Sometimes the transitionDuration is greater than the time remaining in the current music clip. 
+                This makes it so that the instance transition property stays true during the short window where 
+                the loop detection is true. This makes it so that the next song is not played when the 
+                transition is finished. 
+            */
+            Debug.Log("Exit transition");
+            StartCoroutine(TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration));
+        }
+
+        if (IsMusicReady())
+        {
+            instance.overFlowTransition = false;
             MusicRequest nextRequest = musicQueue.Dequeue();
             PlayMusicRequest(nextRequest);
         }
+
         previousSamplePosition = audioSource.timeSamples;
     }
 
-    
+
 }
 
 public struct MusicSettings
@@ -204,16 +263,26 @@ public struct MusicSettings
     public bool loop;
     public float volume;
     public float pitch;
+
+    public override string ToString()
+    {
+        return "MusicSettings: " + forcePlay + " " + transitionPlay + " " + transitionDuration + " " + loop + " " + volume + " " + pitch;
+    }
 }
 
 struct MusicRequest
 {
-        public AudioClip musicClip;
-        public MusicSettings musicSettings;
+    public AudioClip musicClip;
+    public MusicSettings musicSettings;
 
-        public MusicRequest(AudioClip clip, MusicSettings settings)
-        {
-            musicClip = clip;
-            musicSettings = settings;
-        }
+    public MusicRequest(AudioClip clip, MusicSettings settings)
+    {
+        musicClip = clip;
+        musicSettings = settings;
+    }
+
+    public override string ToString()
+    {
+        return "MusicRequest: " + this.musicClip + " " + this.musicSettings;
+    }
 }
