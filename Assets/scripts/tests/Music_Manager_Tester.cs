@@ -57,7 +57,7 @@ public class Music_Manager_Tester : MonoBehaviour
         {
             MusicSettings musicSettings2 = new MusicSettings();
             musicSettings2.forcePlay = true;
-            musicSettings2.transitionPlay = false;
+            musicSettings2.transitionPlay = true;
             musicSettings2.transitionDuration = 2f;
             musicSettings2.loop = true;
             musicSettings2.volume = 1;

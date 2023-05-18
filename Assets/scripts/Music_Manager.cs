@@ -48,6 +48,7 @@ public class Music_Manager : MonoBehaviour
 
     public static void PlayMusic(string musicName, MusicSettings musicSettings)
     {
+        Debug.Log("Playing: " + musicName + " " + musicSettings);
         if (instance == null)
         {
             Debug.LogWarning("Music_Manager instance not found in the scene.");
@@ -62,11 +63,12 @@ public class Music_Manager : MonoBehaviour
             if (musicSettings.clearQueue)
             {
                 if (!musicSettings.forcePlay) Debug.LogWarning("When clearQueue is true in settings object, the music will always be force played");
-                instance.ClearQueue();
-                immediateChangeMusic(newMusic);
+                instance.immediateChangeMusic(newMusic);
+                ClearQueue();
+
             }
             else if (musicSettings.forcePlay)
-                immediateChangeMusic(newMusic);
+                instance.immediateChangeMusic(newMusic);
             else
                 instance.musicQueue.Enqueue(newMusic);
         }
@@ -79,7 +81,7 @@ public class Music_Manager : MonoBehaviour
 
     void immediateChangeMusic(MusicRequest newMusic)
     {
-        MusicSettings = newMusic.musicSettings;
+        MusicSettings musicSettings = newMusic.musicSettings;
         if (musicSettings.transitionPlay)
             instance.forceTransitionPlay(newMusic);
         else
@@ -162,8 +164,9 @@ public class Music_Manager : MonoBehaviour
     public static void ClearQueue()
     {
         if (instance == null) return;
-
+        Debug.Log("Clearing Queue");
         instance.musicQueue.Clear();
+        Debug.Log(instance.musicQueue.Count);
     }
 
     private void PlayMusicRequest(MusicRequest request)
@@ -260,17 +263,20 @@ public class Music_Manager : MonoBehaviour
         //True when music has looped and there is other music in the queue
         bool hasMusicLooped = audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0 && (instance.currentMusic.ToString() == instance.lastFramesCurrentMusic.ToString());
 
+
         bool transitionReady = !instance.transitioning && !instance.halted;
 
         if ((hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && transitionReady)
         {
             Debug.Log("hasMusicStopped: " + hasMusicStopped + " hasMusicLooped: " + hasMusicLooped + " instance.overFlowTransitioning: " + instance.overFlowTransitioning + " transitionReady: " + transitionReady);
+            Debug.Log(musicQueue.Count);
         }
         return (hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && transitionReady;
     }
 
     private void Update()
     {
+        Debug.Log("Music Queue Count: " + musicQueue.Count);
         CheckMusicState();
     }
 
