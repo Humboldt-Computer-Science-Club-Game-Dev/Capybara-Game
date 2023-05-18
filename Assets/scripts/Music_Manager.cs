@@ -24,7 +24,9 @@ public class Music_Manager : MonoBehaviour
     //TODO: Make private when finished debugging
     public bool transitioning = false;
 
-    bool overFlowTransition = false;
+    bool overFlowTransitioning = false;
+
+    bool isFocused = true;
 
     MusicRequest currentMusic;
 
@@ -59,21 +61,15 @@ public class Music_Manager : MonoBehaviour
                 if (musicSettings.transitionPlay)
                 {
                     EnqueueAtBeginning(instance.currentMusic);
-                    foreach (MusicRequest musicRequest in instance.musicQueue)
-                    {
-                        Debug.Log(musicRequest);
-                    }
                     instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () =>
                     {
                         instance.currentMusic = newMusic;
                         instance.PlayMusicRequest(newMusic);
                     }));
-
-
-
                 }
                 else
                 {
+                    EnqueueAtBeginning(instance.currentMusic);
                     instance.currentMusic = newMusic;
                     instance.audioSource.clip = musicClip;
                     instance.audioSource.Play();
@@ -82,7 +78,7 @@ public class Music_Manager : MonoBehaviour
             else
             {
                 instance.musicQueue.Enqueue(newMusic);
-                instance.currentMusic = newMusic;
+
             }
         }
         else
@@ -163,7 +159,7 @@ public class Music_Manager : MonoBehaviour
         // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
         if (instance.audioSource.clip.length - instance.audioSource.time < transitionTime)
         {
-            instance.overFlowTransition = true;
+            instance.overFlowTransitioning = true;
             /* transitionTime = instance.audioSource.clip.length - instance.audioSource.time; */
         }
 
@@ -179,7 +175,6 @@ public class Music_Manager : MonoBehaviour
 
         audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
 
-        Debug.Log(" instance.transitioning = false;");
         instance.transitioning = false;
         done?.Invoke();
     }
@@ -196,30 +191,30 @@ public class Music_Manager : MonoBehaviour
 
 
         /* 
-            Potential bug. It should not be necessary that a check for !instance.overFlowTransition is made. It should
+            Potential bug. It should not be necessary that a check for !instance.overFlowTransitioning is made. It should
             be discoverd why its necessary to check if the current music clip has overflown its transition time because
             !instance.transitioning should be enough to check if the current music clip is still transitioning.
 
             Possible reason. instance.transitioning gets set to false when the current music clip is done transitioning. but one of these
             other conditions is still true. This makes it so the transition starts again when the current music clip is done transitioning.
-            !instance.overFlowTransition is set to true when the transition starts and is set to false when the transition is done. This makes
+            !instance.overFlowTransitioning is set to true when the transition starts and is set to false when the transition is done. This makes
             explains why it is needed to make this work. To fix this, I should analyze my code and see if can find out why the other conditions are still
             true when the current music clip is done transitioning. In fact, isDurationReady may be what is causing the problem. It may be that the
             current music clip is done transitioning but isDurationReady is still true. This makes it so that the transition starts again when the current
-            music clip is done transitioning. Because of this, the best solution will likely be to rename overFlowTransition to refelect the other
+            music clip is done transitioning. Because of this, the best solution will likely be to rename overFlowTransitioning to refelect the other
             job it dose.
         */
-        return isTransitionPlay && isDurationReady && !instance.transitioning && isLoopConditionMet /*  && !instance.overFlowTransition */;
+        return isTransitionPlay && isDurationReady && isLoopConditionMet && !instance.overFlowTransitioning && !instance.transitioning;
     }
 
     private bool IsMusicReady()
     {
-        bool hasMusicStopped = !audioSource.isPlaying && musicQueue.Count > 0;
+        bool hasMusicStopped = !audioSource.isPlaying && instance.isFocused && musicQueue.Count > 0;
 
         //True when music has looped and there is other music in the queue
         bool hasMusicLooped = audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0;
 
-        return (hasMusicStopped || hasMusicLooped || instance.overFlowTransition) && !instance.transitioning;
+        return (hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && !instance.transitioning;
     }
 
     private void Update()
@@ -238,21 +233,25 @@ public class Music_Manager : MonoBehaviour
                 the loop detection is true. This makes it so that the next song is not played when the 
                 transition is finished. 
             */
-            Debug.Log("Exit transition");
             StartCoroutine(TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration));
         }
 
         if (IsMusicReady())
         {
-            instance.overFlowTransition = false;
+            Debug.Log("Playing next");
+            instance.overFlowTransitioning = false;
             MusicRequest nextRequest = musicQueue.Dequeue();
             PlayMusicRequest(nextRequest);
+            instance.currentMusic = nextRequest;
         }
 
         previousSamplePosition = audioSource.timeSamples;
     }
 
-
+    void OnApplicationFocus(bool hasFocus)
+    {
+        instance.isFocused = hasFocus;
+    }
 }
 
 public struct MusicSettings

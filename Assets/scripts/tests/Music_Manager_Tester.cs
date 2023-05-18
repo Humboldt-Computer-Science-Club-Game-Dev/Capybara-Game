@@ -5,7 +5,7 @@ using UnityEngine;
 public class Music_Manager_Tester : MonoBehaviour
 {
     float timer = 0;
-    float maxTime = 5;
+    float maxTime = 0.00f;
     bool played = false;
     // Start is called before the first frame update
     void Start()
@@ -13,17 +13,33 @@ public class Music_Manager_Tester : MonoBehaviour
         MusicSettings musicSettings = new MusicSettings();
         musicSettings.forcePlay = false;
         musicSettings.transitionPlay = false;
-        musicSettings.transitionDuration = 0;
-        musicSettings.loop = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = false;
         musicSettings.volume = 1;
         musicSettings.pitch = 1;
 
+        /* 
+            It is required that you create a Music Settings object when you want to change the settings. 
+        */
+        MusicSettings musicSettings2 = new MusicSettings();
+        musicSettings2.forcePlay = false;
+        musicSettings2.transitionPlay = true;
+        musicSettings2.transitionDuration = 3f;
+        musicSettings2.loop = false;
+        musicSettings2.volume = 1;
+        musicSettings2.pitch = 1;
 
 
         Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
-        /* Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
 
-        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings); */
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings2);
+        Music_Manager.PlayMusic("cappy_defense_force_1", musicSettings2);
+
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
 
     }
 
@@ -36,7 +52,7 @@ public class Music_Manager_Tester : MonoBehaviour
             MusicSettings musicSettings2 = new MusicSettings();
             musicSettings2.forcePlay = true;
             musicSettings2.transitionPlay = true;
-            musicSettings2.transitionDuration = 10f;
+            musicSettings2.transitionDuration = 2f;
             musicSettings2.loop = true;
             musicSettings2.volume = 1;
             musicSettings2.pitch = 1;
