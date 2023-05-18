@@ -61,6 +61,7 @@ public class Music_Manager_Tester : MonoBehaviour
             musicSettings2.transitionDuration = 2f;
             musicSettings2.loop = true;
             musicSettings2.volume = 1;
+            musicSettings2.clearQueue = true;
             musicSettings2.pitch = 1;
             Music_Manager.PlayMusic("The_geese_kind_1", musicSettings2);
             /* Music_Manager.PauseMusic(); */

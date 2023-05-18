@@ -59,22 +59,16 @@ public class Music_Manager : MonoBehaviour
 
         if (instance.audioSource.isPlaying)
         {
-            if (musicSettings.forcePlay)
+            if (musicSettings.clearQueue)
             {
-                if (musicSettings.transitionPlay)
-                {
-                    instance.forceTransitionPlay(newMusic);
-                }
-                else
-                {
-                    instance.forcePlay(newMusic);
-                }
+                if (!musicSettings.forcePlay) Debug.LogWarning("When clearQueue is true in settings object, the music will always be force played");
+                instance.ClearQueue();
+                immediateChangeMusic(newMusic);
             }
+            else if (musicSettings.forcePlay)
+                immediateChangeMusic(newMusic);
             else
-            {
                 instance.musicQueue.Enqueue(newMusic);
-
-            }
         }
         else
         {
@@ -83,6 +77,14 @@ public class Music_Manager : MonoBehaviour
         }
     }
 
+    void immediateChangeMusic(MusicRequest newMusic)
+    {
+        MusicSettings = newMusic.musicSettings;
+        if (musicSettings.transitionPlay)
+            instance.forceTransitionPlay(newMusic);
+        else
+            instance.forcePlay(newMusic);
+    }
     void forcePlay(MusicRequest newMusic)
     {
         Debug.Log("Force Playing");
