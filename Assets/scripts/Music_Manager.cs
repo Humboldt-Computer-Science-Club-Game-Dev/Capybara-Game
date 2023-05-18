@@ -20,9 +20,12 @@ public class Music_Manager : MonoBehaviour
     private AudioSource audioSource;
     private Queue<MusicRequest> musicQueue = new Queue<MusicRequest>();
     private int previousSamplePosition = 0;
+    MusicRequest lastFramesCurrentMusic;
 
     //TODO: Make private when finished debugging
     public bool transitioning = false;
+
+    public bool halted = false;
 
     bool overFlowTransitioning = false;
 
@@ -60,19 +63,11 @@ public class Music_Manager : MonoBehaviour
             {
                 if (musicSettings.transitionPlay)
                 {
-                    EnqueueAtBeginning(instance.currentMusic);
-                    instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () =>
-                    {
-                        instance.currentMusic = newMusic;
-                        instance.PlayMusicRequest(newMusic);
-                    }));
+                    instance.forceTransitionPlay(newMusic);
                 }
                 else
                 {
-                    EnqueueAtBeginning(instance.currentMusic);
-                    instance.currentMusic = newMusic;
-                    instance.audioSource.clip = musicClip;
-                    instance.audioSource.Play();
+                    instance.forcePlay(newMusic);
                 }
             }
             else
@@ -88,24 +83,63 @@ public class Music_Manager : MonoBehaviour
         }
     }
 
+    void forcePlay(MusicRequest newMusic)
+    {
+        Debug.Log("Force Playing");
+        /* #if UNITY_EDITOR
+                    EditorApplication.isPaused = true;
+        #endif */
+        EnqueueAtBeginning(instance.currentMusic);
+        instance.currentMusic = newMusic;
+        instance.audioSource.clip = newMusic.musicClip;
+        instance.audioSource.Play();
+    }
+    void forceTransitionPlay(MusicRequest newMusic)
+    {
+        MusicSettings musicSettings = newMusic.musicSettings;
+        EnqueueAtBeginning(instance.currentMusic);
+        instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () =>
+        {
+            instance.currentMusic = newMusic;
+            instance.PlayMusicRequest(newMusic);
+        }));
+    }
+    public static void ResumeMusic()
+    {
+        if (instance == null) return;
+        instance.audioSource.Play();
+        instance.halted = false;
+        if (instance.currentMusic.musicSettings.pauseTransitions)
+            instance.StartCoroutine(instance.TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration));
+
+    }
     public static void PauseMusic()
     {
-        if (instance == null)
-        {
-            return;
-        }
-
-        instance.audioSource.Pause();
+        if (instance == null) return;
+        instance.halted = true;
+        if (instance.currentMusic.musicSettings.pauseTransitions)
+            instance.StartCoroutine(instance.TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration, () =>
+            {
+                instance.audioSource.Pause();
+            }));
+        else
+            instance.audioSource.Pause();
     }
 
     public static void StopMusic()
     {
-        if (instance == null)
-        {
-            return;
-        }
+        if (instance == null) return;
 
-        instance.audioSource.Stop();
+        instance.halted = true;
+
+        if (instance.currentMusic.musicSettings.pauseTransitions)
+            instance.StartCoroutine(instance.TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration, () =>
+            {
+                instance.audioSource.Stop();
+            }));
+        else
+            instance.audioSource.Stop();
+
     }
 
     static void EnqueueAtBeginning(MusicRequest value)
@@ -125,10 +159,7 @@ public class Music_Manager : MonoBehaviour
 
     public static void ClearQueue()
     {
-        if (instance == null)
-        {
-            return;
-        }
+        if (instance == null) return;
 
         instance.musicQueue.Clear();
     }
@@ -149,6 +180,19 @@ public class Music_Manager : MonoBehaviour
         {
             audioSource.Play();
         }
+    }
+
+    private IEnumerator<WaitForSeconds> waitAFrame(Action done = null)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 1)
+        {
+            elapsedTime += 1;
+            yield return null;
+        }
+
+        done?.Invoke();
     }
 
     private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime, Action done = null)
@@ -212,9 +256,15 @@ public class Music_Manager : MonoBehaviour
         bool hasMusicStopped = !audioSource.isPlaying && instance.isFocused && musicQueue.Count > 0;
 
         //True when music has looped and there is other music in the queue
-        bool hasMusicLooped = audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0;
+        bool hasMusicLooped = audioSource.isPlaying && audioSource.timeSamples < previousSamplePosition && musicQueue.Count > 0 && (instance.currentMusic.ToString() == instance.lastFramesCurrentMusic.ToString());
 
-        return (hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && !instance.transitioning;
+        bool transitionReady = !instance.transitioning && !instance.halted;
+
+        if ((hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && transitionReady)
+        {
+            Debug.Log("hasMusicStopped: " + hasMusicStopped + " hasMusicLooped: " + hasMusicLooped + " instance.overFlowTransitioning: " + instance.overFlowTransitioning + " transitionReady: " + transitionReady);
+        }
+        return (hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && transitionReady;
     }
 
     private void Update()
@@ -246,6 +296,7 @@ public class Music_Manager : MonoBehaviour
         }
 
         previousSamplePosition = audioSource.timeSamples;
+        lastFramesCurrentMusic = instance.currentMusic;
     }
 
     void OnApplicationFocus(bool hasFocus)
@@ -257,7 +308,9 @@ public class Music_Manager : MonoBehaviour
 public struct MusicSettings
 {
     public bool forcePlay;
+    public bool clearQueue;
     public bool transitionPlay;
+    public bool pauseTransitions;
     public float transitionDuration;
     public bool loop;
     public float volume;

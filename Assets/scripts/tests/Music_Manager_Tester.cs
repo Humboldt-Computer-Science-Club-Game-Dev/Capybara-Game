@@ -5,16 +5,21 @@ using UnityEngine;
 public class Music_Manager_Tester : MonoBehaviour
 {
     float timer = 0;
-    float maxTime = 0.00f;
+    float maxTime = 4f;
     bool played = false;
-    // Start is called before the first frame update
+
+
+    float timer2 = 0;
+    float maxTime2 = 5f;
+    bool played2 = false;
     void Start()
     {
         MusicSettings musicSettings = new MusicSettings();
         musicSettings.forcePlay = false;
         musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = false;
         musicSettings.transitionDuration = 3f;
-        musicSettings.loop = false;
+        musicSettings.loop = true;
         musicSettings.volume = 1;
         musicSettings.pitch = 1;
 
@@ -23,6 +28,7 @@ public class Music_Manager_Tester : MonoBehaviour
         */
         MusicSettings musicSettings2 = new MusicSettings();
         musicSettings2.forcePlay = false;
+        musicSettings2.pauseTransitions = true;
         musicSettings2.transitionPlay = true;
         musicSettings2.transitionDuration = 3f;
         musicSettings2.loop = false;
@@ -51,13 +57,32 @@ public class Music_Manager_Tester : MonoBehaviour
         {
             MusicSettings musicSettings2 = new MusicSettings();
             musicSettings2.forcePlay = true;
-            musicSettings2.transitionPlay = true;
+            musicSettings2.transitionPlay = false;
             musicSettings2.transitionDuration = 2f;
             musicSettings2.loop = true;
             musicSettings2.volume = 1;
             musicSettings2.pitch = 1;
             Music_Manager.PlayMusic("The_geese_kind_1", musicSettings2);
+            /* Music_Manager.PauseMusic(); */
+            /* Music_Manager.ClearQueue(); */
             played = true;
+            Debug.Log("Inner Action");
+        }
+
+        if (played) timer2 += Time.deltaTime;
+        if (timer2 > maxTime2 && !played2)
+        {
+            MusicSettings musicSettings = new MusicSettings();
+            musicSettings.forcePlay = true;
+            musicSettings.transitionPlay = true;
+            musicSettings.transitionDuration = 2f;
+            musicSettings.loop = true;
+            musicSettings.volume = 1;
+            musicSettings.pitch = 1;
+            /* Music_Manager.PlayMusic("The_geese_kind_1", musicSettings2); */
+            /* Music_Manager.ResumeMusic(); */
+            played2 = true;
+            Debug.Log("Inner Action 2");
         }
     }
 }
