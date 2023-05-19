@@ -30,6 +30,7 @@ public class Music_Manager : MonoBehaviour
     bool overFlowTransitioning = false;
 
     bool isFocused = true;
+    public bool forceTransitioning = false;
 
     MusicRequest currentMusic;
 
@@ -93,7 +94,10 @@ public class Music_Manager : MonoBehaviour
         /* #if UNITY_EDITOR
                     EditorApplication.isPaused = true;
         #endif */
-        EnqueueAtBeginning(instance.currentMusic);
+        if (!instance.transitioning)
+            EnqueueAtBeginning(instance.currentMusic);
+        else Debug.Log("Aborted enqueue at beginning");
+        instance.forceTransitioning = true;
         instance.currentMusic = newMusic;
         instance.audioSource.clip = newMusic.musicClip;
         instance.audioSource.Play();
@@ -101,7 +105,10 @@ public class Music_Manager : MonoBehaviour
     void forceTransitionPlay(MusicRequest newMusic)
     {
         MusicSettings musicSettings = newMusic.musicSettings;
-        EnqueueAtBeginning(instance.currentMusic);
+        if (!instance.transitioning)
+            EnqueueAtBeginning(instance.currentMusic);
+        else Debug.Log("Aborted enqueue at beginning");
+        instance.StopAllCoroutines();
         instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () =>
         {
             instance.currentMusic = newMusic;
@@ -114,18 +121,23 @@ public class Music_Manager : MonoBehaviour
         instance.audioSource.Play();
         instance.halted = false;
         if (instance.currentMusic.musicSettings.pauseTransitions)
+        {
+            instance.StopAllCoroutines();
             instance.StartCoroutine(instance.TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration));
-
+        }
     }
     public static void PauseMusic()
     {
         if (instance == null) return;
         instance.halted = true;
         if (instance.currentMusic.musicSettings.pauseTransitions)
+        {
+            instance.StopAllCoroutines();
             instance.StartCoroutine(instance.TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration, () =>
             {
                 instance.audioSource.Pause();
             }));
+        }
         else
             instance.audioSource.Pause();
     }
@@ -137,10 +149,13 @@ public class Music_Manager : MonoBehaviour
         instance.halted = true;
 
         if (instance.currentMusic.musicSettings.pauseTransitions)
+        {
+            instance.StopAllCoroutines();
             instance.StartCoroutine(instance.TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration, () =>
             {
                 instance.audioSource.Stop();
             }));
+        }
         else
             instance.audioSource.Stop();
 
@@ -179,7 +194,10 @@ public class Music_Manager : MonoBehaviour
         if (request.musicSettings.transitionPlay)
         {
             if (!audioSource.isPlaying) audioSource.Play();
-            StartCoroutine(TransitionVolume(0, 1, request.musicSettings.transitionDuration));
+            {
+                instance.StopAllCoroutines();
+                StartCoroutine(TransitionVolume(0, 1, request.musicSettings.transitionDuration));
+            }
         }
         else
         {
@@ -202,15 +220,20 @@ public class Music_Manager : MonoBehaviour
 
     private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime, Action done = null)
     {
-        if (instance.transitioning) yield return null;
-        instance.transitioning = true;
+
 
         // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
-        if (instance.audioSource.clip.length - instance.audioSource.time < transitionTime)
+        if (instance.audioSource.clip.length - instance.audioSource.time < transitionTime && !instance.transitioning)
         {
             instance.overFlowTransitioning = true;
             /* transitionTime = instance.audioSource.clip.length - instance.audioSource.time; */
         }
+        else
+        {
+            instance.overFlowTransitioning = false;
+        }
+
+        instance.transitioning = true;
 
         audioSource.volume = startVolume;
         float elapsedTime = 0f;
@@ -225,6 +248,8 @@ public class Music_Manager : MonoBehaviour
         audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
 
         instance.transitioning = false;
+        instance.forceTransitioning = false;
+        Debug.Log("Reached end of transition");
         done?.Invoke();
     }
 
@@ -276,7 +301,6 @@ public class Music_Manager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Music Queue Count: " + musicQueue.Count);
         CheckMusicState();
     }
 
@@ -291,6 +315,7 @@ public class Music_Manager : MonoBehaviour
                 the loop detection is true. This makes it so that the next song is not played when the 
                 transition is finished. 
             */
+            instance.StopAllCoroutines();
             StartCoroutine(TransitionVolume(1, 0, instance.currentMusic.musicSettings.transitionDuration));
         }
 
