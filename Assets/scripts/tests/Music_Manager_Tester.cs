@@ -68,7 +68,20 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test1Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = false;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
+        Music_Manager.PlayMusic("cappy_defense_force_1", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
     }
     void test1Update()
     {
@@ -85,7 +98,27 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = true;
+        musicSettings.pauseTransitions = false;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        musicSettings musicSettings2 = new MusicSettings();
+        musicSettings2.forcePlay = false;
+        musicSettings2.transitionPlay = false;
+        musicSettings2.pauseTransitions = false;
+        musicSettings2.transitionDuration = 3f;
+        musicSettings2.loop = true;
+        musicSettings2.volume = 1;
+        musicSettings2.pitch = 1;
+
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings2);
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
     }
     void test2Update()
     {
@@ -102,6 +135,18 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test3Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = true;
+        musicSettings.pauseTransitions = false;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
+
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
 
     }
     void test3Update()
@@ -117,7 +162,16 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test4Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = true;
+        musicSettings.pauseTransitions = false;
+        musicSettings.transitionDuration = 10f;
+        musicSettings.loop = false;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
     }
     void test4Update()
     {
@@ -131,11 +185,49 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test5Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = true;
+        musicSettings.pauseTransitions = false;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
     }
     void test5Update()
     {
+        timer += Time.deltaTime;
+        if (timer > maxTime && !played)
+        {
+            MusicSettings musicSettings2 = new MusicSettings();
+            musicSettings2.forcePlay = true;
+            musicSettings2.transitionPlay = false;
+            musicSettings2.transitionDuration = 20f;
+            musicSettings2.loop = true;
+            musicSettings2.volume = 1;
+            musicSettings2.clearQueue = false;
+            musicSettings2.pitch = 1;
+            Music_Manager.PlayMusic("The_geese_kind_1", musicSettings2);
+            played = true;
+            Debug.Log("Inner Action");
+        }
 
+        if (played) timer2 += Time.deltaTime;
+        if (timer2 > maxTime2 && !played2)
+        {
+            MusicSettings musicSettings = new MusicSettings();
+            musicSettings.forcePlay = true;
+            musicSettings.transitionPlay = false;
+            musicSettings.transitionDuration = 2f;
+            musicSettings.loop = true;
+            musicSettings.volume = 1;
+            musicSettings.pitch = 1;
+            Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
+            played2 = true;
+            Debug.Log("Inner Action 2");
+        }
     }
 
     /* 
@@ -147,11 +239,50 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test6Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = false;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
     }
     void test6Update()
     {
+        timer += Time.deltaTime;
+        if (timer > maxTime && !played)
+        {
+            MusicSettings musicSettings2 = new MusicSettings();
+            musicSettings2.forcePlay = true;
+            musicSettings2.transitionPlay = true;
+            musicSettings2.transitionDuration = 6f;
+            musicSettings2.loop = true;
+            musicSettings2.volume = 1;
+            musicSettings2.clearQueue = false;
+            musicSettings2.pitch = 1;
+            Music_Manager.PlayMusic("The_geese_kind_1", musicSettings2);
+            played = true;
+            Debug.Log("Inner Action");
+        }
 
+        if (played) timer2 += Time.deltaTime;
+        if (timer2 > maxTime2 && !played2)
+        {
+            MusicSettings musicSettings = new MusicSettings();
+            musicSettings.forcePlay = true;
+            musicSettings.transitionPlay = true;
+            musicSettings.transitionDuration = 2f;
+            musicSettings.loop = true;
+            musicSettings.volume = 1;
+            musicSettings.pitch = 1;
+            Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
+            /* Music_Manager.ResumeMusic(); */
+            played2 = true;
+            Debug.Log("Inner Action 2");
+        }
     }
 
     /* 
@@ -161,11 +292,25 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2_1Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
     }
     void test2_1Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer > maxTime && !played)
+        {
+            Music_Manager.PauseMusic();
+            played = true;
+        }
     }
 
     /* 
@@ -175,11 +320,25 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2_2Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
     }
     void test2_2Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer > maxTime && !played)
+        {
+            Music_Manager.StopMusic();
+            played = true;
+        }
     }
 
     /* 
@@ -189,11 +348,32 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2_3Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
     }
     void test2_3Update()
     {
+        timer += Time.deltaTime;
+        if (timer > maxTime && !played)
+        {
+            Music_Manager.PauseMusic();
+            played = true;
+        }
 
+        if (played) timer2 += Time.deltaTime;
+        if (timer2 > maxTime2 && !played2)
+        {
+            Music_Manager.ResumeMusic();
+            played2 = true;
+        }
     }
 
     /* 
@@ -204,11 +384,28 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2_4Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
     }
     void test2_4Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer > (maxTime * 2) && !played)
+        {
+            Debug.Log("Clearing Queue");
+            Music_Manager.ClearQueue();
+            played = true;
+        }
     }
 
     /* 
@@ -220,11 +417,36 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2_5Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
     }
     void test2_5Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer > (maxTime) && !played)
+        {
+            musicSettings musicSettings2 = new MusicSettings();
+            musicSettings2.forcePlay = true;
+            musicSettings2.transitionPlay = false;
+            musicSettings2.pauseTransitions = true;
+            musicSettings2.transitionDuration = 3f;
+            musicSettings2.loop = true;
+            musicSettings2.volume = 1;
+            musicSettings2.pitch = 1;
+            musicSettings2.clearQueue = true;
+            Music_Manager.PlayMusic("cappy_defense_force_1", musicSettings2);
+            played = true;
+        }
     }
 
     /* 
@@ -235,11 +457,36 @@ public class Music_Manager_Tester : MonoBehaviour
     */
     void test2_6Start()
     {
+        MusicSettings musicSettings = new MusicSettings();
+        musicSettings.forcePlay = false;
+        musicSettings.transitionPlay = false;
+        musicSettings.pauseTransitions = true;
+        musicSettings.transitionDuration = 3f;
+        musicSettings.loop = true;
+        musicSettings.volume = 1;
+        musicSettings.pitch = 1;
 
+        Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_4", musicSettings);
     }
     void test2_6Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer > (maxTime) && !played)
+        {
+            musicSettings musicSettings2 = new MusicSettings();
+            musicSettings2.forcePlay = false;
+            musicSettings2.transitionPlay = false;
+            musicSettings2.pauseTransitions = true;
+            musicSettings2.transitionDuration = 3f;
+            musicSettings2.loop = true;
+            musicSettings2.volume = 1;
+            musicSettings2.pitch = 1;
+            musicSettings2.clearQueue = true;
+            Music_Manager.PlayMusic("cappy_defense_force_1", musicSettings2);
+            played = true;
+        }
     }
     void miscStartFunc()
     {

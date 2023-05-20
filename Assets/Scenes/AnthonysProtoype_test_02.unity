@@ -1804,6 +1804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1670792386d1e4aa966d1fa425aef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitioning: 0
+  halted: 0
+  forceTransitioning: 0
 --- !u!82 &207126860
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12708,6 +12711,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db45536a3fa19f4faf3f34cdb6721c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runTest1: 1
+  runTest2: 0
+  runTest3: 0
+  runTest4: 0
+  runTest5: 0
+  runTest6: 0
+  runTest2_1: 0
+  runTest2_2: 0
+  runTest2_3: 0
+  runTest2_4: 0
+  runTest2_5: 0
+  runTest2_6: 0
+  miscTest: 0
 --- !u!4 &1818885144
 Transform:
   m_ObjectHideFlags: 0
