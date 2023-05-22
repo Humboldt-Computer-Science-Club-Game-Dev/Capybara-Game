@@ -27,6 +27,19 @@ public class Music_Manager_Tester : MonoBehaviour
     float timer2 = 0;
     float maxTime2 = 5f;
     bool played2 = false;
+
+    float timer3 = 0;
+    float maxTime3 = 0.5f;
+    bool played3 = false;
+
+    float timer4 = 0;
+    float maxTime4 = 0.5f;
+    bool played4 = false;
+
+    float timer5 = 0;
+    float maxTime5 = 0.5f;
+    bool played5 = false;
+
     void Start()
     {
         if (miscTest) miscStartFunc();
@@ -107,7 +120,7 @@ public class Music_Manager_Tester : MonoBehaviour
         musicSettings.volume = 1;
         musicSettings.pitch = 1;
 
-        musicSettings musicSettings2 = new MusicSettings();
+        MusicSettings musicSettings2 = new MusicSettings();
         musicSettings2.forcePlay = false;
         musicSettings2.transitionPlay = false;
         musicSettings2.pauseTransitions = false;
@@ -249,6 +262,8 @@ public class Music_Manager_Tester : MonoBehaviour
         musicSettings.pitch = 1;
 
         Music_Manager.PlayMusic("cappy_defense_force_2", musicSettings);
+        Music_Manager.PlayMusic("cappy_defense_force_1", musicSettings);
+        Music_Manager.PlayMusic("The_geese_kind_1", musicSettings);
     }
     void test6Update()
     {
@@ -274,7 +289,7 @@ public class Music_Manager_Tester : MonoBehaviour
             MusicSettings musicSettings = new MusicSettings();
             musicSettings.forcePlay = true;
             musicSettings.transitionPlay = true;
-            musicSettings.transitionDuration = 2f;
+            musicSettings.transitionDuration = 6f;
             musicSettings.loop = true;
             musicSettings.volume = 1;
             musicSettings.pitch = 1;
@@ -282,6 +297,39 @@ public class Music_Manager_Tester : MonoBehaviour
             /* Music_Manager.ResumeMusic(); */
             played2 = true;
             Debug.Log("Inner Action 2");
+        }
+
+        if (played2) timer3 += Time.deltaTime;
+        if (timer3 > maxTime3 && !played3)
+        {
+            MusicSettings musicSettings = new MusicSettings();
+            musicSettings.forcePlay = true;
+            musicSettings.transitionPlay = true;
+            musicSettings.transitionDuration = 6f;
+            musicSettings.loop = true;
+            musicSettings.volume = 1;
+            musicSettings.pitch = 1;
+            Music_Manager.PlayMusic("The_geese_kind_3", musicSettings);
+            /* Music_Manager.ResumeMusic(); */
+            played3 = true;
+            Debug.Log("Inner Action 3");
+        }
+
+        if (played3) timer4 += Time.deltaTime;
+        if (timer4 > (maxTime4 * 40) && !played4)
+        {
+            MusicSettings musicSettings = new MusicSettings();
+            musicSettings.forcePlay = true;
+            musicSettings.transitionPlay = true;
+            musicSettings.transitionDuration = 6f;
+            musicSettings.loop = true;
+            musicSettings.volume = 1;
+            musicSettings.pitch = 1;
+            Music_Manager.PlayMusic("cappy_defense_force_4", musicSettings);
+            /* Music_Manager.ResumeMusic(); */
+            played4 = true;
+            Debug.Log("Inner Action 4");
+            played = played4;
         }
     }
 
@@ -296,7 +344,7 @@ public class Music_Manager_Tester : MonoBehaviour
         musicSettings.forcePlay = false;
         musicSettings.transitionPlay = false;
         musicSettings.pauseTransitions = true;
-        musicSettings.transitionDuration = 3f;
+        musicSettings.transitionDuration = 6f;
         musicSettings.loop = true;
         musicSettings.volume = 1;
         musicSettings.pitch = 1;
@@ -435,7 +483,7 @@ public class Music_Manager_Tester : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > (maxTime) && !played)
         {
-            musicSettings musicSettings2 = new MusicSettings();
+            MusicSettings musicSettings2 = new MusicSettings();
             musicSettings2.forcePlay = true;
             musicSettings2.transitionPlay = false;
             musicSettings2.pauseTransitions = true;
@@ -475,7 +523,7 @@ public class Music_Manager_Tester : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > (maxTime) && !played)
         {
-            musicSettings musicSettings2 = new MusicSettings();
+            MusicSettings musicSettings2 = new MusicSettings();
             musicSettings2.forcePlay = false;
             musicSettings2.transitionPlay = false;
             musicSettings2.pauseTransitions = true;
@@ -559,5 +607,6 @@ public class Music_Manager_Tester : MonoBehaviour
             played2 = true;
             Debug.Log("Inner Action 2");
         }
+
     }
 }

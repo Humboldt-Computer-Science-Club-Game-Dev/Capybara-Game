@@ -34,6 +34,9 @@ public class Music_Manager : MonoBehaviour
 
     MusicRequest currentMusic;
 
+    MusicRequest? transitionSongBuffer;
+    MusicRequest? initialTransitionSongBuffer;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -96,7 +99,7 @@ public class Music_Manager : MonoBehaviour
         #endif */
         if (!instance.transitioning)
             EnqueueAtBeginning(instance.currentMusic);
-        else Debug.Log("Aborted enqueue at beginning");
+        else Debug.Log("Aborted enqueue at beginning: " + newMusic);
         instance.forceTransitioning = true;
         instance.currentMusic = newMusic;
         instance.audioSource.clip = newMusic.musicClip;
@@ -104,10 +107,35 @@ public class Music_Manager : MonoBehaviour
     }
     void forceTransitionPlay(MusicRequest newMusic)
     {
+        Debug.Log("Transitioning: " + newMusic);
         MusicSettings musicSettings = newMusic.musicSettings;
         if (!instance.transitioning)
+        {
+            if (!object.ReferenceEquals(instance.transitionSongBuffer, null))
+            {
+                Debug.Log("Special case: " + instance.transitionSongBuffer);
+                EnqueueAtBeginning((MusicRequest)instance.transitionSongBuffer);
+                instance.transitionSongBuffer = null;
+            }
             EnqueueAtBeginning(instance.currentMusic);
-        else Debug.Log("Aborted enqueue at beginning");
+            instance.initialTransitionSongBuffer = newMusic;
+        }
+        else
+        {
+            Debug.Log("Aborted enqueue at beginning: " + instance.currentMusic);
+            if (!object.ReferenceEquals(instance.initialTransitionSongBuffer, null))
+            {
+                Debug.Log("Extra Special case: " + instance.initialTransitionSongBuffer);
+                EnqueueAtBeginning((MusicRequest)instance.initialTransitionSongBuffer);
+                instance.initialTransitionSongBuffer = null;
+            }
+            if (!object.ReferenceEquals(instance.transitionSongBuffer, null))
+            {
+                Debug.Log("Special case: " + instance.transitionSongBuffer);
+                EnqueueAtBeginning((MusicRequest)instance.transitionSongBuffer);
+            }
+            instance.transitionSongBuffer = newMusic;
+        }
         instance.StopAllCoroutines();
         instance.StartCoroutine(instance.TransitionVolume(1, 0, musicSettings.transitionDuration, () =>
         {
@@ -233,15 +261,18 @@ public class Music_Manager : MonoBehaviour
             instance.overFlowTransitioning = false;
         }
 
+        float calculatedStartVolume = startVolume;
+        if (instance.transitioning) calculatedStartVolume = audioSource.volume;
+
         instance.transitioning = true;
 
-        audioSource.volume = startVolume;
+        audioSource.volume = calculatedStartVolume;
         float elapsedTime = 0f;
 
         while (elapsedTime < transitionTime)
         {
             elapsedTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, elapsedTime / transitionTime);
+            audioSource.volume = Mathf.Lerp(calculatedStartVolume, targetVolume, elapsedTime / transitionTime);
             yield return null; // Wait for the next frame to continue the loop.
         }
 
@@ -323,9 +354,18 @@ public class Music_Manager : MonoBehaviour
         {
             Debug.Log("Playing next");
             instance.overFlowTransitioning = false;
-            MusicRequest nextRequest = musicQueue.Dequeue();
-            PlayMusicRequest(nextRequest);
-            instance.currentMusic = nextRequest;
+            /* if (!object.ReferenceEquals(instance.transitionSongBuffer, null))
+            {
+                EnqueueAtBeginning((MusicRequest)instance.transitionSongBuffer);
+                instance.transitionSongBuffer = null;
+            } */
+            if (musicQueue.Count > 0)
+            {
+                MusicRequest nextRequest = musicQueue.Dequeue();
+                PlayMusicRequest(nextRequest);
+                instance.currentMusic = nextRequest;
+            }
+
         }
 
         previousSamplePosition = audioSource.timeSamples;
