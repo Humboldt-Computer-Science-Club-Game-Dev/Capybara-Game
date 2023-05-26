@@ -6,10 +6,12 @@ public class Dialog_System : MonoBehaviour
 {
     private static Dialog_System instance;
     public Sequence[] Sequences;
-    public Wave_System wave_System;
-    List<Sequence> currentSequences = new List<Sequence>();
+
+    public List<Sequence> currentSequences = new List<Sequence>();
 
     public OnSequencesEnd onSequencesEnd;
+
+    public Wave_System wave_System;
 
     void Awake()
     {
@@ -41,23 +43,32 @@ public class Dialog_System : MonoBehaviour
 
     public static void dialogEvent(PlayOnOptions playOnOption)
     {
-        if (playOnOption == PlayOnOptions.Start)
+        instance.currentSequences.Clear();
+        if (playOnOption == PlayOnOptions.Start || playOnOption == PlayOnOptions.EndOfAllWaves)
         {
-            instance.currentSequences.Clear();
+            foreach (Sequence sequence in instance.Sequences)
+            {
+                if (sequence.playOn.playOnOption == playOnOption)
+                    instance.currentSequences.Add(sequence);
+            }
             instance.sequencesEnded();
         }
-        else if (playOnOption == PlayOnOptions.EndOfAllWaves)
-        {
-
-        }
         else if (playOnOption == PlayOnOptions.WaveNumber)
-            Debug.LogError("Canot pass in type PlayOnOptions whos value is WaveNumber. Please pass in an int instead to the dialogEvent function if you want Dialog_System to play a dialog sequence based on the wave number.");
+        {
+            Debug.LogError("Can not pass in type PlayOnOptions whose value is PlayOnOptions.WaveNumber. Please pass in an int instead to the dialogEvent function if you want Dialog_System to play a dialog sequence based on the wave number.");
+            return;
+        }
 
     }
 
     public static void dialogEvent(int waveNumber)
     {
-
+        instance.currentSequences.Clear();
+        foreach (Sequence sequence in instance.Sequences)
+        {
+            if (sequence.playOn.playOnOption == PlayOnOptions.WaveNumber && sequence.playOn.waveNumber == waveNumber)
+                instance.currentSequences.Add(sequence);
+        }
     }
 
     void sequencesEnded()
