@@ -4,13 +4,33 @@ using UnityEngine;
 
 public class Dialog_System : MonoBehaviour
 {
+    private static Dialog_System instance;
     public Sequence[] Sequences;
+    public Wave_System wave_System;
+    List<Sequence> currentSequences = new List<Sequence>();
 
     public OnSequencesEnd onSequencesEnd;
 
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+
     void Start()
     {
+        if (wave_System == null)
+        {
+            GameObject wave_System_GameObject = GameObject.Find("wave_system");
+            if (wave_System_GameObject != null)
+                wave_System = wave_System_GameObject.GetComponent<Wave_System>();
+        }
 
+        dialogEvent(PlayOnOptions.Start);
     }
 
 
@@ -19,14 +39,30 @@ public class Dialog_System : MonoBehaviour
 
     }
 
-    public static void dialogEvent(string eventType)
+    public static void dialogEvent(PlayOnOptions playOnOption)
     {
+        if (playOnOption == PlayOnOptions.Start)
+        {
+            instance.currentSequences.Clear();
+            instance.sequencesEnded();
+        }
+        else if (playOnOption == PlayOnOptions.EndOfAllWaves)
+        {
+
+        }
+        else if (playOnOption == PlayOnOptions.WaveNumber)
+            Debug.LogError("Canot pass in type PlayOnOptions whos value is WaveNumber. Please pass in an int instead to the dialogEvent function if you want Dialog_System to play a dialog sequence based on the wave number.");
 
     }
 
     public static void dialogEvent(int waveNumber)
     {
 
+    }
+
+    void sequencesEnded()
+    {
+        instance.wave_System.spawnNextWave();
     }
 
     public static void setCustomPostSequenceAction(System.Action action)

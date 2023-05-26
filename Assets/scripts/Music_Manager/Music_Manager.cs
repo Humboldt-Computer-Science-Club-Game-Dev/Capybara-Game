@@ -248,7 +248,8 @@ public class Music_Manager : MonoBehaviour
 
     private IEnumerator<WaitForSeconds> TransitionVolume(float startVolume, float targetVolume, float transitionTime, Action done = null)
     {
-
+        if (!instance.audioSource.clip)
+            yield return null;
 
         // TODO: Check if transitionTime is greater than the time remaining in the current music clip.
         if (instance.audioSource.clip.length - instance.audioSource.time < transitionTime && !instance.transitioning)
@@ -290,25 +291,11 @@ public class Music_Manager : MonoBehaviour
     */
     private bool IsTransitionReady()
     {
+        if (!instance.audioSource.clip) return false;
         bool isTransitionPlay = instance.currentMusic.musicSettings.transitionPlay;
-        bool isDurationReady = instance.audioSource.clip.length - instance.audioSource.time < currentMusic.musicSettings.transitionDuration;
+        bool isDurationReady = instance.audioSource.clip.length - instance.audioSource.time < instance.currentMusic.musicSettings.transitionDuration;
         bool isLoopConditionMet = !instance.currentMusic.musicSettings.loop || (instance.currentMusic.musicSettings.loop && instance.musicQueue.Count > 0);
 
-
-        /* 
-            Potential bug. It should not be necessary that a check for !instance.overFlowTransitioning is made. It should
-            be discoverd why its necessary to check if the current music clip has overflown its transition time because
-            !instance.transitioning should be enough to check if the current music clip is still transitioning.
-
-            Possible reason. instance.transitioning gets set to false when the current music clip is done transitioning. but one of these
-            other conditions is still true. This makes it so the transition starts again when the current music clip is done transitioning.
-            !instance.overFlowTransitioning is set to true when the transition starts and is set to false when the transition is done. This makes
-            explains why it is needed to make this work. To fix this, I should analyze my code and see if can find out why the other conditions are still
-            true when the current music clip is done transitioning. In fact, isDurationReady may be what is causing the problem. It may be that the
-            current music clip is done transitioning but isDurationReady is still true. This makes it so that the transition starts again when the current
-            music clip is done transitioning. Because of this, the best solution will likely be to rename overFlowTransitioning to refelect the other
-            job it dose.
-        */
         return isTransitionPlay && isDurationReady && isLoopConditionMet && !instance.overFlowTransitioning && !instance.transitioning;
     }
 
