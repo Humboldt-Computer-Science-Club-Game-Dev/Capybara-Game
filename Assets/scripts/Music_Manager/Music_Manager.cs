@@ -378,6 +378,7 @@ public class Music_Manager : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public struct MusicSettings
 {
     public bool forcePlay;

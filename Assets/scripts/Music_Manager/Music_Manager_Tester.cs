@@ -36,10 +36,6 @@ public class Music_Manager_Tester : MonoBehaviour
     float maxTime4 = 0.5f;
     bool played4 = false;
 
-    float timer5 = 0;
-    float maxTime5 = 0.5f;
-    bool played5 = false;
-
     void Start()
     {
         if (miscTest) miscStartFunc();

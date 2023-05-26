@@ -21,10 +21,9 @@ public class Wave_System : MonoBehaviour
             waves[i].SetActive(false);
         }
         envSpace = GameObject.Find("enviroment_space");
-        spawnNextWave();
     }
 
-    void spawnNextWave(){
+    public void spawnNextWave(){
         ++currentWave;
         if(currentWave >= numWaves) {
             Debug.Log("No more waves to spawn");
@@ -45,5 +44,5 @@ public class Wave_System : MonoBehaviour
         if(!to.Contains("enemy")) return;
         --numEnemies;
         if(numEnemies <= 0) spawnNextWave();
-    }
+    } 
 }

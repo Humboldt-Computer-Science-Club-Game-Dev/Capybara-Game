@@ -1768,7 +1768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 207126858}
-  - component: {fileID: 207126859}
+  - component: {fileID: 207126861}
   - component: {fileID: 207126860}
   m_Layer: 0
   m_Name: music_manager
@@ -1792,21 +1792,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &207126859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207126857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1670792386d1e4aa966d1fa425aef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transitioning: 0
-  halted: 0
-  forceTransitioning: 0
 --- !u!82 &207126860
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1903,6 +1888,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &207126861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207126857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2aa274b44deae440959d157e048e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitioning: 0
+  halted: 0
+  forceTransitioning: 0
 --- !u!4 &210498183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5355375136631217946, guid: 6ed2d744d5ae6504e859245ece7988f1, type: 3}
@@ -12711,7 +12711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db45536a3fa19f4faf3f34cdb6721c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runTest1: 1
+  runTest1: 0
   runTest2: 0
   runTest3: 0
   runTest4: 0
@@ -12722,7 +12722,7 @@ MonoBehaviour:
   runTest2_3: 0
   runTest2_4: 0
   runTest2_5: 0
-  runTest2_6: 0
+  runTest2_6: 1
   miscTest: 0
 --- !u!4 &1818885144
 Transform:
@@ -14065,6 +14065,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5355375136631217946, guid: 6ed2d744d5ae6504e859245ece7988f1, type: 3}
   m_PrefabInstance: {fileID: 369477359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2078971874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078971876}
+  - component: {fileID: 2078971875}
+  m_Layer: 0
+  m_Name: dialog_system
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2078971875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078971874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1316b496e91e8a04390e9c361ebea451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sequences:
+  - entries:
+    - environment:
+        environmentAction: 0
+        newBackground: {fileID: 0}
+      dialog:
+        name: 
+        text: 
+        voice: {fileID: 0}
+        position: 0
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: 
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0
+          loop: 0
+          volume: 0
+          pitch: 0
+    playOn:
+      playOnOption: 0
+      waveNumber: 0
+  onSequencesEnd: 0
+--- !u!4 &2078971876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078971874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.997367, y: -0.09894382, z: 0.10198097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2079816956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5355375136631217946, guid: 6ed2d744d5ae6504e859245ece7988f1, type: 3}
