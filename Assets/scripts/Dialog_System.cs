@@ -13,6 +13,8 @@ public class Dialog_System : MonoBehaviour
 
     public Wave_System wave_System;
 
+    public ObjectsAndComponents objectsAndComponents;
+
     void Awake()
     {
         if (instance != null && instance != this)
@@ -32,6 +34,8 @@ public class Dialog_System : MonoBehaviour
                 wave_System = wave_System_GameObject.GetComponent<Wave_System>();
         }
 
+        definedObjectsAndComponents();
+
         dialogEvent(PlayOnOptions.Start);
     }
 
@@ -39,6 +43,27 @@ public class Dialog_System : MonoBehaviour
     void Update()
     {
 
+    }
+
+    void definedObjectsAndComponents()
+    {
+        AssignGameObject(ref instance.objectsAndComponents.backgroundObj, "background");
+        AssignGameObject(ref instance.objectsAndComponents.subjectObj, "subject");
+        AssignGameObject(ref instance.objectsAndComponents.dialogPanelObj, "dialog_panel");
+        AssignGameObject(ref instance.objectsAndComponents.subjectNameObj, instance.objectsAndComponents.dialogPanelObj, "subject_name");
+        AssignGameObject(ref instance.objectsAndComponents.dialogObj, instance.objectsAndComponents.dialogPanelObj, "dialog");
+        AssignGameObject(ref instance.objectsAndComponents.nextButtonObj, instance.objectsAndComponents.dialogPanelObj, "next_button");
+        AssignGameObject(ref instance.objectsAndComponents.nextTextObj, instance.objectsAndComponents.nextButtonObj, "next_text");
+    }
+
+    void AssignGameObject(ref GameObject field, string path)
+    {
+        field = transform.Find(path)?.gameObject;
+    }
+
+    void AssignGameObject(ref GameObject field, GameObject parent, string path)
+    {
+        field = parent.transform.Find(path)?.gameObject;
     }
 
     public static void dialogEvent(PlayOnOptions playOnOption)
@@ -71,6 +96,11 @@ public class Dialog_System : MonoBehaviour
         }
     }
 
+    void startSequences()
+    {
+
+    }
+
     void sequencesEnded()
     {
         instance.wave_System.spawnNextWave();
@@ -80,7 +110,21 @@ public class Dialog_System : MonoBehaviour
     {
 
     }
+
+    [System.Serializable]
+    public struct ObjectsAndComponents
+    {
+        public GameObject backgroundObj;
+        public GameObject subjectObj;
+        public GameObject dialogPanelObj;
+        public GameObject subjectNameObj;
+        public GameObject dialogObj;
+        public GameObject nextButtonObj;
+        public GameObject nextTextObj;
+    }
 }
+
+
 
 public enum EnvironmentAction
 {
