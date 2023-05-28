@@ -9158,7 +9158,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -45.75
   m_lineSpacing: 42.7
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -13317,9 +13317,14 @@ MonoBehaviour:
   currentSequences: []
   onSequencesEnd: 1
   wave_System: {fileID: 0}
-  tester:
-    name: 
-    age: 0
+  objectsAndComponents:
+    backgroundObj: {fileID: 0}
+    subjectObj: {fileID: 0}
+    dialogPanelObj: {fileID: 0}
+    subjectNameObj: {fileID: 0}
+    dialogObj: {fileID: 0}
+    nextButtonObj: {fileID: 0}
+    nextTextObj: {fileID: 0}
 --- !u!114 &1809092015
 MonoBehaviour:
   m_ObjectHideFlags: 0
