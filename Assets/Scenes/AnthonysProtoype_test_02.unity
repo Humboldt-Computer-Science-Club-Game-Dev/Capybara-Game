@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &26596689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -529,8 +529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -116.74, y: 0}
-  m_SizeDelta: {x: 381.526, y: 282.9986}
+  m_AnchoredPosition: {x: -0.0015106, y: -0.18919}
+  m_SizeDelta: {x: 800, y: 449.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26596690
 MonoBehaviour:
@@ -3041,7 +3041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &379366173
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13168,7 +13168,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -13269,13 +13269,13 @@ MonoBehaviour:
   - entries:
     - environment:
         environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+        newBackground: {fileID: 21300000, guid: 252f07533a899e448adfd5cbf511e03c, type: 3}
       dialog:
-        name: Cappy
-        text: Hello, my name is capy!
+        name: Goose Man
+        text: I am the evil goose
         voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 577b3276a99a66440b406548b968821a, type: 3}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
@@ -13314,17 +13314,7 @@ MonoBehaviour:
     playOn:
       playOnOption: 0
       waveNumber: 0
-  currentSequences: []
   onSequencesEnd: 1
-  wave_System: {fileID: 0}
-  objectsAndComponents:
-    backgroundObj: {fileID: 0}
-    subjectObj: {fileID: 0}
-    dialogPanelObj: {fileID: 0}
-    subjectNameObj: {fileID: 0}
-    dialogObj: {fileID: 0}
-    nextButtonObj: {fileID: 0}
-    nextTextObj: {fileID: 0}
 --- !u!114 &1809092015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13607,6 +13597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves: []
+  currentWave: -1
+  numWaves: 0
 --- !u!4 &1838961725
 Transform:
   m_ObjectHideFlags: 0
@@ -14136,7 +14128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1979986291
 RectTransform:
   m_ObjectHideFlags: 0

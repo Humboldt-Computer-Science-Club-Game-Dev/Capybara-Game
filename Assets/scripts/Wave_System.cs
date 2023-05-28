@@ -6,12 +6,17 @@ public class Wave_System : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> waves;
-    private int currentWave = -1;
+    public int currentWave = -1;
     private GameObject envSpace;
     int numEnemies;
-    int numWaves;
+    public int numWaves;
+    bool initialized = false;
     void Start()
     {
+        if(!initialized) initialize();
+    }
+
+    void initialize(){
         Event_System.onDeath += onDeath;
 
         //Each wave is a child of the Wave_System object
@@ -21,9 +26,14 @@ public class Wave_System : MonoBehaviour
             waves[i].SetActive(false);
         }
         envSpace = GameObject.Find("enviroment_space");
+        initialized = true;
     }
 
+    
     public void spawnNextWave(){
+        //This method gets called by dialog system at its start witch can be before the start of wave_system. For this reason, we need to check if this script has been initialized
+        if(!initialized) initialize();
+        Debug.Log("currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "");
         ++currentWave;
         if(currentWave >= numWaves) {
             Debug.Log("No more waves to spawn");
