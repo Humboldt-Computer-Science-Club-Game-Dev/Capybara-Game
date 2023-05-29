@@ -18,6 +18,7 @@ public class Dialog_System : MonoBehaviour
     ObjectsAndComponents objectsAndComponents;
     int sequenceIndex;
     int entireIndex;
+    System.Action customPostSequenceAction;
 
     AudioSource audioSource;
 
@@ -35,6 +36,23 @@ public class Dialog_System : MonoBehaviour
 
     void Start()
     {
+        getComponents();
+        objectsAndComponents = new ObjectsAndComponents(this.gameObject);
+        objectsAndComponents.hide();
+
+        Event_System.onWaveEnds += waveEnded;
+
+        dialogEvent(PlayOnOptions.Start);
+    }
+
+
+    void Update()
+    {
+
+    }
+
+    void getComponents()
+    {
         if (wave_System == null)
         {
             GameObject wave_System_GameObject = GameObject.Find("wave_system");
@@ -44,19 +62,6 @@ public class Dialog_System : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-
-        objectsAndComponents = new ObjectsAndComponents(this.gameObject);
-        objectsAndComponents.hide();
-
-        dialogEvent(PlayOnOptions.Start);
-
-
-    }
-
-
-    void Update()
-    {
-
     }
 
 
@@ -70,7 +75,8 @@ public class Dialog_System : MonoBehaviour
                 if (sequence.playOn.playOnOption == playOnOption)
                     instance.currentSequences.Add(sequence);
             }
-            instance.startSequences();
+            if (instance.currentSequences.Count > 0) instance.startSequences();
+            else instance.sequencesEnded();
         }
         else if (playOnOption == PlayOnOptions.WaveNumber)
         {
@@ -80,15 +86,20 @@ public class Dialog_System : MonoBehaviour
 
     }
 
-    public static void dialogEvent(int waveNumber)
+    void waveEnded(int endedWaveIndex)
+    {
+        dialogEvent(++endedWaveIndex);
+    }
+    public static void dialogEvent(int waveNumberIndex)
     {
         instance.currentSequences.Clear();
         foreach (Sequence sequence in instance.Sequences)
         {
-            if (sequence.playOn.playOnOption == PlayOnOptions.WaveNumber && sequence.playOn.waveNumber == waveNumber)
+            if (sequence.playOn.playOnOption == PlayOnOptions.WaveNumber && sequence.playOn.waveNumberIndex == waveNumberIndex)
                 instance.currentSequences.Add(sequence);
         }
-        instance.startSequences();
+        if (instance.currentSequences.Count > 0) instance.startSequences();
+        else instance.sequencesEnded();
     }
 
     void startSequences()
@@ -108,22 +119,23 @@ public class Dialog_System : MonoBehaviour
         runMusicAction();
     }
 
-    void runMusicAction(){
+    void runMusicAction()
+    {
         Entire currentEntire = currentSequences[sequenceIndex].entries[entireIndex];
-        if(currentEntire.music_Action.musicActionAction == MusicActionAction.noChange)
-          return;
-        
-        if(currentEntire.music_Action.musicRunAction == MusicRunAction.play)
-          Music_Manager.PlayMusic(currentEntire.music_Action.musicName, currentEntire.music_Action.musicSettings);
-        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.stop)
+        if (currentEntire.music_Action.musicActionAction == MusicActionAction.noChange)
+            return;
+
+        if (currentEntire.music_Action.musicRunAction == MusicRunAction.play)
+            Music_Manager.PlayMusic(currentEntire.music_Action.musicName, currentEntire.music_Action.musicSettings);
+        else if (currentEntire.music_Action.musicRunAction == MusicRunAction.stop)
             Music_Manager.StopMusic();
-        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.pause)
+        else if (currentEntire.music_Action.musicRunAction == MusicRunAction.pause)
             Music_Manager.PauseMusic();
-        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.resume)
+        else if (currentEntire.music_Action.musicRunAction == MusicRunAction.resume)
             Music_Manager.ResumeMusic();
-        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.clear)
+        else if (currentEntire.music_Action.musicRunAction == MusicRunAction.clear)
             Music_Manager.ClearQueue();
-        
+
     }
 
     void displayCurrentEntire()
@@ -178,7 +190,7 @@ public class Dialog_System : MonoBehaviour
 
         if (currentEntire.dialog.position == CharacterDialogPosition.left)
         {
-            imageRectTransform.Rotate(0, 180, 0);
+            imageRectTransform.eulerAngles = new Vector3(0, 0, 0);
 
             imageRectTransform.anchorMin = new Vector2(0, 0);
             imageRectTransform.anchorMax = new Vector2(0, 0);
@@ -187,7 +199,7 @@ public class Dialog_System : MonoBehaviour
         }
         else
         {
-            imageRectTransform.Rotate(0, 180, 0);
+            imageRectTransform.eulerAngles = new Vector3(0, 180, 0);
 
             // Move to bottom right of screen
             imageRectTransform.anchorMin = new Vector2(1, 0);
@@ -222,13 +234,26 @@ public class Dialog_System : MonoBehaviour
 
     void sequencesEnded()
     {
+        Event_System.sequenceEnds();
         objectsAndComponents.hide();
-        instance.wave_System.spawnNextWave();
+        if (onSequencesEnd == OnSequencesEnd.NextWave)
+        {
+            Event_System.spawnNextWave();
+        }
+        else if (onSequencesEnd == OnSequencesEnd.EndLevel)
+        {
+            Debug.Log("Next Level changer is not implemented");
+        }
+        else if (onSequencesEnd == OnSequencesEnd.Custom)
+        {
+            if (customPostSequenceAction != null)
+                customPostSequenceAction.Invoke();
+        }
     }
 
     public static void setCustomPostSequenceAction(System.Action action)
     {
-
+        instance.customPostSequenceAction = action;
     }
 
     [System.Serializable]
@@ -377,7 +402,7 @@ public enum PlayOnOptions
 public struct PlayOn
 {
     public PlayOnOptions playOnOption;
-    public int waveNumber;
+    public int waveNumberIndex;
 }
 
 [System.Serializable]

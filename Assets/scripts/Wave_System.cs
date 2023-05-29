@@ -13,51 +13,58 @@ public class Wave_System : MonoBehaviour
     bool initialized = false;
     void Start()
     {
-        if(!initialized) initialize();
+        if (!initialized) initialize();
     }
 
-    void initialize(){
+    void initialize()
+    {
         Event_System.onDeath += onDeath;
 
         //Each wave is a child of the Wave_System object
         numWaves = transform.childCount;
-        for(int i = 0; i < numWaves; i++){
+        for (int i = 0; i < numWaves; i++)
+        {
             waves.Add(transform.GetChild(i).gameObject);
             waves[i].SetActive(false);
         }
         envSpace = GameObject.Find("enviroment_space");
+        Event_System.onSpawnNextWave += spawnNextWave;
         initialized = true;
     }
 
-    
-    public void spawnNextWave(){
+
+    public void spawnNextWave()
+    {
         //This method gets called by dialog system at its start witch can be before the start of wave_system. For this reason, we need to check if this script has been initialized
-        if(!initialized) initialize();
-        
+        if (!initialized) initialize();
+
         ++currentWave;
-        if(currentWave >= numWaves) {
+        if (currentWave >= numWaves)
+        {
             Debug.Log("No more waves to spawn");
             return;
         }
 
         spawnWave(currentWave);
     }
-    void spawnWave(int waveToSpawn){
+    void spawnWave(int waveToSpawn)
+    {
         GameObject wave = waves[waveToSpawn];
         wave.SetActive(true);
         // The number of enemies to spawn is equal to the number of children in the current wave object
         numEnemies = wave.transform.childCount;
         Debug.Log("Round End stats ===============\ncurrentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "\n===============");
-        for(int i = 0; i < numEnemies; i++) wave.transform.GetChild(0).SetParent(envSpace.transform, true);
+        for (int i = 0; i < numEnemies; i++) wave.transform.GetChild(0).SetParent(envSpace.transform, true);
     }
-    void onDeath(string to){
+    void onDeath(string to)
+    {
         // This function only applies to enemy deaths
 
         Debug.Log("Enemy death of: " + to);
-        
-        if(!to.Contains("enemy")) return;
+
+        if (!to.Contains("enemy")) return;
         --numEnemies;
         Debug.Log("currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "");
-        if(numEnemies <= 0) spawnNextWave();
-    } 
+        if (numEnemies <= 0) Event_System.waveEnds(currentWave);
+    }
 }

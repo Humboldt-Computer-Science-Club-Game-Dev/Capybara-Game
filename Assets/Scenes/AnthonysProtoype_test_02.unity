@@ -13292,7 +13292,101 @@ MonoBehaviour:
           pitch: 1
     playOn:
       playOnOption: 0
-      waveNumber: 0
+      waveNumberIndex: 0
+  - entries:
+    - environment:
+        environmentAction: 0
+        newBackground: {fileID: 21300000, guid: 252f07533a899e448adfd5cbf511e03c, type: 3}
+      dialog:
+        name: Capy
+        text: Your soldiers are relentless, Archduke! But I won't back down.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: The_geese_kind_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 0}
+      dialog:
+        name: Goose
+        text: Ah, the frailty of hope. How delightfully tragic. My forces shall never
+          tire, mortal.
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: The_geese_kind_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 0}
+      dialog:
+        name: Cappy
+        text: hen we'll keep fighting. And we will win, no matter what.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 0}
+      dialog:
+        name: Goose
+        text: Such tenacity! I do hope you live up to these lofty words, human. They
+          do make the game more interesting.
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    playOn:
+      playOnOption: 2
+      waveNumberIndex: 2
   onSequencesEnd: 1
 --- !u!114 &1809092015
 MonoBehaviour:
