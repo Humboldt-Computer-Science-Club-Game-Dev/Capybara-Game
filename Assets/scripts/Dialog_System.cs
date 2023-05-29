@@ -50,7 +50,7 @@ public class Dialog_System : MonoBehaviour
 
         dialogEvent(PlayOnOptions.Start);
 
-        
+
     }
 
 
@@ -99,26 +99,28 @@ public class Dialog_System : MonoBehaviour
         runCurrentEntire();
 
         objectsAndComponents.show();
-
-        instance.sequencesEnded();
     }
 
-    void runCurrentEntire(){
+    void runCurrentEntire()
+    {
+        Debug.Log("Running new entire");
         displayCurrentEntire();
         playCurrentEntireVoice();
     }
 
-    void displayCurrentEntire(){
+    void displayCurrentEntire()
+    {
         Entire currentEntire = currentSequences[sequenceIndex].entries[entireIndex];
-        
-       if(currentEntire.environment.environmentAction == EnvironmentAction.newBackground)
+
+        if (currentEntire.environment.environmentAction == EnvironmentAction.newBackground)
             objectsAndComponents.backgroundImage.sprite = currentEntire.environment.newBackground;
         displaySubject();
         objectsAndComponents.subjectName.text = currentEntire.dialog.name;
         objectsAndComponents.dialog.text = currentEntire.dialog.text;
     }
 
-    void displaySubject(){
+    void displaySubject()
+    {
         //TODO: Clean this function up
         Entire currentEntire = currentSequences[sequenceIndex].entries[entireIndex];
         CharacterDialogPosition position = currentEntire.dialog.position;
@@ -129,7 +131,7 @@ public class Dialog_System : MonoBehaviour
 
         objectsAndComponents.subjectImage.sprite = subject;
 
-        
+
         float screenHeightInWorldUnits = mainCamera.orthographicSize * 2;
         float screenWidthInWorldUnits = screenHeightInWorldUnits * mainCamera.aspect;
 
@@ -141,7 +143,7 @@ public class Dialog_System : MonoBehaviour
         float potentialNewUnadjustedHight = (Screen.width * scalePercentage);
 
         float potentialNewHight = (potentialNewUnadjustedHight / aspectRatio) / transform.localScale.x;
-        
+
         if (subject.rect.height > Screen.height || potentialNewHight > subject.rect.width)
         {
             // Set height to 80% of screen height, adjust width based on aspect ratio.
@@ -156,13 +158,17 @@ public class Dialog_System : MonoBehaviour
         }
 
 
-        if(currentEntire.dialog.position == CharacterDialogPosition.left){
+        if (currentEntire.dialog.position == CharacterDialogPosition.left)
+        {
+            imageRectTransform.Rotate(0, 180, 0);
+
             imageRectTransform.anchorMin = new Vector2(0, 0);
             imageRectTransform.anchorMax = new Vector2(0, 0);
             imageRectTransform.pivot = new Vector2(0, 0);
             imageRectTransform.anchoredPosition = new Vector2(0, 0);
         }
-        else{
+        else
+        {
             imageRectTransform.Rotate(0, 180, 0);
 
             // Move to bottom right of screen
@@ -173,12 +179,13 @@ public class Dialog_System : MonoBehaviour
         }
     }
 
-    void playCurrentEntireVoice(){
+    void playCurrentEntireVoice()
+    {
         Entire currentEntire = currentSequences[sequenceIndex].entries[entireIndex];
         audioSource.clip = currentEntire.dialog.voice;
         audioSource.Play();
     }
-    
+
     public void nextEntire()
     {
         entireIndex++;
@@ -188,7 +195,6 @@ public class Dialog_System : MonoBehaviour
             entireIndex = 0;
             if (sequenceIndex >= currentSequences.Count)
             {
-                objectsAndComponents.hide();
                 sequencesEnded();
                 return;
             }
@@ -199,6 +205,7 @@ public class Dialog_System : MonoBehaviour
     void sequencesEnded()
     {
         Debug.Log("sequences ended");
+        objectsAndComponents.hide();
         instance.wave_System.spawnNextWave();
     }
 
@@ -229,7 +236,7 @@ public class Dialog_System : MonoBehaviour
         public Image subjectImage;
         public TextMeshProUGUI subjectName;
         public TextMeshProUGUI dialog;
-    
+
 
         void definedObjectsAndComponents()
         {
@@ -241,19 +248,21 @@ public class Dialog_System : MonoBehaviour
             AssignGameObject(ref this.nextButtonObj, this.dialogPanelObj, "next_button");
             AssignGameObject(ref this.nextTextObj, this.nextButtonObj, "next_text");
 
-            this.backgroundImage =  this.backgroundObj.GetComponent<Image>();
+            this.backgroundImage = this.backgroundObj.GetComponent<Image>();
             this.subjectImage = this.subjectObj.GetComponent<Image>();
             this.subjectName = this.subjectNameObj.GetComponent<TextMeshProUGUI>();
             this.dialog = this.dialogObj.GetComponent<TextMeshProUGUI>();
         }
 
-        public void hide(){
+        public void hide()
+        {
             this.backgroundObj.SetActive(false);
             this.subjectObj.SetActive(false);
             this.dialogPanelObj.SetActive(false);
         }
 
-        public void show(){
+        public void show()
+        {
             this.backgroundObj.SetActive(true);
             this.subjectObj.SetActive(true);
             this.dialogPanelObj.SetActive(true);

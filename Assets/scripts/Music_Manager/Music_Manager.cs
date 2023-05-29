@@ -23,14 +23,13 @@ public class Music_Manager : MonoBehaviour
     MusicRequest lastFramesCurrentMusic;
 
     //TODO: Make private when finished debugging
-    public bool transitioning = false;
+    bool transitioning = false;
 
-    public bool halted = false;
+    bool halted = false;
 
     bool overFlowTransitioning = false;
 
     bool isFocused = true;
-    public bool forceTransitioning = false;
 
     MusicRequest currentMusic;
 
@@ -100,7 +99,6 @@ public class Music_Manager : MonoBehaviour
         if (!instance.transitioning)
             EnqueueAtBeginning(instance.currentMusic);
         else Debug.Log("Aborted enqueue at beginning: " + newMusic);
-        instance.forceTransitioning = true;
         instance.currentMusic = newMusic;
         instance.audioSource.clip = newMusic.musicClip;
         instance.audioSource.Play();
@@ -280,7 +278,6 @@ public class Music_Manager : MonoBehaviour
         audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
 
         instance.transitioning = false;
-        instance.forceTransitioning = false;
         Debug.Log("Reached end of transition");
         done?.Invoke();
     }
