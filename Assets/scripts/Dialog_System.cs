@@ -103,7 +103,6 @@ public class Dialog_System : MonoBehaviour
 
     void runCurrentEntire()
     {
-        Debug.Log("Running new entire");
         displayCurrentEntire();
         playCurrentEntireVoice();
         runMusicAction();
@@ -223,7 +222,6 @@ public class Dialog_System : MonoBehaviour
 
     void sequencesEnded()
     {
-        Debug.Log("sequences ended");
         objectsAndComponents.hide();
         instance.wave_System.spawnNextWave();
     }

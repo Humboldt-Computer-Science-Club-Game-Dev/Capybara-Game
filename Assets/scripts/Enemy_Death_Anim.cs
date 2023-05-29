@@ -16,7 +16,11 @@ public class Enemy_Death_Anim : MonoBehaviour
     {
         state = deathState.alive;
         enemy = GetComponent<Enemy>();
-        enemyID = enemy.getID();
+    }
+
+    // Called in Enemy script
+    public void receiveID(int id){
+        enemyID = id;
     }
 
     /* 

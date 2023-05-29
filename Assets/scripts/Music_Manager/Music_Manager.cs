@@ -51,7 +51,6 @@ public class Music_Manager : MonoBehaviour
 
     public static void PlayMusic(string musicName, MusicSettings musicSettings)
     {
-        Debug.Log("Playing: " + musicName + " " + musicSettings);
         if (instance == null)
         {
             Debug.LogWarning("Music_Manager instance not found in the scene.");
@@ -92,26 +91,23 @@ public class Music_Manager : MonoBehaviour
     }
     void forcePlay(MusicRequest newMusic)
     {
-        Debug.Log("Force Playing");
         /* #if UNITY_EDITOR
                     EditorApplication.isPaused = true;
         #endif */
         if (!instance.transitioning)
             EnqueueAtBeginning(instance.currentMusic);
-        else Debug.Log("Aborted enqueue at beginning: " + newMusic);
         instance.currentMusic = newMusic;
         instance.audioSource.clip = newMusic.musicClip;
         instance.audioSource.Play();
     }
     void forceTransitionPlay(MusicRequest newMusic)
     {
-        Debug.Log("Transitioning: " + newMusic);
+     
         MusicSettings musicSettings = newMusic.musicSettings;
         if (!instance.transitioning)
         {
             if (!object.ReferenceEquals(instance.transitionSongBuffer, null))
             {
-                Debug.Log("Special case: " + instance.transitionSongBuffer);
                 EnqueueAtBeginning((MusicRequest)instance.transitionSongBuffer);
                 instance.transitionSongBuffer = null;
             }
@@ -120,16 +116,14 @@ public class Music_Manager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Aborted enqueue at beginning: " + instance.currentMusic);
             if (!object.ReferenceEquals(instance.initialTransitionSongBuffer, null))
             {
-                Debug.Log("Extra Special case: " + instance.initialTransitionSongBuffer);
+                
                 EnqueueAtBeginning((MusicRequest)instance.initialTransitionSongBuffer);
                 instance.initialTransitionSongBuffer = null;
             }
             if (!object.ReferenceEquals(instance.transitionSongBuffer, null))
             {
-                Debug.Log("Special case: " + instance.transitionSongBuffer);
                 EnqueueAtBeginning((MusicRequest)instance.transitionSongBuffer);
             }
             instance.transitionSongBuffer = newMusic;
@@ -205,9 +199,7 @@ public class Music_Manager : MonoBehaviour
     public static void ClearQueue()
     {
         if (instance == null) return;
-        Debug.Log("Clearing Queue");
         instance.musicQueue.Clear();
-        Debug.Log(instance.musicQueue.Count);
     }
 
     private void PlayMusicRequest(MusicRequest request)
@@ -278,7 +270,6 @@ public class Music_Manager : MonoBehaviour
         audioSource.volume = targetVolume; // Ensure the volume is exactly the target volume at the end of the transition.
 
         instance.transitioning = false;
-        Debug.Log("Reached end of transition");
         done?.Invoke();
     }
 
@@ -306,11 +297,6 @@ public class Music_Manager : MonoBehaviour
 
         bool transitionReady = !instance.transitioning && !instance.halted;
 
-        if ((hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && transitionReady)
-        {
-            Debug.Log("hasMusicStopped: " + hasMusicStopped + " hasMusicLooped: " + hasMusicLooped + " instance.overFlowTransitioning: " + instance.overFlowTransitioning + " transitionReady: " + transitionReady);
-            Debug.Log(musicQueue.Count);
-        }
         return (hasMusicStopped || hasMusicLooped || instance.overFlowTransitioning) && transitionReady;
     }
 
@@ -336,7 +322,6 @@ public class Music_Manager : MonoBehaviour
 
         if (IsMusicReady())
         {
-            Debug.Log("Playing next");
             instance.overFlowTransitioning = false;
             /* if (!object.ReferenceEquals(instance.transitionSongBuffer, null))
             {

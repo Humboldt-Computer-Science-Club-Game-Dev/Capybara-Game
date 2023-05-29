@@ -13,6 +13,7 @@ using UnityEngine;
  */
 public class Random_Number_Generator : MonoBehaviour
 {
+    static int currentUniqueNumber = 0;
     public static int random1DigitNumber()
     {
         return Random.Range(1, 10);
@@ -25,5 +26,14 @@ public class Random_Number_Generator : MonoBehaviour
     }
     public static float fiftyFifty(){
         return Mathf.Round(Random.Range(0, 2));
+    }
+
+    public static int generateUnique4DigitNumber(){
+        if (currentUniqueNumber > 9999)
+            Debug.LogError("All 4 digit numbers have been generated");
+        
+        int uniqueNumber = currentUniqueNumber;
+        currentUniqueNumber++;
+        return uniqueNumber;
     }
 }

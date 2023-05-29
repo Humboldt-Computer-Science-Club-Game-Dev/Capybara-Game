@@ -33,7 +33,7 @@ public class Wave_System : MonoBehaviour
     public void spawnNextWave(){
         //This method gets called by dialog system at its start witch can be before the start of wave_system. For this reason, we need to check if this script has been initialized
         if(!initialized) initialize();
-        Debug.Log("currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "");
+        
         ++currentWave;
         if(currentWave >= numWaves) {
             Debug.Log("No more waves to spawn");
@@ -47,12 +47,17 @@ public class Wave_System : MonoBehaviour
         wave.SetActive(true);
         // The number of enemies to spawn is equal to the number of children in the current wave object
         numEnemies = wave.transform.childCount;
+        Debug.Log("Round End stats ===============\ncurrentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "\n===============");
         for(int i = 0; i < numEnemies; i++) wave.transform.GetChild(0).SetParent(envSpace.transform, true);
     }
     void onDeath(string to){
         // This function only applies to enemy deaths
+
+        Debug.Log("Enemy death of: " + to);
+        
         if(!to.Contains("enemy")) return;
         --numEnemies;
+        Debug.Log("currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "");
         if(numEnemies <= 0) spawnNextWave();
     } 
 }

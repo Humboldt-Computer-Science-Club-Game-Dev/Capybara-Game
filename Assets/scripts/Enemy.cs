@@ -28,7 +28,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         assignEvents();
-        id = Random_Number_Generator.random10DigitNumber();
+        //Bug where an enemy death counts as two in wave manager is caused by the fact that if one enemy
+        id = Random_Number_Generator.generateUnique4DigitNumber();
+        enemyDeathAnim.receiveID(id);
     }
 
     void Update()
