@@ -106,6 +106,25 @@ public class Dialog_System : MonoBehaviour
         Debug.Log("Running new entire");
         displayCurrentEntire();
         playCurrentEntireVoice();
+        runMusicAction();
+    }
+
+    void runMusicAction(){
+        Entire currentEntire = currentSequences[sequenceIndex].entries[entireIndex];
+        if(currentEntire.music_Action.musicActionAction == MusicActionAction.noChange)
+          return;
+        
+        if(currentEntire.music_Action.musicRunAction == MusicRunAction.play)
+          Music_Manager.PlayMusic(currentEntire.music_Action.musicName, currentEntire.music_Action.musicSettings);
+        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.stop)
+            Music_Manager.StopMusic();
+        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.pause)
+            Music_Manager.PauseMusic();
+        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.resume)
+            Music_Manager.ResumeMusic();
+        else if(currentEntire.music_Action.musicRunAction == MusicRunAction.clear)
+            Music_Manager.ClearQueue();
+        
     }
 
     void displayCurrentEntire()
