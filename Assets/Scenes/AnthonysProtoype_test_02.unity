@@ -1950,6 +1950,7 @@ GameObject:
   - component: {fileID: 207126858}
   - component: {fileID: 207126861}
   - component: {fileID: 207126860}
+  - component: {fileID: 207126862}
   m_Layer: 0
   m_Name: music_manager
   m_TagString: Untagged
@@ -2080,6 +2081,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2aa274b44deae440959d157e048e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &207126862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207126857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5595e47a019d4bad56dab10913d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicActionSets:
+  - actions:
+    - actionType: 0
+      musicName: The_geese_kind_2
+      musicSettings:
+        forcePlay: 1
+        clearQueue: 1
+        transitionPlay: 0
+        pauseTransitions: 0
+        transitionDuration: 0
+        loop: 1
+        volume: 1
+        pitch: 1
+    playOnWaveIndex: 3
 --- !u!4 &210498183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5355375136631217946, guid: 6ed2d744d5ae6504e859245ece7988f1, type: 3}
@@ -12450,8 +12477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  maxHealth: 3
+  health: 3000
+  maxHealth: 3000
   minHealth: 0
 --- !u!114 &1736637331
 MonoBehaviour:
