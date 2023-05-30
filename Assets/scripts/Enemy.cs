@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour
     void getShot(){
         Event_System.takeDamage(1, "enemy" + id);
     }
-    void takeDamageAndHandleDeathCall(int damage, string to){
+    void takeDamageAndHandleDeathCall(float damage, string to){
         if(!(to == "enemy" + id)) return;
         
         health.takeDamage(damage);

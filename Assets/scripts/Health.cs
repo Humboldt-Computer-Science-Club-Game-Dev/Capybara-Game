@@ -5,12 +5,12 @@ using UnityEngine;
 /* This script is a generic health management system that is meant to be reused when necessary in order to prevent duplicate code  */
 public class Health : MonoBehaviour
 {
-    public int health = 3;
-    public int maxHealth = 3;
-    public int minHealth = 0;
+    public float health = 3;
+    public float maxHealth = 3;
+    public float minHealth = 0;
 
    
-    public void takeDamage(int damage)
+    public void takeDamage(float damage)
     {
         if(isDead()) return;
         health -= damage;

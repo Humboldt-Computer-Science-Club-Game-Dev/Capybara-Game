@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Event_System : MonoBehaviour
 {
-    public delegate void damageTaken(int damage, string to);
+    public delegate void damageTaken(float damage, string to);
     public static event damageTaken onDamageTaken;
 
     public delegate void death(string to);
@@ -29,7 +29,7 @@ public class Event_System : MonoBehaviour
         I have no dam clue why but events like onDamageTaken can't be called 
         outside of this script file ¯\_(ツ)_/¯ 
     */
-    public static void takeDamage(int damage, string to)
+    public static void takeDamage(float damage, string to)
     {
         if (onDamageTaken != null) onDamageTaken(damage, to);
     }

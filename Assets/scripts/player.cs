@@ -16,9 +16,13 @@ public class player : MonoBehaviour
     private BoxCollider2D boxCollider;
     private bool isShooting = false;
     
+    Lazor lazor;
+
+    
     void Start()
     {
         getComponents();
+        lazor.stopLazor();
         shotByIDs = new List<int>();
 
         /* 
@@ -35,11 +39,14 @@ public class player : MonoBehaviour
     {
         handlePlayerShoot();
         checkIfPlayerIsShot();
+        handlePlayerLazor();
     }
     void getComponents(){
         playerDeathAnim = GetComponent<Player_Death_Anim>();
         gun = GetComponent<Gun>();
         boxCollider = GetComponent<BoxCollider2D>();
+        lazor = GameObject.Find("lazor").GetComponent<Lazor>();
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void initializeUI(){
@@ -92,7 +99,7 @@ public class player : MonoBehaviour
     }
 
     //Calling takeShotDamage will trigger an event that will then call this method
-    void damageTaken(int damage, string to){
+    void damageTaken(float damage, string to){
         if(playerHealth.isDead() || to != "player") return;
         playerHealth.takeDamage(damage);
         if(playerHealth.isDead()) Event_System.die("player");
@@ -100,7 +107,7 @@ public class player : MonoBehaviour
 
     //This method is called by the event system when the anything takes damage
     //This is why you need to check if the damage is for the player
-    void updateLifeUI(int damage, string to){
+    void updateLifeUI(float damage, string to){
         if(to == "player")
             health_UI_player.updateLife(playerHealth);
     }
@@ -142,6 +149,14 @@ public class player : MonoBehaviour
             bulletCooldownTimer = bulletCooldown;
             isShooting = false;
         }
+    }
+
+
+    void handlePlayerLazor(){
+        if(Input.GetKey(KeyCode.Mouse1) && !playerHealth.isDead())
+            lazor.lazor();
+        else
+            lazor.stopLazor();
     }
 
     public bool getIsShooting(){
