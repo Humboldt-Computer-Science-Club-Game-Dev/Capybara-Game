@@ -18,6 +18,7 @@ public class Wave_System : MonoBehaviour
 
     void initialize()
     {
+        if (initialized) return;
         Event_System.onDeath += onDeath;
 
         //Each wave is a child of the Wave_System object
@@ -29,6 +30,8 @@ public class Wave_System : MonoBehaviour
         }
         envSpace = GameObject.Find("enviroment_space");
         Event_System.onSpawnNextWave += spawnNextWave;
+
+        Event_System.waveEnds(currentWave);
         initialized = true;
     }
 
@@ -53,18 +56,15 @@ public class Wave_System : MonoBehaviour
         wave.SetActive(true);
         // The number of enemies to spawn is equal to the number of children in the current wave object
         numEnemies = wave.transform.childCount;
-        Debug.Log("Round End stats ===============\ncurrentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "\n===============");
+        Debug.Log("Round End stats ===============\n new currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "\n===============");
         for (int i = 0; i < numEnemies; i++) wave.transform.GetChild(0).SetParent(envSpace.transform, true);
     }
     void onDeath(string to)
     {
         // This function only applies to enemy deaths
-
-        Debug.Log("Enemy death of: " + to);
-
         if (!to.Contains("enemy")) return;
         --numEnemies;
-        Debug.Log("currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies + "");
+
         if (numEnemies <= 0) Event_System.waveEnds(currentWave);
     }
 }

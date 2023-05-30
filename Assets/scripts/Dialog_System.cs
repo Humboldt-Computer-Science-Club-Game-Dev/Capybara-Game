@@ -24,6 +24,8 @@ public class Dialog_System : MonoBehaviour
 
     Camera mainCamera;
 
+    bool started = false;
+
     void Awake()
     {
         if (instance != null && instance != this)
@@ -36,6 +38,7 @@ public class Dialog_System : MonoBehaviour
 
     void Start()
     {
+        if (started) return;
         getComponents();
         objectsAndComponents = new ObjectsAndComponents(this.gameObject);
         objectsAndComponents.hide();
@@ -43,8 +46,8 @@ public class Dialog_System : MonoBehaviour
         Event_System.onWaveEnds += waveEnded;
 
         dialogEvent(PlayOnOptions.Start);
+        started = true;
     }
-
 
     void Update()
     {
@@ -88,7 +91,12 @@ public class Dialog_System : MonoBehaviour
 
     void waveEnded(int endedWaveIndex)
     {
-        dialogEvent(++endedWaveIndex);
+        if (!started) Start();
+
+        // An index of -1 means the wave manager has started. This would conflict with how the dialog system starts if we ran this index.
+        if (endedWaveIndex == -1) return;
+
+        dialogEvent(endedWaveIndex + 1);
     }
     public static void dialogEvent(int waveNumberIndex)
     {
@@ -370,8 +378,6 @@ public enum MusicRunAction
     resume,
     clear
 }
-
-
 
 [System.Serializable]
 public struct Music_Action
