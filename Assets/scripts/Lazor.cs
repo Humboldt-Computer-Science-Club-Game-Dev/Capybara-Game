@@ -14,10 +14,14 @@ public class Lazor : MonoBehaviour
     GameObject lazorGraphicObject;
     BoxCollider2D lazorBoxCollider2D;
     bool lazoring = true;
+
+    bool started = false;
     // Start is called before the first frame update
     void Start()
     {
+        if(started) return;
         getComponents();
+        started = true;
     }
 
     void Update(){
@@ -78,6 +82,7 @@ public class Lazor : MonoBehaviour
             
     }
     public void stopLazor(){
+        if(!started) Start();
         coolDown();
         if(!lazoring) return;
         lazoring = false;
