@@ -2,6 +2,10 @@
 
 ## Dialog TODOS:
 
+1. Write Dialog
+2. Create specification for art
+3. Implement dialog and art into game
+
 ## Music_Manager Test TODOS:
 
 ### Core Functionality
