@@ -17,6 +17,9 @@ public class Event_System : MonoBehaviour
     public delegate void WaveEnds(int waveIndex);
     public static event WaveEnds onWaveEnds;
 
+    public delegate void LastWaveFinished();
+    public static event LastWaveFinished onLastWaveFinished;
+
     public delegate void SpawnNextWave();
     public static event SpawnNextWave onSpawnNextWave;
 
@@ -57,9 +60,20 @@ public class Event_System : MonoBehaviour
         if (onSpawnNextWave != null) onSpawnNextWave();
     }
 
+    public static void lastWaveFinished()
+    {
+        if (onLastWaveFinished != null) onLastWaveFinished();
+    }
+
     public static void sequenceEnds()
     {
         if (onSequenceEnds != null) onSequenceEnds();
+    }
+
+    public static void loadNextLevel(){    
+        cleanUpForNextScene(); 
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex + 1);
     }
 
     static void cleanUpForNextScene()
@@ -71,5 +85,6 @@ public class Event_System : MonoBehaviour
         onWaveEnds = null;
         onSpawnNextWave = null;
         onSequenceEnds = null;
+        onLastWaveFinished = null;
     }
 }

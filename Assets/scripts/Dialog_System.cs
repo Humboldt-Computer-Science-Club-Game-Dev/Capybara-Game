@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Dialog_System : MonoBehaviour
 {
-    private static Dialog_System instance;
     public Sequence[] Sequences;
 
     List<Sequence> currentSequences = new List<Sequence>();
@@ -26,14 +25,11 @@ public class Dialog_System : MonoBehaviour
 
     bool started = false;
 
+    bool decommissionMe = false;
+
     void Awake()
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
+       
     }
 
     void Start()
@@ -44,6 +40,7 @@ public class Dialog_System : MonoBehaviour
         objectsAndComponents.hide();
 
         Event_System.onWaveEnds += waveEnded;
+        Event_System.onLastWaveFinished += lastWaveFinished;
 
         dialogEvent(PlayOnOptions.Start);
         started = true;
@@ -68,25 +65,32 @@ public class Dialog_System : MonoBehaviour
     }
 
 
-    public static void dialogEvent(PlayOnOptions playOnOption)
+    public void dialogEvent(PlayOnOptions playOnOption)
     {
-        instance.currentSequences.Clear();
+        currentSequences.Clear();
         if (playOnOption == PlayOnOptions.Start || playOnOption == PlayOnOptions.EndOfAllWaves)
         {
-            foreach (Sequence sequence in instance.Sequences)
+            foreach (Sequence sequence in Sequences)
             {
                 if (sequence.playOn.playOnOption == playOnOption)
-                    instance.currentSequences.Add(sequence);
+                    currentSequences.Add(sequence);
             }
-            if (instance.currentSequences.Count > 0) instance.startSequences();
-            else instance.sequencesEnded();
+            if (currentSequences.Count > 0) startSequences();
+            else sequencesEnded();
         }
         else if (playOnOption == PlayOnOptions.WaveNumber)
         {
             Debug.LogError("Can not pass in type PlayOnOptions whose value is PlayOnOptions.WaveNumber. Please pass in an int instead to the dialogEvent function if you want Dialog_System to play a dialog sequence based on the wave number.");
             return;
         }
+    }
 
+    void lastWaveFinished(){
+        if(decommissionMe) return;
+        decommissionMe = true;
+        onSequencesEnd = OnSequencesEnd.EndLevel;
+        Debug.Log("lastWaveFinished. The very last stuff is getting ran");
+        dialogEvent(PlayOnOptions.EndOfAllWaves);
     }
 
     void waveEnded(int endedWaveIndex)
@@ -98,16 +102,16 @@ public class Dialog_System : MonoBehaviour
 
         dialogEvent(endedWaveIndex + 1);
     }
-    public static void dialogEvent(int waveNumberIndex)
+    public void dialogEvent(int waveNumberIndex)
     {
-        instance.currentSequences.Clear();
-        foreach (Sequence sequence in instance.Sequences)
+        currentSequences.Clear();
+        foreach (Sequence sequence in Sequences)
         {
             if (sequence.playOn.playOnOption == PlayOnOptions.WaveNumber && sequence.playOn.waveNumberIndex == waveNumberIndex)
-                instance.currentSequences.Add(sequence);
+                currentSequences.Add(sequence);
         }
-        if (instance.currentSequences.Count > 0) instance.startSequences();
-        else instance.sequencesEnded();
+        if (currentSequences.Count > 0) startSequences();
+        else sequencesEnded();
     }
 
     void startSequences()
@@ -246,11 +250,13 @@ public class Dialog_System : MonoBehaviour
         objectsAndComponents.hide();
         if (onSequencesEnd == OnSequencesEnd.NextWave)
         {
+            Debug.Log("Next Wave from dialog manager");
             Event_System.spawnNextWave();
         }
         else if (onSequencesEnd == OnSequencesEnd.EndLevel)
         {
-            Debug.Log("Next Level changer is not implemented");
+            Debug.Log("Next Level");
+            Event_System.loadNextLevel();
         }
         else if (onSequencesEnd == OnSequencesEnd.Custom)
         {
@@ -259,9 +265,9 @@ public class Dialog_System : MonoBehaviour
         }
     }
 
-    public static void setCustomPostSequenceAction(System.Action action)
+    public void setCustomPostSequenceAction(System.Action action)
     {
-        instance.customPostSequenceAction = action;
+        customPostSequenceAction = action;
     }
 
     [System.Serializable]
@@ -306,9 +312,12 @@ public class Dialog_System : MonoBehaviour
 
         public void hide()
         {
-            this.backgroundObj.SetActive(false);
-            this.subjectObj.SetActive(false);
-            this.dialogPanelObj.SetActive(false);
+            if(this.backgroundObj)
+                this.backgroundObj.SetActive(false);
+            if(this.subjectObj)
+                this.subjectObj.SetActive(false);
+             if(this.dialogPanelObj)
+                this.dialogPanelObj.SetActive(false);
         }
 
         public void show()

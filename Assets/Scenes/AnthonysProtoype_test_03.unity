@@ -13337,7 +13337,7 @@ MonoBehaviour:
   - entries:
     - environment:
         environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 252f07533a899e448adfd5cbf511e03c, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Goose
         text: Greetings, humble beings. I am known as the Archduke of Anarchy, the

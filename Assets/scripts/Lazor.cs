@@ -57,7 +57,7 @@ public class Lazor : MonoBehaviour
             {
                 Enemy hitEnemy = hit.gameObject.GetComponent<Enemy>();
                 int id = hitEnemy.getID();
-                Event_System.takeDamage(10 * Time.deltaTime, "enemy" + id);
+                Event_System.takeDamage(10000 * Time.deltaTime, "enemy" + id);
             }
         }
     }

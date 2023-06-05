@@ -6,11 +6,15 @@ public class Wave_System : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> waves;
+    /* [HideInInspector] */
     public int currentWave = -1;
     private GameObject envSpace;
     int numEnemies;
-    public int numWaves;
+    int numWaves;
     bool initialized = false;
+    void Awake()
+    {
+    }
     void Start()
     {
         if (!initialized) initialize();
@@ -19,6 +23,8 @@ public class Wave_System : MonoBehaviour
     void initialize()
     {
         if (initialized) return;
+        Debug.Log("Wave_System: initialize");
+        currentWave = -1;
         Event_System.onDeath += onDeath;
 
         //Each wave is a child of the Wave_System object
@@ -28,6 +34,7 @@ public class Wave_System : MonoBehaviour
             waves.Add(transform.GetChild(i).gameObject);
             waves[i].SetActive(false);
         }
+
         envSpace = GameObject.Find("enviroment_space");
         Event_System.onSpawnNextWave += spawnNextWave;
 
@@ -44,7 +51,8 @@ public class Wave_System : MonoBehaviour
         ++currentWave;
         if (currentWave >= numWaves)
         {
-            Debug.Log("No more waves to spawn");
+            Debug.Log("Wave_System: lastWaveFinished " + "currentWave: " + currentWave + " numWaves: " + numWaves + " numEnemies: " + numEnemies);
+            Event_System.lastWaveFinished();
             return;
         }
 
@@ -66,5 +74,9 @@ public class Wave_System : MonoBehaviour
         --numEnemies;
 
         if (numEnemies <= 0) Event_System.waveEnds(currentWave);
+    }
+    public int voidGetNumWaves()
+    {
+        return numWaves;
     }
 }
