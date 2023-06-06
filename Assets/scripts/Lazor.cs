@@ -19,15 +19,17 @@ public class Lazor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(started) return;
+        if (started) return;
         getComponents();
         started = true;
     }
 
-    void Update(){
-        if(overHeatLock) coolDown();
+    void Update()
+    {
+        if (overHeatLock) coolDown();
 
-        if(lazorCooldownTimer <= 0) {
+        if (lazorCooldownTimer <= 0)
+        {
             overHeatLock = false;
             lazorCooldownTimer = 0;
         }
@@ -35,20 +37,23 @@ public class Lazor : MonoBehaviour
         handleLazoring();
     }
 
-    void handleLazoring(){
-        if(!lazorBoxCollider2D.enabled) return;
+    void handleLazoring()
+    {
+        if (!lazorBoxCollider2D.enabled) return;
 
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, lazorBoxCollider2D.size, 0);
-        foreach (Collider2D hit in hits){
+        foreach (Collider2D hit in hits)
+        {
             if (hit == lazorBoxCollider2D)  // Ignore collision with self
-        	continue;
+                continue;
 
             ColliderDistance2D colliderDistance = hit.Distance(lazorBoxCollider2D);
 
             if (colliderDistance.isOverlapped && hit.gameObject.tag == "Bullet")
             {
                 Bullet hitBullet = hit.gameObject.GetComponent<Bullet>();
-                if(hitBullet.side != Gun.sideOptions.player){
+                if (hitBullet.side != Gun.sideOptions.player)
+                {
                     Destroy(hit.gameObject);
                 }
             }
@@ -57,46 +62,52 @@ public class Lazor : MonoBehaviour
             {
                 Enemy hitEnemy = hit.gameObject.GetComponent<Enemy>();
                 int id = hitEnemy.getID();
-                Event_System.takeDamage(10000 * Time.deltaTime, "enemy" + id);
+                Event_System.takeDamage(10 * Time.deltaTime, "enemy" + id);
             }
         }
     }
 
-    void getComponents(){
+    void getComponents()
+    {
         lazorGraphicObject = GameObject.Find("lazor_graphic");
         lazorBoxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    public void lazor(){
+    public void lazor()
+    {
         bool isOverHeated = lazorCooldownTimer >= lazorCooldown;
 
-        if(!isOverHeated && !overHeatLock) {
+        if (!isOverHeated && !overHeatLock)
+        {
             activateLazor();
             lazorCooldownTimer += Time.deltaTime * heatUpSpeed;
         }
-        else if(isOverHeated) 
+        else if (isOverHeated)
         {
             stopLazor();
             overHeatLock = true;
         }
-            
+
     }
-    public void stopLazor(){
-        if(!started) Start();
+    public void stopLazor()
+    {
+        if (!started) Start();
         coolDown();
-        if(!lazoring) return;
+        if (!lazoring) return;
         lazoring = false;
         lazorGraphicObject.SetActive(false);
         lazorBoxCollider2D.enabled = false;
     }
 
-    public void coolDown(){
+    public void coolDown()
+    {
         lazorCooldownTimer -= Time.deltaTime * coolDownSpeed;
-        if(lazorCooldownTimer < 0) lazorCooldownTimer = 0;
+        if (lazorCooldownTimer < 0) lazorCooldownTimer = 0;
     }
 
-    void activateLazor(){
-        if(lazoring) return;
+    void activateLazor()
+    {
+        if (lazoring) return;
         lazoring = true;
         lazorGraphicObject.SetActive(true);
         lazorBoxCollider2D.enabled = true;

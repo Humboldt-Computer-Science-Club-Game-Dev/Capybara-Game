@@ -51,6 +51,8 @@ public class Music_Manager : MonoBehaviour
 
     public static void PlayMusic(string musicName, MusicSettings musicSettings)
     {
+        // If there is bugs with transitions, its likely due to this line LOOK HERE TAG
+        instance.halted = false;
         if (instance == null)
         {
             Debug.LogWarning("Music_Manager instance not found in the scene.");
@@ -102,7 +104,7 @@ public class Music_Manager : MonoBehaviour
     }
     void forceTransitionPlay(MusicRequest newMusic)
     {
-     
+
         MusicSettings musicSettings = newMusic.musicSettings;
         if (!instance.transitioning)
         {
@@ -118,7 +120,7 @@ public class Music_Manager : MonoBehaviour
         {
             if (!object.ReferenceEquals(instance.initialTransitionSongBuffer, null))
             {
-                
+
                 EnqueueAtBeginning((MusicRequest)instance.initialTransitionSongBuffer);
                 instance.initialTransitionSongBuffer = null;
             }
@@ -208,6 +210,9 @@ public class Music_Manager : MonoBehaviour
         audioSource.loop = request.musicSettings.loop;
         audioSource.volume = request.musicSettings.volume;
         audioSource.pitch = request.musicSettings.pitch;
+
+        // If there is bugs with transitions, its likely due to this line LOOK HERE TAG
+        instance.halted = false;
 
         if (request.musicSettings.transitionPlay)
         {

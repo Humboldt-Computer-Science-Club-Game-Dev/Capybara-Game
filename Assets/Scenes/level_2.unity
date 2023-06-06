@@ -2724,64 +2724,17 @@ MonoBehaviour:
   - entries:
     - environment:
         environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
       dialog:
-        name: Narrator
-        text: Welcome to Capyland, a whimsical and beautiful piece of land nestled
-          deep in the Amazon rainforest.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        name: Sargent Brash
+        text: Aaa-ten-tion!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
-        character: {fileID: 0}
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 1
         musicRunAction: 0
-        musicName: cappyland_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Narrator
-        text: This is the world where capybaras have lived for thousands of years,
-          enjoying a life full of wonder, adventure, and joy.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappyland_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Narrator
-        text: Here in Capyland, the sun shines bright and the air is filled with
-          the sweet scent of tropical fruits.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappyland_1
+        musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 0
           clearQueue: 0
@@ -2793,18 +2746,18 @@ MonoBehaviour:
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
       dialog:
         name: Narrator
-        text: The rivers flow gently, inviting all to take a dip and cool off from
-          the tropical heat.
+        text: The Capy recruits all get into attention. There clothing makes a "Shff-CHRRRssst"
+          sound.
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
+        position: 0
         character: {fileID: 0}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
-        musicName: cappyland_1
+        musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 0
           clearQueue: 0
@@ -2816,18 +2769,42 @@ MonoBehaviour:
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: Alright, you greenhorns! Welcome to the Capy Defense Force, the bastion
+          of Capyland! We're all capybaras here, so let's leave any 'quacking' to
+          the geese, shall we?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.75
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
       dialog:
         name: Narrator
-        text: Their values and ethics are a crucial part of what makes Cappyland
-          such a paradise.
+        text: 'Chuckles ripple through the group. Capy, our protagonist, finds himself
+          smiling nervously. '
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
-        musicName: cappyland_1
+        musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 0
           clearQueue: 0
@@ -2839,18 +2816,17 @@ MonoBehaviour:
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
       dialog:
-        name: Narrator
-        text: The capybaras live in harmony with nature, treating their environment
-          with the utmost care and consideration.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        name: Sargent Brash
+        text: (Pointing to Capy) You there, the jittery one. What's your name, son?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
-        character: {fileID: 0}
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
-        musicName: cappyland_1
+        musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 0
           clearQueue: 0
@@ -2862,17 +2838,518 @@ MonoBehaviour:
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Capy
+        text: I'm Capy, sir.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Laughs) Capy, eh? Well, we're all 'capys' here. You'll need more than
+          a name to stand out.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
       dialog:
         name: Narrator
-        text: They are the capybaras of Capyland.
+        text: Another round of laughter sweeps through the group. Capy blushes but
+          stands tall.
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
-        musicName: cappyland_1
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Smirking) Now, I hear you've got the ability to fly, like some superhero.
+          Is that right?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Capy
+        text: (Nods) Yes, sir.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: Well, ain't that something! Bet you think you're a big shot. But remember,
+          this ain't about individual glory. You're part of a team now.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Points at the first recruit) Meet Frisky. Ain't a wire in the fence
+          he can't wriggle through. Keeps us on our toes.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Frisky
+        text: (Salutes with a grin) Always ready to lighten up the field, Sarge!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Moves to the next) This here's Stoic. Quiet as a shadow. Listens more
+          than he talks. Might learn something from him.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Stoic
+        text: (Nods quietly) Pleasure to meet you.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Pats the shoulder of the next recruit) And this mountain of muscle
+          is Burly. Can out-wrestle a gator, but wouldn't harm a fly.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Burly
+        text: (Offers a gentle smile) Good to have you with us, Capy.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Gestures to the fourth recruit) Next up is Sparky. Kid's got more
+          energy than a lightning storm. Keeps us all charged up.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sparky
+        text: (Jumps excitedly) Hey there! Ready to fly and zap, Capy!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: (Finally, he points to the last recruit) "Lastly, we have Wise. Older
+          than most of us, but his experience is invaluable. Knows the lay of the
+          land like the back of his paw.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Wise
+        text: (Bows his head) Welcome, young one. May your journey with us be enlightening.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: This here is your new family. You train together, fight together, laugh
+          together. You are all different, but united by a common cause - the protection
+          of Capyland.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Narrator
+        text: Suddenly, a figure emerges from the command tent. It's General Valor,
+          the esteemed leader of the Capy Defense Force.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Narrator
+        text: He stands with an air of dignity, wearing an eye patch, a remnant from
+          a previous skirmish.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: General Valor
+        text: (Nods) Welcome to the defense force, recruits. I don't care whether
+          you can fly, swim, or burrow. Here, you will learn to fight.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: General Valor
+        text: We are the protectors of our homeland. We are the Capy Defense Force!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Narrator
+        text: he new recruits stand at attention, exchanging glances filled with
+          determination and camaraderie. Capy, though still nervous, can't help but
+          feel a surge of excitement.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+      dialog:
+        name: Narrator
+        text: Despite the odds, he's ready to face the challenges that lie ahead.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 0
           clearQueue: 0
