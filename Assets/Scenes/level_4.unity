@@ -2727,54 +2727,77 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Narrator
-        text: Welcome to Capyland, a whimsical and beautiful piece of land nestled
-          deep in the Amazon rainforest.
+        text: Amidst the gentle rustling of leaves and the serene melody of the river,
+          a sinister call of a distant honk pierced the tranquility of Capyland.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 1
+        musicRunAction: 1
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 0
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: The skies darkened, not from a looming storm but a much graver threat
+          - the arrival of the Geese armies.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: Their ominous formations cast long, chilling shadows on the peaceful
+          abode of the Capybaras.
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
       music_Action:
         musicActionAction: 1
         musicRunAction: 0
-        musicName: cappyland_1
+        musicName: The_geese_kind_1
         musicSettings:
-          forcePlay: 0
-          clearQueue: 0
+          forcePlay: 1
+          clearQueue: 1
           transitionPlay: 0
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
+          volume: 0.75
           pitch: 1
     - environment:
-        environmentAction: 0
+        environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Narrator
-        text: This is the world where capybaras have lived for thousands of years,
-          enjoying a life full of wonder, adventure, and joy.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappyland_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Narrator
-        text: Here in Capyland, the sun shines bright and the air is filled with
-          the sweet scent of tropical fruits.
+        text: The Capy Defense Force, standing tall and resolute, could see their
+          adversaries in the distance.
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
@@ -2796,8 +2819,56 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Narrator
-        text: The rivers flow gently, inviting all to take a dip and cool off from
-          the tropical heat.
+        text: he lush fields, once a source of joy and mirth, were slowly being reduced
+          to a battlefront. Every honk, every fluttering wing, echoed with a potent
+          promise of devastation.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Supreme Honk Commandant
+        text: Cower in your burrows, puny Capybaras! Your feeble attempts to resist
+          us are laughable at best. Know your place in the new order, for the Geese
+          reign supreme!
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 1
+        musicRunAction: 0
+        musicName: The_geese_kind_2
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.75
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: ' His words, though arrogant and cold, had a ring of menace that sent
+          shivers down even the bravest Capybaras.'
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
@@ -2819,8 +2890,9 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Narrator
-        text: Their values and ethics are a crucial part of what makes Cappyland
-          such a paradise.
+        text: The gentle green hills were now awash with the metallic glare of the
+          invading army, their war cries resonating through the once tranquil valleys
+          of Capyland.
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
@@ -2842,8 +2914,8 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Narrator
-        text: The capybaras live in harmony with nature, treating their environment
-          with the utmost care and consideration.
+        text: However, the spirit of the CDF did not waver. In their eyes, flickered
+          a spark of defiance, unyielding, unbroken.
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
@@ -2865,7 +2937,195 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Narrator
-        text: They are the capybaras of Capyland.
+        text: The Geese were a formidable adversary, yet the Capybaras were determined
+          not to yield their home to these oppressive invaders.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: As the Geese advanced, the land trembled under their regimented march.
+          Homes were reduced to rubble, once flourishing landscapes charred by the
+          relentless attack.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: 'Yet, amidst the chaos and destruction, a flicker of hope endured.
+          A resolve to protect Capyland, whatever the cost. '
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Supreme Honk Commandant
+        text: You cling to hope, Capybaras! But it will do you no good. We Geese
+          are superior, and we will lay claim to everything you hold dear!
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: Despite the Commandant's daunting words, the spirit of Capyland, embodied
+          by the CDF, was far from broken.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: As the clash between the Geese and the Capy Defense Force loomed, a
+          profound silence fell over Capyland - not a silence of surrender, but of
+          anticipation and resolve.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: The arrival of the Geese was a chilling spectacle, but the Capybaras
+          were ready to put up a fight that would echo through the annals of Capyland's
+          history.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: The stage was set for a fierce showdown, one that could tip the scales
+          of Capyland's future.
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappyland_1
+        musicSettings:
+          forcePlay: 0
+          clearQueue: 0
+          transitionPlay: 0
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 0.25
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: 'Would it be the iron rule of the Geese, or the resilient spirit of
+          the Capybaras that would prevail? Only time would tell. '
         voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
         position: 1
         character: {fileID: 0}
