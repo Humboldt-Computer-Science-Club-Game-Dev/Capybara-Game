@@ -167,10 +167,16 @@ public class Dialog_System : MonoBehaviour
         Entire currentEntire = currentSequences[sequenceIndex].entries[entireIndex];
         CharacterDialogPosition position = currentEntire.dialog.position;
         Sprite subject = currentEntire.dialog.character;
+        if(!subject) {
+            objectsAndComponents.subjectImage.sprite = null;
+            objectsAndComponents.subjectImage.enabled = false;
+            return;
+        }
+
         Image spriteRenderer = objectsAndComponents.subjectImage;
         RectTransform imageRectTransform = spriteRenderer.rectTransform;
         float scalePercentage = 0.9f;
-
+        objectsAndComponents.subjectImage.enabled = true;
         objectsAndComponents.subjectImage.sprite = subject;
 
 
