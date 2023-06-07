@@ -123,6 +123,211 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20961453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20961455}
+  - component: {fileID: 20961454}
+  - component: {fileID: 20961456}
+  - component: {fileID: 20961459}
+  - component: {fileID: 20961457}
+  - component: {fileID: 20961460}
+  - component: {fileID: 20961461}
+  - component: {fileID: 20961458}
+  - component: {fileID: 20961462}
+  m_Layer: 0
+  m_Name: proto_enemy_03
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &20961454
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &20961455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.91, y: -0.57, z: 1.358741}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1042546403}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &20961456
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
+--- !u!114 &20961457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  maxHealth: 2
+  minHealth: 0
+--- !u!114 &20961458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 1
+  rangedDamage: 1
+  meleeDamageGracePeriod: 1
+--- !u!114 &20961459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
+--- !u!114 &20961460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &20961461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 2
+  maxRandomInitialShotOffset: 4
+--- !u!114 &20961462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20961453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designatedRestBound: 3
+  oscillationSpeed: 6
 --- !u!1 &26596688
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,17 +1143,18 @@ MonoBehaviour:
   musicActionSets:
   - actions:
     - actionType: 0
-      musicName: The_geese_kind_2
+      musicName: The_geese_kind_1
       musicSettings:
         forcePlay: 1
         clearQueue: 1
-        transitionPlay: 0
+        transitionPlay: 1
         pauseTransitions: 0
-        transitionDuration: 0
+        transitionDuration: 0.25
         loop: 1
-        volume: 1
+        volume: 0.75
         pitch: 1
-    playOnWaveIndex: 3
+    playOnWaveIndex: -1
+    playOnSequenceEnd: 1
 --- !u!1 &244606632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1867,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08291c468455c5b43b6e3c223356af10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1042546402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042546403}
+  m_Layer: 0
+  m_Name: wave_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1042546403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042546402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1279003894}
+  - {fileID: 1496283343}
+  - {fileID: 20961455}
+  m_Father: {fileID: 1838961725}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207304706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,6 +2036,211 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207304706}
   m_CullTransparentMesh: 1
+--- !u!1 &1279003892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1279003894}
+  - component: {fileID: 1279003893}
+  - component: {fileID: 1279003895}
+  - component: {fileID: 1279003898}
+  - component: {fileID: 1279003896}
+  - component: {fileID: 1279003899}
+  - component: {fileID: 1279003900}
+  - component: {fileID: 1279003897}
+  - component: {fileID: 1279003901}
+  m_Layer: 0
+  m_Name: proto_enemy_02
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1279003893
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1279003894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -30.49, y: -5.16, z: 1.358741}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1042546403}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1279003895
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
+--- !u!114 &1279003896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  maxHealth: 2
+  minHealth: 0
+--- !u!114 &1279003897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 1
+  rangedDamage: 1
+  meleeDamageGracePeriod: 1
+--- !u!114 &1279003898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
+--- !u!114 &1279003899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1279003900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 2
+  maxRandomInitialShotOffset: 4
+--- !u!114 &1279003901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279003892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designatedRestBound: 1
+  oscillationSpeed: 6
 --- !u!1 &1354617190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2471,211 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: {x: -18, y: 0}
+--- !u!1 &1496283341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496283343}
+  - component: {fileID: 1496283342}
+  - component: {fileID: 1496283344}
+  - component: {fileID: 1496283347}
+  - component: {fileID: 1496283345}
+  - component: {fileID: 1496283348}
+  - component: {fileID: 1496283349}
+  - component: {fileID: 1496283346}
+  - component: {fileID: 1496283350}
+  m_Layer: 0
+  m_Name: proto_enemy_01
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1496283342
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1496283343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.18, y: -3.31, z: 1.358741}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1042546403}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1496283344
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
+--- !u!114 &1496283345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  maxHealth: 2
+  minHealth: 0
+--- !u!114 &1496283346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 1
+  rangedDamage: 1
+  meleeDamageGracePeriod: 1
+--- !u!114 &1496283347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
+--- !u!114 &1496283348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1496283349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 2
+  maxRandomInitialShotOffset: 4
+--- !u!114 &1496283350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496283341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designatedRestBound: 2
+  oscillationSpeed: 6
 --- !u!1 &1537674336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,12 +3374,13 @@ MonoBehaviour:
   - entries:
     - environment:
         environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Sargent Brash
-        text: Aaa-ten-tion!
+        name: General Valor
+        text: We have withstood their attacks for long enough. The time has come
+          to go on the offensive.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
+        position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 1
@@ -2737,44 +3388,20 @@ MonoBehaviour:
         musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 1
-          clearQueue: 0
+          clearQueue: 1
           transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.25
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: The Capy recruits all get into attention. There clothing makes a "Shff-CHRRRssst"
-          sound.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 0
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
+          volume: 1
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Sargent Brash
-        text: Alright, you greenhorns! Welcome to the Capy Defense Force, the bastion
-          of Capyland! We're all capybaras here, so let's leave any 'quacking' to
-          the geese, shall we?
+        text: I agree, General. We can't win this war by simply protecting our land.
+          We need to strike back.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -2784,223 +3411,20 @@ MonoBehaviour:
         musicName: cappy_defense_force_1
         musicSettings:
           forcePlay: 1
-          clearQueue: 0
-          transitionPlay: 0
+          clearQueue: 1
+          transitionPlay: 1
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.75
+          volume: 1
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: 'Chuckles ripple through the group. Capy, our protagonist, finds himself
-          smiling nervously. '
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Pointing to Capy) You there, the jittery one. What's your name, son?
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Capy
-        text: I'm Capy, sir.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Laughs) Capy, eh? Well, we're all 'capys' here. You'll need more than
-          a name to stand out.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: Another round of laughter sweeps through the group. Capy blushes but
-          stands tall.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Smirking) Now, I hear you've got the ability to fly, like some superhero.
-          Is that right?
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Capy
-        text: (Nods) Yes, sir.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: Well, ain't that something! Bet you think you're a big shot. But remember,
-          this ain't about individual glory. You're part of a team now.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Points at the first recruit) Meet Frisky. Ain't a wire in the fence
-          he can't wriggle through. Keeps us on our toes.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Frisky
-        text: (Salutes with a grin) Always ready to lighten up the field, Sarge!
+        text: Oh, I've been waiting for this! Let's show these geese what we're made
+          of!
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -3009,66 +3433,20 @@ MonoBehaviour:
         musicRunAction: 0
         musicName: cappy_defense_force_1
         musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
+          volume: 1
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Moves to the next) This here's Stoic. Quiet as a shadow. Listens more
-          than he talks. Might learn something from him.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Stoic
-        text: (Nods quietly) Pleasure to meet you.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Pats the shoulder of the next recruit) And this mountain of muscle
-          is Burly. Can out-wrestle a gator, but wouldn't harm a fly.
+        text: We should act with caution. We know nothing of their bases.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -3077,111 +3455,20 @@ MonoBehaviour:
         musicRunAction: 0
         musicName: cappy_defense_force_1
         musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
+          volume: 1
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Burly
-        text: (Offers a gentle smile) Good to have you with us, Capy.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Gestures to the fourth recruit) Next up is Sparky. Kid's got more
-          energy than a lightning storm. Keeps us all charged up.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sparky
-        text: (Jumps excitedly) Hey there! Ready to fly and zap, Capy!
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: (Finally, he points to the last recruit) "Lastly, we have Wise. Older
-          than most of us, but his experience is invaluable. Knows the lay of the
-          land like the back of his paw.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Wise
-        text: (Bows his head) Welcome, young one. May your journey with us be enlightening.
+        text: Stoic is right. An ill-prepared attack could lead to disaster.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -3190,22 +3477,65 @@ MonoBehaviour:
         musicRunAction: 0
         musicName: cappy_defense_force_1
         musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
+          volume: 1
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: General Valor
+        text: Then we need a scouting mission. Capy, we need your flying ability
+          for this.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: Me? But I...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Sargent Brash
-        text: This here is your new family. You train together, fight together, laugh
-          together. You are all different, but united by a common cause - the protection
-          of Capyland.
+        text: No time for doubts Capy! You can do this.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -3214,67 +3544,43 @@ MonoBehaviour:
         musicRunAction: 0
         musicName: cappy_defense_force_1
         musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
+          volume: 1
           pitch: 1
     - environment:
         environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: Suddenly, a figure emerges from the command tent. It's General Valor,
-          the esteemed leader of the Capy Defense Force.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: He stands with an air of dignity, wearing an eye patch, a remnant from
-          a previous skirmish.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: General Valor
-        text: (Nods) Welcome to the defense force, recruits. I don't care whether
-          you can fly, swim, or burrow. Here, you will learn to fight.
+        text: Go and find out where these geese are coming from. Be fast and nimble
+          and you won't get overwhelmed. Got it!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: Got it!
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -3283,85 +3589,156 @@ MonoBehaviour:
         musicRunAction: 0
         musicName: cappy_defense_force_1
         musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
           pauseTransitions: 0
           transitionDuration: 0.5
           loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: General Valor
-        text: We are the protectors of our homeland. We are the Capy Defense Force!
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: he new recruits stand at attention, exchanging glances filled with
-          determination and camaraderie. Capy, though still nervous, can't help but
-          feel a surge of excitement.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 130c2f2ff5245674788d636a34996c88, type: 3}
-      dialog:
-        name: Narrator
-        text: Despite the odds, he's ready to face the challenges that lie ahead.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 0
-          clearQueue: 0
-          transitionPlay: 0
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 0.25
+          volume: 1
           pitch: 1
     playOn:
       playOnOption: 0
-      waveNumberIndex: 0
+      waveNumberIndex: 9
+  - entries:
+    - environment:
+        environmentAction: 0
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: I'm back. I've spotted six forward operating bases. Each one is guarded
+          by a high-ranking military goose.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 1
+        musicRunAction: 0
+        musicName: cappy_defense_force_2
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: General Valor
+        text: Six? Those will be their command posts. Taking them out will disrupt
+          their operations.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_2
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Burly
+        text: So we're attacking all six bases?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_2
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Sparky
+        text: That's a lot of action! I'm in!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_2
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Wise
+        text: We must prepare a plan of attack. Let's divide their forces and conquer.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_2
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: Sounds like a plan. We'll start preparing. The fight for Capyland is
+          just beginning.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_2
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    playOn:
+      playOnOption: 2
+      waveNumberIndex: 1
   onSequencesEnd: 1
 --- !u!114 &1809092015
 MonoBehaviour:
@@ -3657,7 +4034,8 @@ Transform:
   m_LocalPosition: {x: 43.61212, y: 2.4735863, z: -1.358741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1042546403}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3733,7 +4111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be45d4b865e23b94ba81051d7c6b9a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lazorCooldown: 400
+  lazorCooldown: 4
   lazorCooldownTimer: 0
   coolDownSpeed: 1
   heatUpSpeed: 1
