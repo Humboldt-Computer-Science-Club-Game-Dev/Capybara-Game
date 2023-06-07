@@ -740,6 +740,211 @@ Transform:
   m_Father: {fileID: 997013408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &123496442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123496443}
+  - component: {fileID: 123496451}
+  - component: {fileID: 123496450}
+  - component: {fileID: 123496449}
+  - component: {fileID: 123496448}
+  - component: {fileID: 123496447}
+  - component: {fileID: 123496446}
+  - component: {fileID: 123496445}
+  - component: {fileID: 123496444}
+  m_Layer: 0
+  m_Name: proto_enemy_03
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &123496443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.91, y: -0.57, z: 1.358741}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1719047563}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123496444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designatedRestBound: 3
+  oscillationSpeed: 6
+--- !u!114 &123496445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 1
+  rangedDamage: 1
+  meleeDamageGracePeriod: 1
+--- !u!114 &123496446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 2
+  maxRandomInitialShotOffset: 4
+--- !u!114 &123496447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &123496448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  maxHealth: 2
+  minHealth: 0
+--- !u!114 &123496449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
+--- !u!60 &123496450
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
+--- !u!212 &123496451
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123496442}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &134237885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1698,211 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433501746}
   m_CullTransparentMesh: 1
+--- !u!1 &496825801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496825802}
+  - component: {fileID: 496825810}
+  - component: {fileID: 496825809}
+  - component: {fileID: 496825808}
+  - component: {fileID: 496825807}
+  - component: {fileID: 496825806}
+  - component: {fileID: 496825805}
+  - component: {fileID: 496825804}
+  - component: {fileID: 496825803}
+  m_Layer: 0
+  m_Name: proto_enemy_01
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496825802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.18, y: -3.31, z: 1.358741}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1719047563}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496825803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designatedRestBound: 2
+  oscillationSpeed: 6
+--- !u!114 &496825804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 1
+  rangedDamage: 1
+  meleeDamageGracePeriod: 1
+--- !u!114 &496825805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 2
+  maxRandomInitialShotOffset: 4
+--- !u!114 &496825806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &496825807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  maxHealth: 2
+  minHealth: 0
+--- !u!114 &496825808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotationTimer: 0.5
+  offScreenAmountY: -10
+  fallSpeed: 0.5
+--- !u!60 &496825809
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.25}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
+--- !u!212 &496825810
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496825801}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,416 +2311,6 @@ Transform:
   m_Father: {fileID: 1838961725}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1142851647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1142851648}
-  - component: {fileID: 1142851656}
-  - component: {fileID: 1142851655}
-  - component: {fileID: 1142851654}
-  - component: {fileID: 1142851653}
-  - component: {fileID: 1142851652}
-  - component: {fileID: 1142851651}
-  - component: {fileID: 1142851650}
-  - component: {fileID: 1142851649}
-  m_Layer: 0
-  m_Name: proto_enemy_02
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1142851648
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.49, y: -5.16, z: 1.358741}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1663231527}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1142851649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  designatedRestBound: 1
-  oscillationSpeed: 6
---- !u!114 &1142851650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeDamage: 1
-  rangedDamage: 1
-  meleeDamageGracePeriod: 1
---- !u!114 &1142851651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootCooldown: 2
-  maxRandomInitialShotOffset: 4
---- !u!114 &1142851652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1142851653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  maxHealth: 2
-  minHealth: 0
---- !u!114 &1142851654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxRotationTimer: 0.5
-  offScreenAmountY: -10
-  fallSpeed: 0.5
---- !u!60 &1142851655
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
---- !u!212 &1142851656
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142851647}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 0.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1143430519
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1143430520}
-  - component: {fileID: 1143430528}
-  - component: {fileID: 1143430527}
-  - component: {fileID: 1143430526}
-  - component: {fileID: 1143430525}
-  - component: {fileID: 1143430524}
-  - component: {fileID: 1143430523}
-  - component: {fileID: 1143430522}
-  - component: {fileID: 1143430521}
-  m_Layer: 0
-  m_Name: proto_enemy_03
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1143430520
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.91, y: -0.57, z: 1.358741}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1663231527}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1143430521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  designatedRestBound: 3
-  oscillationSpeed: 6
---- !u!114 &1143430522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeDamage: 1
-  rangedDamage: 1
-  meleeDamageGracePeriod: 1
---- !u!114 &1143430523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootCooldown: 2
-  maxRandomInitialShotOffset: 4
---- !u!114 &1143430524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1143430525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  maxHealth: 2
-  minHealth: 0
---- !u!114 &1143430526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxRotationTimer: 0.5
-  offScreenAmountY: -10
-  fallSpeed: 0.5
---- !u!60 &1143430527
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
---- !u!212 &1143430528
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143430519}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 0.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1207304706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2723,7 +2723,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8180714, y: 9.999664}
   m_EdgeRadius: 0
---- !u!1 &1370475032
+--- !u!1 &1375485021
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2731,58 +2731,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1370475033}
-  - component: {fileID: 1370475041}
-  - component: {fileID: 1370475040}
-  - component: {fileID: 1370475039}
-  - component: {fileID: 1370475038}
-  - component: {fileID: 1370475037}
-  - component: {fileID: 1370475036}
-  - component: {fileID: 1370475035}
-  - component: {fileID: 1370475034}
+  - component: {fileID: 1375485022}
+  - component: {fileID: 1375485030}
+  - component: {fileID: 1375485029}
+  - component: {fileID: 1375485028}
+  - component: {fileID: 1375485027}
+  - component: {fileID: 1375485026}
+  - component: {fileID: 1375485025}
+  - component: {fileID: 1375485024}
+  - component: {fileID: 1375485023}
   m_Layer: 0
-  m_Name: proto_enemy_01
+  m_Name: proto_enemy_02
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1370475033
+--- !u!4 &1375485022
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.18, y: -3.31, z: 1.358741}
+  m_LocalPosition: {x: -30.49, y: -5.16, z: 1.358741}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1663231527}
-  m_RootOrder: 1
+  m_Father: {fileID: 1719047563}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370475034
+--- !u!114 &1375485023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f0f1fd439469bc4dbffe10c1c56064c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designatedRestBound: 2
+  designatedRestBound: 1
   oscillationSpeed: 6
---- !u!114 &1370475035
+--- !u!114 &1375485024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b304052f986db054e81fdafffc651a18, type: 3}
@@ -2791,13 +2791,13 @@ MonoBehaviour:
   meleeDamage: 1
   rangedDamage: 1
   meleeDamageGracePeriod: 1
---- !u!114 &1370475036
+--- !u!114 &1375485025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d27c4e41cca0a549a2a4ba5bc1c142f, type: 3}
@@ -2805,25 +2805,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootCooldown: 2
   maxRandomInitialShotOffset: 4
---- !u!114 &1370475037
+--- !u!114 &1375485026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aad91b29297e6e42ac263e063eacc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1370475038
+--- !u!114 &1375485027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b81405dbf9fe8e418d632a5594d95fb, type: 3}
@@ -2832,13 +2832,13 @@ MonoBehaviour:
   health: 2
   maxHealth: 2
   minHealth: 0
---- !u!114 &1370475039
+--- !u!114 &1375485028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e234ef9f9a10934b92aabf6e0efc461, type: 3}
@@ -2847,13 +2847,13 @@ MonoBehaviour:
   maxRotationTimer: 0.5
   offScreenAmountY: -10
   fallSpeed: 0.5
---- !u!60 &1370475040
+--- !u!60 &1375485029
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -2876,13 +2876,13 @@ PolygonCollider2D:
       - {x: -0.5, y: 0}
       - {x: 0, y: -0.25}
       - {x: 0.5, y: 0}
---- !u!212 &1370475041
+--- !u!212 &1375485030
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370475032}
+  m_GameObject: {fileID: 1375485021}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -3513,40 +3513,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1663231526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1663231527}
-  m_Layer: 0
-  m_Name: wave_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1663231527
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663231526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1142851648}
-  - {fileID: 1370475033}
-  - {fileID: 1143430520}
-  m_Father: {fileID: 1838961725}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669897781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3589,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669897781}
   m_CullTransparentMesh: 1
+--- !u!1 &1719047562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1719047563}
+  m_Layer: 0
+  m_Name: wave_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1719047563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719047562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1375485022}
+  - {fileID: 496825802}
+  - {fileID: 123496443}
+  m_Father: {fileID: 1838961725}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1725106952
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,7 +4026,7 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: General Valor
-        text: General Valor
+        text: Capy, are you ready for this mission?
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -4048,29 +4048,7 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Capy
-        text: I am General. I won't let you down.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: That's the spirit, Capy. Make us proud.
+        text: I'm a bit nervous, but I'm ready, sir.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -4092,123 +4070,9 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Frisky
-        text: Oooh, the first assault on Plume Field Marshal! Imagine the shock when
-          he sees us storming his base!
+        text: That's the spirit Capy! And remember, we've got your back.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Sparky
-        text: I can already picture him, feathers ruffled, squawking in disbelief!
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Narrator
-        text: They all laugh.
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Wise
-        text: While humor is valuable for morale, let's not forget the gravity of
-          our task. We must focus on reclaiming our territory.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Sargent Brash
-        text: Wise is right. But a little laughter, and maybe a bit of feather ruffling,
-          won't hurt.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Burly
-        text: I just hope we don't have to deal with any water. I don't fancy chasing
-          geese in the water...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
@@ -4228,10 +4092,9 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Stoic
-        text: Burly, your splashing would probably scare off all the geese before
-          we even start.
+        text: Let's focus on the mission. Brigadier Beakley won't be an easy target.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
+        position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
@@ -4250,32 +4113,10 @@ MonoBehaviour:
         environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Narrator
-        text: Everyone chuckles
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: Let's do this. For Capyland!
+        name: Sparky
+        text: 'We''ll handle him. Just need to put a spark in his plans! '
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 1
+        position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
@@ -4298,35 +4139,13 @@ MonoBehaviour:
         environmentAction: 0
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Plume Field Marshal
-        text: What is this? Capybaras? In my pristine base?
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
         name: Capy
-        text: It's over, Plume. We're taking back our land.
+        text: I've located Brigadier Beakley. He's... doing push-ups?
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
-        musicActionAction: 0
+        musicActionAction: 1
         musicRunAction: 0
         musicName: cappy_defense_force_1
         musicSettings:
@@ -4339,99 +4158,78 @@ MonoBehaviour:
           volume: 1
           pitch: 1
     - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Plume Field Marshal
-        text: Over my well-groomed body!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Plume Field Marshal
-        text: Frisky, Sparky, Burly and Stoic chuckle
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 1
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Frisky
-        text: You heard Capy, Plume. It's time to surrender.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Plume Field Marshal
-        text: Never! You shabby rodents will not take over my base!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
+        environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: General Valor
-        text: Soldiers, stay focused.
+        text: Probably trying to show off his discipline. We can use this.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Burly
+        text: I could do push-ups with one paw tied behind my back!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Frisky
+        text: Yeah, we know Burly. You're stronger than all of us put together.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Wise
+        text: Quiet, everyone. Let's use this distraction to our advantage. Capy,
+          now!
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -4456,8 +4254,30 @@ MonoBehaviour:
         environmentAction: 0
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
+        name: Brigadier Beakley
+        text: What's this? Capybaras on my base? This is fluff! Utter fluff!
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 1
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
         name: Capy
-        text: Plume Field Marshal is retreating!
+        text: We're not just any capybaras. We're the Capy Defense Force!
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -4475,11 +4295,11 @@ MonoBehaviour:
           volume: 1
           pitch: 1
     - environment:
-        environmentAction: 0
+        environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Plume Field Marshal
-        text: This isn't over, you matted furballs!
+        name: Brigadier Beakley
+        text: Oh, how cute! Capybaras playing soldier! It's laughable.
         voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
@@ -4497,146 +4317,191 @@ MonoBehaviour:
           volume: 1
           pitch: 1
     - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Frisky
-        text: Run, Plume, run! And don't forget to preen those feathers!
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Sparky
-        text: That squawk! It's like music to my ears!
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Burly
-        text: And he didn't even touch the water...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Narrator
-        text: Everyone laughs
-        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
-        position: 0
-        character: {fileID: 0}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: General Valor
-        text: Well done, team. This is a significant victory. But it's just the beginning.
-          There are more bases to take back.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Wise
-        text: Let's not lose sight of our goal. This is a stepping stone towards
-          our ultimate aim of reclaiming Capyland.
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
+        environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Sargent Brash
-        text: You've all earned a rest. But remember, tomorrow, we go into battle
-          again.
+        text: We'll see who's laughing when we take back our land!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Frisky
+        text: Yeah, and ruin your perfectly aligned feather formation!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    playOn:
+      playOnOption: 2
+      waveNumberIndex: 2
+  - entries:
+    - environment:
+        environmentAction: 0
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: We've done it! We've taken the base!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 1
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Sparky
+        text: Whew, that was electrifying!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Brigadier Beakley
+        text: This... this can't be! My perfect discipline... ruined by... by capybaras?
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Sargent Brash
+        text: You underestimated us Beakley. Big mistake.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: General Valor
+        text: Well done, team. We've won this battle, but the war is far from over.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Wise
+        text: Indeed, rest and recover. We've more battles to fight.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Frisky
+        text: Rest? Oh come on, Wise. I was just getting warmed up!
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -4953,7 +4818,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1042546403}
-  - {fileID: 1663231527}
+  - {fileID: 1719047563}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
