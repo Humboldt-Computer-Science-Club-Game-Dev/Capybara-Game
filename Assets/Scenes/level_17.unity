@@ -1756,7 +1756,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicActionSets:
-  - actions: []
+  - actions:
+    - actionType: 0
+      musicName: The_geese_kind_1
+      musicSettings:
+        forcePlay: 1
+        clearQueue: 1
+        transitionPlay: 1
+        pauseTransitions: 0
+        transitionDuration: 0.25
+        loop: 1
+        volume: 0.75
+        pitch: 1
     playOnWaveIndex: -1
     playOnSequenceEnd: 1
 --- !u!1 &244606632
@@ -7054,10 +7065,11 @@ MonoBehaviour:
         environmentAction: 0
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Capy
-        text: (panting) I... I have to get away...
+        name: Uncle Capy
+        text: Capy, focus on your inner strength. Feel the power pulsating through
+          your veins, reaching your eyes...
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
+        position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 1
@@ -7076,30 +7088,8 @@ MonoBehaviour:
         environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Goose Soldier 1
-        text: There he is! After him!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
         name: Capy
-        text: I... I can't let them catch me...
+        text: I... I can feel it Uncle...
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -7120,11 +7110,11 @@ MonoBehaviour:
         environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Goose Soldier 2
-        text: You can't outrun your guilt, furball!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        name: Uncle Capy
+        text: Good. Now, concentrate, focus that energy... Let it out slowly... controlled...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
@@ -7143,10 +7133,345 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Capy
-        text: (to himself) They're... they're right... It's... It's all my fault...
+        text: Like this?
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: A weak laser beam shoots out of Capy's eyes
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Excellent! You're a natural, Capy.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: But Uncle... this power... it's the same as... the geese's...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Yes, Capy... I understand your apprehension. The geese misused this
+          power, they caused immense harm... But you, Capy, you're not them. You
+          can use this power for good.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: But how can such destructive power be used for good, Uncle?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Remember, Capy, the power is not good or evil. It's the intent, the
+          heart behind it. You have a good heart, Capy. You will use it to protect,
+          not to harm...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: I... I will try, Uncle...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: Suddenly, they hear the sound of approaching geese
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Capy, get ready. It seems we have unwanted guests.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: Uncle, I... I'm not sure if I...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Capy, remember what I said... You're not alone. I believe in you...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: Uncle...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Don't worry Capy... This is an opportunity... A chance to test your
+          new abilities.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: I... I'll try, Uncle...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: 'Press mouse 2 (right click) to use your laser eyes in battle '
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 0
+        character: {fileID: 0}
       music_Action:
         musicActionAction: 0
         musicRunAction: 0
@@ -7168,12 +7493,11 @@ MonoBehaviour:
         environmentAction: 0
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
-        name: Capy
-        text: (to himself) If... If I hadn't taken them there... They'd... They'd
-          still be alive...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+        name: Goose Soldier 1
+        text: What's this? The little capybara has glowing eyes?
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
       music_Action:
         musicActionAction: 1
         musicRunAction: 0
@@ -7191,8 +7515,120 @@ MonoBehaviour:
         environmentAction: 1
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
+        name: Capy
+        text: Take this!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: Capy unleashes a controlled laser beam, knocking out Goose Soldier
+          1
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 1
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Goose Soldier 2
+        text: He... he has the laser!
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Excellent Capy! Keep your focus!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: I... I can do this!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
         name: Goose Soldier 3
-        text: Giving up already?
+        text: Wait, wait! Think about this, Capy! You're using the same power as
+          us! You belong with us!
         voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
@@ -7214,9 +7650,232 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Capy
-        text: I... I can't... I can't let them get to me...
+        text: I'm nothing like you!
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: Capy blasts another laser, rendering Goose Soldier 3 unconscious
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 0
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: ' Brilliant, Capy! Don''t let their words distract you!'
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: ' Brilliant, Capy! Don''t let their words distract you!'
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Goose Soldier 4
+        text: Think, Capy! You could rule Capyland with us! You could prevent more
+          bloodshed!
+        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: 'I don''t want to rule Capyland, I want to protect it! '
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: That's it Capy! Let your heart guide your powers!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Narrator
+        text: Capy unleashes a powerful laser beam, taking down the last of the Goose
+          Soldiers
+        voice: {fileID: 8300000, guid: cdb8e70c94418d747aac161f808711e3, type: 3}
+        position: 0
+        character: {fileID: 0}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: You did it Capy, you controlled the power! You used it for good!
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: I... I did it, Uncle...
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Yes, you did. You've proven that this power can be a tool of protection,
+          not just destruction. You've made me, and the CDF, proud.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
@@ -7240,264 +7899,7 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Capy
-        text: (to himself) I... I have to honor their memories... I... I can't let
-          their sacrifice be in vain...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 1
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Goose Soldier 4
-        text: You're alone now, Capy! Just give up!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: I... I won't give up... For Capyland... For them...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    playOn:
-      playOnOption: 2
-      waveNumberIndex: 2
-  - entries:
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: (panting) I... I need to... keep going...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 1
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: (to himself) Wait... That... that looks like...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Goose Soldier 6
-        text: There's no place to run Capy!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: No... I... I know this place... Uncle Capy...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    playOn:
-      playOnOption: 2
-      waveNumberIndex: 3
-  - entries:
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: "(to himself) These... these are Uncle Capy's markings... He... He
-          must be close\u2026"
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 1
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: (to himself) Uncle Capy... He understands... He can fly... just like
-          me... He might understand... what I'm going through...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Goose Soldier 7
-        text: End of the line, Capy!
-        voice: {fileID: 8300000, guid: aa85437313e50c24ba672d0f3b68af33, type: 3}
-        position: 1
-        character: {fileID: 21300000, guid: 79e6bfe0dacafd54cab363956d1b943e, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    - environment:
-        environmentAction: 1
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: I... I won't let you stop me...
-        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
-        position: 0
-        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
-      music_Action:
-        musicActionAction: 0
-        musicRunAction: 0
-        musicName: cappy_defense_force_1
-        musicSettings:
-          forcePlay: 1
-          clearQueue: 1
-          transitionPlay: 1
-          pauseTransitions: 0
-          transitionDuration: 0.5
-          loop: 1
-          volume: 1
-          pitch: 1
-    playOn:
-      playOnOption: 2
-      waveNumberIndex: 4
-  - entries:
-    - environment:
-        environmentAction: 0
-        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
-      dialog:
-        name: Capy
-        text: (to himself) Uncle Capy... I... I need your guidance...
+        text: Uncle... I can't thank you enough.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -7519,7 +7921,8 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Uncle Capy
-        text: (from a distance) Capy... Is that... Is that you?
+        text: here's no need for that, Capy. You're family. Besides, it was you who
+          did all the hard work.
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
@@ -7541,9 +7944,168 @@ MonoBehaviour:
         newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
       dialog:
         name: Capy
-        text: Uncle Capy... I... I need your help...
+        text: 'Still, without you, I wouldn''t have been able to control my power...
+          I owe you a lot. '
         voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
         position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: We help each other, that's what families do. Now, what's your next
+          move?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: ' I... I need to go back to Capyland. I need to check on my family.
+          They must be worried sick.'
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Capyland, huh? I think that's a good idea. Just remember, you have
+          the power to protect them now.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: Yes, I understand that now. Uncle, will you come with me?
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: I think my time has come to stay here, in the wilderness. But I'll
+          always be there for you, Capy. Don't you forget that.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Capy
+        text: I won't, Uncle. I promise.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 0
+        character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
+      music_Action:
+        musicActionAction: 0
+        musicRunAction: 0
+        musicName: cappy_defense_force_1
+        musicSettings:
+          forcePlay: 1
+          clearQueue: 1
+          transitionPlay: 1
+          pauseTransitions: 0
+          transitionDuration: 0.5
+          loop: 1
+          volume: 1
+          pitch: 1
+    - environment:
+        environmentAction: 1
+        newBackground: {fileID: 21300000, guid: 7fc4b0d515e80b7418f372da90b17bc1, type: 3}
+      dialog:
+        name: Uncle Capy
+        text: Good. Now off you go, Capy. Your family needs you.
+        voice: {fileID: 8300000, guid: 74f8659acd256ef4aaa4715478440f3f, type: 3}
+        position: 1
         character: {fileID: 21300000, guid: 18cb1053b37f9f04cabf3f8493a9f11a, type: 3}
       music_Action:
         musicActionAction: 0
