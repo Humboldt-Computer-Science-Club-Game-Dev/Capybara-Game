@@ -8193,7 +8193,7 @@ MonoBehaviour:
           volume: 1
           pitch: 1
     playOn:
-      playOnOption: 0
+      playOnOption: 1
       waveNumberIndex: 0
   onSequencesEnd: 1
 --- !u!114 &1809092015
