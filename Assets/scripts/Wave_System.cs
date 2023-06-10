@@ -23,7 +23,6 @@ public class Wave_System : MonoBehaviour
     void initialize()
     {
         if (initialized) return;
-        Debug.Log("Wave_System: initialize");
         currentWave = -1;
         Event_System.onDeath += onDeath;
 

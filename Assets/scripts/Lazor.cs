@@ -112,4 +112,9 @@ public class Lazor : MonoBehaviour
         lazorGraphicObject.SetActive(true);
         lazorBoxCollider2D.enabled = true;
     }
+
+    public bool getLasoring()
+    {
+        return lazoring;
+    }
 }

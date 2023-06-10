@@ -5,8 +5,8 @@ using UnityEngine;
 public class CapyAnimationManager : MonoBehaviour
 {
     GameObject parent;
-    Vector3 PrevPos; 
-    Vector3 NewPos; 
+    Vector3 PrevPos;
+    Vector3 NewPos;
     Vector3 ObjVelocity;
     Animator animator;
     player player;
@@ -29,19 +29,24 @@ public class CapyAnimationManager : MonoBehaviour
         handleAnimation();
     }
 
-    int  getDirectionIndex(){
+    int getDirectionIndex()
+    {
         // We return the index from deriving the direction from the velocity instead of returning a string because 
         // it reduces the amount of typing you have to do when you want to add a new direction
-        if(ObjVelocity.x > 0.1f && ObjVelocity.y > 0.1f){
+        if (ObjVelocity.x > 0.1f && ObjVelocity.y > 0.1f)
+        {
             return 0;
         }
-        else if(ObjVelocity.x > 0.1f && ObjVelocity.y < -0.1f){
+        else if (ObjVelocity.x > 0.1f && ObjVelocity.y < -0.1f)
+        {
             return 1;
         }
-        else if(ObjVelocity.x < -0.1f && ObjVelocity.y > 0.1f){
+        else if (ObjVelocity.x < -0.1f && ObjVelocity.y > 0.1f)
+        {
             return 2;
         }
-        else if(ObjVelocity.x < -0.1f && ObjVelocity.y < -0.1f){
+        else if (ObjVelocity.x < -0.1f && ObjVelocity.y < -0.1f)
+        {
             return 3;
         }
         else if (ObjVelocity.x > 0.1f)
@@ -66,21 +71,26 @@ public class CapyAnimationManager : MonoBehaviour
         }
     }
 
-    string getDirection(){
+    string getDirection()
+    {
         return directions[getDirectionIndex()];
     }
 
-    void handleAnimation(){
+    void handleAnimation()
+    {
         //TODO: Have isShooting be derived from the player or gun script
         string direction = getDirection();
         bool isShooting = player.getIsShooting();
+        bool lasoring = player.gameObject.transform.Find("lazor").gameObject.GetComponent<Lazor>().getLasoring();
+        string subTrigger = lasoring ? "laser" : direction;
 
-        if(isShooting) setAnimation("shoot" + direction);
-        else setAnimation(direction);
+        if (isShooting) setAnimation("shoot" + subTrigger);
+        else setAnimation(subTrigger);
     }
 
-    void setAnimation(string direction){
-        if(currentAnimation == direction) return;
+    void setAnimation(string direction)
+    {
+        if (currentAnimation == direction) return;
         animator.SetTrigger(direction);
         currentAnimation = direction;
     }
