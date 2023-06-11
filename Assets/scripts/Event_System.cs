@@ -46,8 +46,7 @@ public class Event_System : MonoBehaviour
 
         cleanUpForNextScene();
 
-        //TODO: Make the next scene load the same scene dynamically. (Not hard coded)
-        SceneManager.LoadScene("AnthonysProtoype_test_02");
+        restartLevel();
     }
 
     public static void waveEnds(int waveIndex)
