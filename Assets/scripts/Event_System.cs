@@ -70,8 +70,9 @@ public class Event_System : MonoBehaviour
         if (onSequenceEnds != null) onSequenceEnds();
     }
 
-    public static void loadNextLevel(){    
-        cleanUpForNextScene(); 
+    public static void loadNextLevel()
+    {
+        cleanUpForNextScene();
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
     }
@@ -86,5 +87,32 @@ public class Event_System : MonoBehaviour
         onSpawnNextWave = null;
         onSequenceEnds = null;
         onLastWaveFinished = null;
+    }
+
+    public static void openLevelSelect()
+    {
+        cleanUpForNextScene();
+        Debug.Log("In event system");
+        SceneManager.LoadScene("Level_Select");
+    }
+
+    public static void restartLevel()
+    {
+        cleanUpForNextScene();
+        Debug.Log("In event system");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public static void openMainMenu()
+    {
+        cleanUpForNextScene();
+        Debug.Log("In event system");
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    public static void quitGame()
+    {
+        Debug.Log("In event system");
+        Application.Quit();
     }
 }

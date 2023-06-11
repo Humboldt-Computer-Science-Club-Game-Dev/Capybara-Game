@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Wave_System : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Wave_System : MonoBehaviour
     int numEnemies;
     int numWaves;
     bool initialized = false;
+    TextMeshProUGUI waveNumText;
     void Awake()
     {
     }
@@ -37,11 +39,14 @@ public class Wave_System : MonoBehaviour
         envSpace = GameObject.Find("enviroment_space");
         Event_System.onSpawnNextWave += spawnNextWave;
 
+        waveNumText = GameObject.Find("wave_number").GetComponent<TextMeshProUGUI>();
+
         Event_System.waveEnds(currentWave);
         initialized = true;
     }
 
 
+    // TODO: Redame to handle next wave
     public void spawnNextWave()
     {
         //This method gets called by dialog system at its start witch can be before the start of wave_system. For this reason, we need to check if this script has been initialized
@@ -54,6 +59,8 @@ public class Wave_System : MonoBehaviour
             Event_System.lastWaveFinished();
             return;
         }
+
+        waveNumText.text = (currentWave + 1) + "";
 
         spawnWave(currentWave);
     }
